@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+Route::get('/login', 'AuthController@login')->name('login');
+Route::post('/postlogin', 'AuthController@postlogin');
+Route::get('/logout', 'AuthController@logout');
+
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
+    Route::get('/dashboard', 'dashboardController@index');
+});
+
+Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
+    Route::get('/dashboardwisatawan', 'dashboardController@wisatawan');
 });
