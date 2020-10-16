@@ -1,3 +1,10 @@
+Menjalankan projek :
+1. git clone 
+2. composer install 
+3. copy .env.example .env 
+4. php artisan key:generate
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
