@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
+Route::get('/register', 'AuthController@register');
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard', 'dashboardController@index');

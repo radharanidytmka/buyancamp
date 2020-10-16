@@ -31,7 +31,7 @@
 						<div class="content">
 							<div class="header">
 								<div class="logo text-center"><img src="assets/img/tepi-buyan-removebg-preview.png" alt="Klorofil Logo"></div>
-								<p class="lead"><strong>LOGIN</strong></p>
+								<p class="lead"><strong>REGISTER</strong></p>
 							</div>
                             <form class="form-auth-small" action="/postlogin" method="POST">
                                 {{ csrf_field() }}
@@ -43,7 +43,7 @@
 									<label for="signin-password" class="control-label sr-only">Password</label>
 									<input name="password" type="password" class="form-control" id="signin-password" placeholder="Password">
 								</div>
-								<button type="submit" class="btn btn-primary" style="width: 200px">LOGIN</button>
+								<button type="submit" class="btn btn-primary" style="width: 200px">REGISTER</button>
 							</form>
 							<div class="footer">
 								<br>
@@ -53,7 +53,7 @@
 									<span class="line"></span>
 								</div> 
 								<br>
-								<p >Don't have an account? <a href="/register" >Register</a></p>
+								<p >Already have an account? <a href="/login" >Login</a></p>
 							</div>
 						</div>
 					</div>

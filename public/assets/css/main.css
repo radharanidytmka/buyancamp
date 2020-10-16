@@ -563,6 +563,23 @@ ul.list-justify > li {
     .fancy-radio.custom-bgcolor-green input[type="radio"]:checked + span i:after {
       background-color: #fff; }
 
+      .line{
+        display: inline-block;
+        width: 40%;
+        border-width: 0.5px;
+        border-style: solid;
+        border-color: rgba(0, 0, 0, 0.12);
+      }
+      .or{
+        font-size: 13px;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.38);
+        white-space: nowrap;
+        padding: 0px 18px;
+      }
+      .acc{
+        font-size: 16px;
+      }
 /********************
  * BUTTONS
  ********************/
@@ -588,8 +605,8 @@ ul.list-justify > li {
   padding: 5px 14px; }
 
 .btn-primary {
-  background-color: #00AAFF;
-  border-color: #00a0f0; }
+  background-color: #1688ae;
+  border-color: #137697; }
   .btn-primary:hover, .btn-primary:focus {
     background-color: #00a0f0;
     border-color: #00a0f0; }
@@ -979,7 +996,7 @@ ul.activity-list > li {
   -moz-border-radius: 5px;
   border-radius: 5px;
   width: 70%;
-  height: 450px;
+  height: 500px;
   margin: 0 auto;
   background-color: #fff; }
   .auth-box:before {
@@ -1019,7 +1036,7 @@ ul.activity-list > li {
     width: 58%;
     height: 100%;
     position: relative;
-    background-image: url("../../assets/img/login-bg.jpg");
+    background-image: url("../../assets/img/login.png");
     background-repeat: no-repeat;
     background-size: cover; }
     .auth-box .right:before {
