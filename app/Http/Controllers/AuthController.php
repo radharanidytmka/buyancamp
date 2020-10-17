@@ -41,4 +41,8 @@ class AuthController extends Controller
         $data->save();
         return redirect()->route('login')->with('alert-success','Berhasil Membuat Akun');
     }
+
+    public function todo(){
+        return view('todo');
+    }
 }

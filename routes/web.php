@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/todo', 'AuthController@todo');
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
