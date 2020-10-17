@@ -173,7 +173,7 @@ html.fullscreen-bg #wrapper {
     background-color: #f8f8f8; }
   .navbar-default .brand {
     float: left;
-    padding: 30px 39px;
+    padding: 15px 35px;
     background-color: #fff; }
   @media screen and (max-width: 1024px) {
     .navbar-default .brand {
@@ -188,7 +188,7 @@ html.fullscreen-bg #wrapper {
 
 .navbar-btn {
   float: left;
-  padding: 16px 0; }
+  padding: 0; }
   .navbar-btn button {
     font-size: 24px;
     padding: 4px 8px;
@@ -274,7 +274,7 @@ html.fullscreen-bg #wrapper {
 
 @media screen and (min-width: 768px) {
   .navbar-nav.navbar-right {
-    margin-right: 0; } }
+    margin-right: 3px; } }
 
 @media screen and (max-width: 767px) {
   .navbar-nav {
