@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use DB;
+use App\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -15,16 +17,28 @@ class AuthController extends Controller
         if(Auth::attempt($request->only('email','password'))){
             return redirect('/dashboard');
         }
-
         return redirect('/login');
     }
 
     public function logout(){
         Auth::logout();
-        return redirect('/login');
+        return redirect('login');
     }
 
     public function register(){
         return view('/register');
+    }
+
+    public function postregister(Request $request){
+        $data = new User();
+        $data->role = 'wisatawan';
+        $data->name = $request->reg_nama;
+        $data->email = $request->reg_email;
+        $data->no_telepon = $request->reg_no;
+        $data->alamat = $request->reg_alamat;
+        $data->password = bcrypt($request->reg_password);
+        $data->remember_token = str_random(60);
+        $data->save();
+        return redirect()->route('login')->with('alert-success','Berhasil Membuat Akun');
     }
 }

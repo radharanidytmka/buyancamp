@@ -1036,7 +1036,7 @@ ul.activity-list > li {
     width: 58%;
     height: 100%;
     position: relative;
-    background-image: url("../../assets/img/login.png");
+    background-image: url("../../assets/img/tepibuyan-removebg-preview.png");
     background-repeat: no-repeat;
     background-size: cover; }
     .auth-box .right:before {
@@ -1072,7 +1072,7 @@ ul.activity-list > li {
     margin-bottom: 30px; }
   .auth-box .lead {
     margin-top: 5px;
-    font-size: 18px;
+    font-size: 25px;
     text-align: center; }
   .auth-box .form-auth-small .btn {
     margin-top: 20px; }

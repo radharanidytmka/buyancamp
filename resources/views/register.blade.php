@@ -30,18 +30,30 @@
 					<div class="left">
 						<div class="content">
 							<div class="header">
-								<div class="logo text-center"><img src="assets/img/tepi-buyan-removebg-preview.png" alt="Klorofil Logo"></div>
+								<!-- <div class="logo text-center"><img src="assets/img/tepi-buyan-removebg-preview.png" alt="Klorofil Logo"></div> -->
 								<p class="lead"><strong>REGISTER</strong></p>
 							</div>
-                            <form class="form-auth-small" action="/postlogin" method="POST">
+                            <form class="form-auth-small" action="/user/create" method="POST">
                                 {{ csrf_field() }}
-								<div class="form-group">
-									<label for="signin-email" class="control-label sr-only">Email</label>
-									<input name="email" type="email" class="form-control" id="signin-email" placeholder="Email">
+                                <div class="form-group">
+									<label for="register-nama" class="control-label sr-only">Nama</label>
+									<input name="reg_nama" type="text" class="form-control" id="register-nama" placeholder="Nama">
 								</div>
 								<div class="form-group">
-									<label for="signin-password" class="control-label sr-only">Password</label>
-									<input name="password" type="password" class="form-control" id="signin-password" placeholder="Password">
+									<label for="register-email" class="control-label sr-only">Email</label>
+									<input name="reg_email" type="email" class="form-control" id="register-email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+									<label for="register-no" class="control-label sr-only">Nomor Telepon</label>
+									<input name="reg_no" type="text" class="form-control" id="register-no" placeholder="Nomor Telepon">
+                                </div>
+                                <div class="form-group">
+									<label for="register-alamat" class="control-label sr-only">Alamat</label>
+									<input name="reg_alamat" type="text" class="form-control" id="register-alamat" placeholder="Alamat">
+								</div>
+								<div class="form-group">
+									<label for="register-password" class="control-label sr-only">Password</label>
+									<input name="reg_password" type="password" class="form-control" id="register-password" placeholder="Password">
 								</div>
 								<button type="submit" class="btn btn-primary" style="width: 200px">REGISTER</button>
 							</form>

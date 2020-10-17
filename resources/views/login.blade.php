@@ -30,7 +30,7 @@
 					<div class="left">
 						<div class="content">
 							<div class="header">
-								<div class="logo text-center"><img src="assets/img/tepi-buyan-removebg-preview.png" alt="Klorofil Logo"></div>
+								<!-- <div class="logo text-center"><img src="assets/img/tepi-buyan-removebg-preview.png" alt="Klorofil Logo"></div> -->
 								<p class="lead"><strong>LOGIN</strong></p>
 							</div>
                             <form class="form-auth-small" action="/postlogin" method="POST">
