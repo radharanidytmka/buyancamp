@@ -1,4 +1,4 @@
-TODO<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -26,21 +26,41 @@ TODO<!doctype html>
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="/" ><span><strong>Tepi Buyan Campfire TODO</strong></span>
+				<a href="/dashboardwisatawan" ><span><img src="assets/img/tepibuyan-logo.png" width="30px" class="img-circle" style="margin-right: 10px" alt="Avatar"><strong>Tepi Buyan Campfire</strong></span>
 			</div>
 			<div class="container-fluid">
-				<div class="navbar-btn-right navbar-btn">
-					<a class="btn btn-success" href="/login" ><i class="fa fa-rocket"></i> RESERVASI</a>
+                <div class="navbar-btn-right navbar-btn" style="margin-right: 15px; margin-top: 18px">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown"><span><img src="assets/img/user.png" class="img-circle" style="margin-right: 10px" alt="Avatar">Hi, {{auth()->user()->name}}</span><i class="icon-submenu lnr lnr-chevron-down" style="margin-left: 10px;"></i>
+                        <ul class="dropdown-menu">
+							<li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+						</ul>
+                    </li>
                 </div>
-                <div class="navbar-btn-right navbar-btn" style="margin-right: 15px; margin-top: 13px">
-                    <a href="/todo" ><span>To Do in Tepi Buyan Campfire</span>
-				</div>
 			</div>
 		</nav>
 		<!-- END NAVBAR -->
-       
-        <!-- MAIN -->
-
+        <!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<ul class="nav">
+                <li><a href="/dashboardwisatawan" class=""><i class="lnr lnr-home"></i><span>Dashboard</span></a></li>
+                <li><a href="/reservasi" class=""><i class="lnr lnr-calendar-full"></i><span>Booking Camp</span></a></li>
+                <li><a href="#" class=""><i class="lnr lnr-calendar-full"></i><span>Booking for Event</span></a></li>
+				<li><a href="/profile" class=""><i class="lnr lnr-users"></i><span>Profile</span></a></li>
+            </ul>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+        <!-- MAIN -->   
+        <div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<h3 class="page-title">My Booking</h3>
+					
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
         <!-- END MAIN -->
 
         <!-- FOOTER -->
