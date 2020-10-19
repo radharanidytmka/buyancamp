@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard', 'dashboardController@admin');
     Route::get('/history', 'reservasiController@history');
     Route::get('/facility', 'fasilitasController@facility');
+    Route::post('/facility/create', 'fasilitasController@create');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){

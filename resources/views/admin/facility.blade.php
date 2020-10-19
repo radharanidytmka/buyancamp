@@ -48,6 +48,11 @@
                 <li><a href="/facility" class=""><i class="lnr lnr-magic-wand"></i><span>Kelola Fasilitas</span></a></li>
                 <li><a href="#" class=""><i class="lnr lnr-license"></i><span>Laporan Keuangan</span></a></li>
             </ul>
+            <footer>
+            <div class="container-fluid">
+				<p class="copyright">&copy; 2020 <a  target="_blank">Tepi Buyan Campfire.</a></p>
+			</div>
+            </footer>
 		</div>
 		<!-- END LEFT SIDEBAR -->
         <!-- MAIN -->
@@ -62,28 +67,64 @@
                     <hr>
                     <div class="panel">
 						<div class="panel-heading">
+                        <div class="text-right">
+                            <a class="btn btn-primary" style="margin-left: 5px" data-toggle="modal" data-target="#tambahFasilitas">Tambah Fasilitas</a>
+                        </div>
+                        <br>
                         <table class="table">
                             <thead> 
                                 <tr>
-                                    <th style="text-align: center">ID</th>
-                                    <th style="text-align: center">Nama Fasilitas</th>
-                                    <th style="text-align: center">Harga</th>
-                                    <th style="text-align: center">Jumlah</th>
-                                    <th style="text-align: center">Aksi</th>
+                                    <th class="text-center">No.</th>
+                                    <th class="text-center">Nama Fasilitas</th>
+                                    <th class="text-center">Harga</th>
+                                    <th class="text-center">Jumlah</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $no = 1; @endphp
                                 @foreach($data_fasilitas as $fasilitas)
-                                <tr style="text-align: center">
-                                    <td>{{$fasilitas->id}}</td>
+                                <tr class="text-center">
+                                    <td>{{$no++}}</td>
                                     <td>{{$fasilitas->nama_fasilitas}}</td>
                                     <td>Rp. {{$fasilitas->harga}},-</td>
                                     <td>{{$fasilitas->jumlah}} Unit </td>
-                                    <td><a class="btn btn-warning" data-toggle="modal" data-target="#editProfile">Edit</a><a class="btn btn-danger" style="margin-left: 5px" data-toggle="modal" data-target="#editProfile">Delete</a></td>
+                                    <td><a class="btn btn-warning" data-toggle="modal" data-target="#editFasilitas">Edit</a>
+                                    <a class="btn btn-danger" style="margin-left: 5px" data-toggle="modal" data-target="#editProfile">Delete</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        <!-- modal edit -->
+                        <div id="tambahFasilitas" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="text-align: center">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title"><strong>Tambah Fasilitas</strong></h4>
+                                    </div>
+                                    <div class="modal-body" style="text-align: left">
+                                        <form class="form-auth-small" action="/facility/create" method="POST">
+                                                {{ csrf_field() }}
+                                                <div class="form-group">
+                                                    <p><strong>Nama Fasilitas</strong></p>
+                                                    <input name="create_namafasilitas" class="form-control" placeholder="Nama" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <p><strong>Harga</strong></p>
+                                                    <input name="create_harga" class="form-control" placeholder="Nama" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <p><strong>Jumlah</strong></p>
+                                                    <input name="create_jumlah" class="form-control" placeholder="Nama" type="text">
+                                                </div>
+                                                <hr>
+                                                <div style="text-align: right">
+                                                    <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
 						</div>
 					</div>
 				</div>
@@ -91,14 +132,6 @@
 			<!-- END MAIN CONTENT -->
 		</div>
         <!-- END MAIN -->
-
-        <!-- FOOTER -->
-		<footer>
-			<div class="container-fluid">
-				<p class="copyright">&copy; 2020 <a  target="_blank">Tepi Buyan Campfire.</a>  All Rights Reserved.</p>
-			</div>
-        </footer>
-        <!-- END FOOTER -->
 	</div>
 	<!-- END WRAPPER -->
 	<script src="assets/vendor/jquery/jquery.min.js"></script>
