@@ -32,4 +32,5 @@ Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
     Route::get('/reservasi', 'reservasiController@reservasi');
     Route::get('/profile', 'profileController@profile');
     Route::get('/event', 'reservasiController@event');
+    Route::post('/user/{id}/edit', 'profileController@editProfile');
 });

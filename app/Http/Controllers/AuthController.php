@@ -39,7 +39,7 @@ class AuthController extends Controller
         $data->password = bcrypt($request->reg_password);
         $data->remember_token = str_random(60);
         $data->save();
-        return redirect()->route('login')->with('alert-success','Berhasil Membuat Akun');
+        return redirect()->route('login');
     }
 
     public function todo(){

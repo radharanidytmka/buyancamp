@@ -79,10 +79,44 @@
                         <div class="col-md-7">
                             <div class="panel">
                                 <div class="panel-heading"  style="text-align: right">
-                                    <a class="btn btn-primary" href="#" >Edit Profile</a>
-                                    <hr>
-                                </div>
-                                <div class="panel-body">
+                                    <a class="btn btn-primary" data-toggle="modal" data-target="#editProfile">Edit Profile</a>
+                                    <div id="editProfile" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header" style="text-align: center">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title"><strong>Edit Profile</strong></h4>
+                                            </div>
+                                            <div class="modal-body" style="text-align: left">
+                                            <form class="form-auth-small" action="/user/{{auth()->user()->id}}/edit" method="POST">
+                                                {{ csrf_field() }}
+                                                <div class="form-group">
+                                                    <p><strong>Nama</strong></p>
+                                                    <input name="edit_nama" class="form-control" placeholder="Nama" value="{{auth()->user()->name}}" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <p><strong>Email</strong></p>
+                                                    <input name="edit_email" class="form-control" placeholder="Nama" value="{{auth()->user()->email}}" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <p><strong>Nomor Telepon</strong></p>
+                                                    <input name="edit_no" class="form-control" placeholder="Nama" value="{{auth()->user()->no_telepon}}" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <p><strong>Alamat</strong></p>
+                                                    <input name="edit_alamat" class="form-control" placeholder="Nama" value="{{auth()->user()->alamat}}" type="text">
+                                                </div>
+                                                <hr>
+                                                <div style="text-align: right">
+                                                    <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Save Changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                            <hr>
+                                <div class="panel-body" style="text-align: left">
                                     <div class="row">
                                         <div class="col-md-4" style="margin-right: 20px">
                                             <h5><strong>Nama</strong></h5>
@@ -92,8 +126,8 @@
                                             <h5><strong>Nomor Telepon</strong></h5>
                                             <br>
                                             <h5><strong>Alamat</strong></h5>
-                                            <br>
-                                            <h5><strong>Password</strong></h5>
+                                            <!-- <br>
+                                            <h5><strong>Password</strong></h5> -->
                                         </div>
                                         <div class="col-md-7">
                                             <input class="form-control" placeholder="Nama" value="{{auth()->user()->name}}" readonly type="text">
@@ -103,8 +137,8 @@
                                             <input class="form-control" placeholder="Nama" value="{{auth()->user()->no_telepon}}" readonly type="text">
                                             <br>
                                             <input class="form-control" placeholder="Nama" value="{{auth()->user()->alamat}}" readonly type="text">
-                                            <br>
-                                            <a class="btn btn-primary" href="#" >Change Password</a>
+                                            <!-- <br>
+                                            <a class="btn btn-primary" href="#" >Change Password</a> -->
                                         </div>
                                     </div>
                                 </div>
