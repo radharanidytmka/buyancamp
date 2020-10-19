@@ -40,7 +40,60 @@ TODO<!doctype html>
 		<!-- END NAVBAR -->
        
         <!-- MAIN -->
-
+		<div  style="text-align: center">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<br>
+					<h3><strong>Apa yang dapat dilakukan di Tepi Buyan Campfire?</strong></h3>
+					<br>
+				<div class="row">
+						<div class="col-md-4">
+							<!-- PANEL DEFAULT -->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title"><strong>Kemah</strong></h3>
+								</div>
+								<div class="panel-body" style="text-align: justify">
+									<p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
+								</div>
+							</div>
+							<!-- END PANEL DEFAULT -->
+						</div>
+						<div class="col-md-4">
+							<!-- PANEL NO CONTROLS -->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title"><strong>Piknik</strong></h3>
+								</div>
+								<div class="panel-body" style="text-align: justify">
+									<p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
+								</div>
+							</div>
+							<!-- END PANEL NO CONTROLS -->
+						</div>
+						<div class="col-md-4">
+							<!-- PANEL WITH FOOTER -->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title"><strong>Event</strong></h3>
+								</div>
+								<div class="panel-body" style="text-align: justify">
+									<p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
+								</div>
+							</div>
+							<!-- END PANEL WITH FOOTER -->
+						</div>
+					</div>
+					<div class="row" style="background-color: #332261">
+						<div class="col-md-6">
+							<p>tes</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
         <!-- END MAIN -->
 
         <!-- FOOTER -->
