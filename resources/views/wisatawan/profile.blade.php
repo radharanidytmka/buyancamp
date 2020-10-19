@@ -31,7 +31,7 @@
 			<div class="container-fluid">
                 <div class="navbar-btn-right navbar-btn" style="margin-right: 15px; margin-top: 18px">
                     <li class="dropdown">
-                        <a data-toggle="dropdown"><span><img src="assets/img/radhaa.png" width="25px" class="img-circle" style="margin-right: 10px" alt="Avatar">Hi, {{auth()->user()->name}}</span><i class="icon-submenu lnr lnr-chevron-down" style="margin-left: 10px;"></i>
+                        <a data-toggle="dropdown"><span><img src="assets/img/profile.jpg" width="25px" class="img-circle" style="margin-right: 10px" alt="Avatar">Hi, {{auth()->user()->name}}</span><i class="icon-submenu lnr lnr-chevron-down" style="margin-left: 10px;"></i>
                         <ul class="dropdown-menu">
 							<li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 						</ul>
@@ -69,7 +69,7 @@
                         <div class="col-md-4" style="margin-right: 20px; margin-left: 35px">
                             <div class="panel">
 								<div class="panel-heading"  style="text-align: center">
-                                    <img src="assets/img/radhaa.png" class="img-circle" width="200px" alt="Avatar">
+                                    <img src="assets/img/profile.jpg" class="img-circle" width="200px" alt="Avatar">
                                     <hr>
                                     <h3><strong>{{auth()->user()->name}}</strong></h3>
                                     <p>{{auth()->user()->role}}</p>

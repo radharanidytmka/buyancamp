@@ -14,10 +14,6 @@ class reservasiController extends Controller
         return view('admin.history');
     }
 
-    public function facility(){
-        return view('admin.facility');
-    }
-
     public function event(){
         return view('wisatawan.event');
     }
