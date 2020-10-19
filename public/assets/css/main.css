@@ -711,6 +711,12 @@ fieldset[disabled] .btn {
 .panel-footer {
   background-color: #fafafa; }
 
+  .garis_verikal{
+		border-left: 2px black solid;
+		height: 130px;
+    width: 0px;
+    margin-left: 30px;
+	}
 /********************
  * ELEMENTS
  ********************/

@@ -60,56 +60,50 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-                <div class="navbar-btn">
+                    <div class="navbar-btn">
                         <button type="button" class="btn-toggle-fullwidth"><img src="assets/img/gg_minimize.png" width="20px" class="img-circle" style="margin-right: 10px" alt="Avatar"></button>
                     </div>
-                    <h3 class="page-title" style="margin-top: 9px"><strong>Profile</strong></h3>
+                    <h3 class="page-title" style="margin-top: 9px"><strong>Booking for Event</strong></h3>
                     <hr>
                     <div class="row">
-                        <div class="col-md-4" style="margin-right: 20px; margin-left: 35px">
-                            <div class="panel">
-								<div class="panel-heading"  style="text-align: center">
-                                    <img src="assets/img/radhaa.png" class="img-circle" width="200px" alt="Avatar">
-                                    <hr>
-                                    <h3><strong>{{auth()->user()->name}}</strong></h3>
-                                    <p>{{auth()->user()->role}}</p>
-								</div>
-							</div>
+                        <div class="col-md-12" style="text-align: justify">
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        </div>    
+                    </div>
+                    <br>
+                    <div class="row" >
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input class="form-control" placeholder="Nama" type="text">
+                            </div>
                         </div>
-                        <div class="col-md-7">
-                            <div class="panel">
-                                <div class="panel-heading"  style="text-align: right">
-                                    <a class="btn btn-primary" href="#" >Edit Profile</a>
-                                    <hr>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-4" style="margin-right: 20px">
-                                            <h5><strong>Nama</strong></h5>
-                                            <br>
-                                            <h5><strong>Email</strong></h5>
-                                            <br>
-                                            <h5><strong>Nomor Telepon</strong></h5>
-                                            <br>
-                                            <h5><strong>Alamat</strong></h5>
-                                            <br>
-                                            <h5><strong>Password</strong></h5>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input class="form-control" placeholder="Nama" value="{{auth()->user()->name}}" readonly type="text">
-                                            <br>
-                                            <input class="form-control" placeholder="Nama" value="{{auth()->user()->email}}" readonly type="text">
-                                            <br>
-                                            <input class="form-control" placeholder="Nama" value="{{auth()->user()->no_telepon}}" readonly type="text">
-                                            <br>
-                                            <input class="form-control" placeholder="Nama" value="{{auth()->user()->alamat}}" readonly type="text">
-                                            <br>
-                                            <a class="btn btn-primary" href="#" >Change Password</a>
-                                        </div>
-                                    </div>
-                                </div>
-							</div>
+                        <div class="col-md-6" >
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input class="form-control" placeholder="Email" type="text">
+                            </div>
                         </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"></span>
+                                <input class="form-control" placeholder="Subject" type="text">
+                            </div>
+                        </div> 
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"></span>
+                                <textarea class="form-control" placeholder="Message"  type="text" row="6"></textarea>
+                            </div>
+                            <br>
+                            <a class="btn btn-primary" href="#" >SUBMIT MESSAGE</a>
+                        </div> 
                     </div>
 				</div>
 			</div>

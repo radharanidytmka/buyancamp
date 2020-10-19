@@ -45,9 +45,14 @@
 			<ul class="nav">
                 <li><a href="/dashboardwisatawan" class=""><i class="lnr lnr-home"></i><span>Dashboard</span></a></li>
                 <li><a href="/reservasi" class=""><i class="lnr lnr-calendar-full"></i><span>Booking Camp</span></a></li>
-                <li><a href="#" class=""><i class="lnr lnr-calendar-full"></i><span>Booking for Event</span></a></li>
+                <li><a href="/event" class=""><i class="lnr lnr-calendar-full"></i><span>Booking for Event</span></a></li>
 				<li><a href="/profile" class=""><i class="lnr lnr-users"></i><span>Profile</span></a></li>
             </ul>
+            <footer>
+            <div class="container-fluid">
+				<p class="copyright">&copy; 2020 <a  target="_blank">Tepi Buyan Campfire.</a></p>
+			</div>
+            </footer>
 		</div>
 		<!-- END LEFT SIDEBAR -->
         <!-- MAIN -->   
@@ -55,21 +60,50 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">My Booking</h3>
-					
+                <div class="navbar-btn">
+                        <button type="button" class="btn-toggle-fullwidth"><img src="assets/img/gg_minimize.png" width="20px" class="img-circle" style="margin-right: 10px" alt="Avatar"></button>
+                    </div>
+                    <h3 class="page-title" style="margin-top: 9px"><strong>Dashboard</strong></h3>
+                    <hr>
+                    <div class="panel">
+						<div class="panel-heading">
+                            <h4 ><strong>Booking ID : 12</strong> </h4>
+                            <hr>
+                            <div class="row" style="text-align: center">
+                                <div class="col-md-2" style="margin-left: 30px">
+                                    <h4><strong>Nama Pemesan</strong></h4>
+                                    <h4>Ni Ketut Sri Krisna Radharani Dytamika</h4>
+                                </div>
+                                <div class="col-md-1" >
+                                    <div class="garis_verikal" ></div>
+                                </div>
+                                <div class="col-md-3" >
+                                    <h4><strong>Tanggal Kedatangan</strong></h4>
+                                    <h4>00/00/0000</h4>
+                                    <h4><strong>Tanggal Kepulangan</strong></h4>
+                                    <h4>00/00/0000</h4>
+                                </div>
+                                <div class="col-md-1" >
+                                    <div class="garis_verikal" ></div>
+                                </div>
+                                <div class="col-md-2" >
+                                    <h4><strong>Durasi</strong></h4>
+                                    <h4>10 Hari</h4>
+                                </div>
+                                <div class="col-md-2" style="margin-top: 80px;">
+                                    <div class="right">
+                                    <a class="btn btn-primary" href="#" >DOWNLOAD RECEIPT</a>
+                                    </div>    
+                                
+                                </div>
+                            </div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
 		</div>
         <!-- END MAIN -->
-
-        <!-- FOOTER -->
-		<footer>
-			<div class="container-fluid">
-				<p class="copyright">&copy; 2020 <a  target="_blank">Tepi Buyan Campfire.</a>  All Rights Reserved.</p>
-			</div>
-        </footer>
-        <!-- END FOOTER -->
 	</div>
 	<!-- END WRAPPER -->
 	<script src="assets/vendor/jquery/jquery.min.js"></script>

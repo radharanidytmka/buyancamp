@@ -29,8 +29,8 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="/dashboardwisatawan" ><span><img src="assets/img/tepibuyan-logo.png" width="30px" class="img-circle" style="margin-right: 10px" alt="Avatar"><strong>Tepi Buyan Campfire</strong></span>
-			</div>
+				<a href="#" ><span><img src="assets/img/tepibuyan-logo.png" width="30px" class="img-circle" style="margin-right: 10px" alt="Avatar"><strong>Tepi Buyan Campfire</strong></span>
+            </div>
 			<div class="container-fluid">
                 <div class="navbar-btn-right navbar-btn" style="margin-right: 15px; margin-top: 18px">
                     <li class="dropdown">
@@ -48,17 +48,25 @@
 			<ul class="nav">
                 <li><a href="/dashboardwisatawan" class=""><i class="lnr lnr-home"></i><span>Dashboard</span></a></li>
                 <li><a href="/reservasi" class=""><i class="lnr lnr-calendar-full"></i><span>Booking Camp</span></a></li>
-                <li><a href="#" class=""><i class="lnr lnr-calendar-full"></i><span>Booking for Event</span></a></li>
+                <li><a href="/event" class=""><i class="lnr lnr-calendar-full"></i><span>Booking for Event</span></a></li>
 				<li><a href="/profile" class=""><i class="lnr lnr-users"></i><span>Profile</span></a></li>
             </ul>
+            <footer>
+			<div class="container-fluid">
+				<p class="copyright">&copy; 2020 <a  target="_blank">Tepi Buyan Campfire.</a></p>
+			</div>
+        </footer>
 		</div>
 		<!-- END LEFT SIDEBAR -->
         <!-- MAIN -->
         <div class="main">
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
-				<div class="container-fluid">
-                    <h3 class="page-title"><strong>Input Data Booking Kemah</strong></h3>
+				<div class="container-fluid">   
+                    <div class="navbar-btn">
+                        <button type="button" class="btn-toggle-fullwidth"><img src="assets/img/gg_minimize.png" width="20px" class="img-circle" style="margin-right: 10px" alt="Avatar"></button>
+                    </div>
+                    <h3 class="page-title" style="margin-top: 9px"><strong>Input Data Booking Kemah</strong></h3>
                     <hr>
                     <div class="row">
                         <div class="col-md-4">
@@ -121,13 +129,6 @@
 			<!-- END MAIN CONTENT -->
 		</div>
         <!-- END MAIN -->
-        <!-- FOOTER -->
-		<footer>
-			<div class="container-fluid">
-				<p class="copyright">&copy; 2020 <a  target="_blank">Tepi Buyan Campfire.</a>  All Rights Reserved.</p>
-			</div>
-        </footer>
-        <!-- END FOOTER -->
 	</div>
 	<!-- END WRAPPER -->
 	<script src="assets/vendor/jquery/jquery.min.js"></script>

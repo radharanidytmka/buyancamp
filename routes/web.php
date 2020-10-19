@@ -31,4 +31,5 @@ Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
     Route::get('/dashboardwisatawan', 'dashboardController@wisatawan');
     Route::get('/reservasi', 'reservasiController@reservasi');
     Route::get('/profile', 'profileController@profile');
+    Route::get('/event', 'reservasiController@event');
 });
