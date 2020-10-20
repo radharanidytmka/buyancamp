@@ -51,7 +51,50 @@
 		</div>
 		<!-- END LEFT SIDEBAR -->
         <!-- MAIN -->
-		
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+                <div class="navbar-btn">
+                        <button type="button" class="btn-toggle-fullwidth"><img src="assets/img/gg_minimize.png" width="20px" class="img-circle" style="margin-right: 10px" alt="Avatar"></button>
+                    </div>
+                    <h3 class="page-title" style="margin-top: 9px"><strong>Dashboard</strong></h3>
+                    <hr>
+                    <div class="panel">
+						<div class="panel-heading">
+                            <table class="table">
+                                <thead> 
+                                    <tr>
+                                        <th class="text-center">No.</th>
+                                        <th class="text-center">Nama Pemesan</th>
+                                        <th class="text-center">Email Pemesan</th>
+                                        <th class="text-center">Tanggal Kedatangan</th>
+                                        <th class="text-center">Tanggal Kepulangan</th>
+                                        <th class="text-center">Durasi Kemah</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php $no = 1; @endphp
+                                    @foreach($datareservasi_admin as $reservasiadmin)
+                                    <tr class="text-center">
+                                        <td>{{$no++}}</td>
+                                        <td>{{$reservasiadmin->nama_pemesan}}</td>
+                                        <td>{{$reservasiadmin->email_pemesan}}</td>
+                                        <td>{{$reservasiadmin->tgl_datang}}</td>
+                                        <td>{{$reservasiadmin->tgl_pulang}}</td>
+                                        <td>{{$reservasiadmin->durasi}} Hari</td>
+                                        <td><a class="btn btn-warning" data-toggle="modal" data-target="">Check In</a></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
         <!-- END MAIN -->
 
         <!-- FOOTER -->

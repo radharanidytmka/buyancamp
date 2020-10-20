@@ -8,9 +8,8 @@ use Illuminate\Http\Request;
 class dashboardController extends Controller
 {
     public function admin(){
-        return view('admin.dashboard');
-        // $datareservasi_admin = \App\reservasi::all();
-        // return view('admin.dashboard', ['datareservasi_admin' => $datareservasi_admin]);
+        $datareservasi_admin = \App\reservasi::all();
+        return view('admin.dashboard', ['datareservasi_admin' => $datareservasi_admin]);
     }
 
     public function wisatawan(){
