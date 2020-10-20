@@ -68,62 +68,70 @@
                     </div>
                     <h3 class="page-title" style="margin-top: 9px"><strong>Input Data Booking Kemah</strong></h3>
                     <hr>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p>Nama Pemesan</p>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input class="form-control" placeholder="Nama" value="{{auth()->user()->name}}" readonly type="text">
-                            </div>
-                            <br>
-                            <p>Nomor Telepon Pemesan</p>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                <input class="form-control" placeholder="Nomor Telepon" value="{{auth()->user()->no_telepon}}" readonly type="text">
-                            </div>
-                            <br>
-                            <p>Tanggal Kedatangan</p>
-                            <div class="input-group" id="tgldatang">
-                                <input type="text" class="form-control" placeholder="Tanggal Kedatangan">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                            <br>
-                            <p>Tanggal Kepulangan</p>
-                            <div class="input-group" id="tglpulang">
-                                <input type="text" class="form-control" placeholder="Tanggal Kepulangan">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                            <br>
-                            <p>Durasi</p>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                <input class="form-control" placeholder="Durasi" type="text" id="selisih">
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <p>Fasilitas</p>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-plus"></i></span>
-                                <input class="form-control" placeholder="Nama" type="text">
-                            </div>
-                            <br>
-                            <p>Any Request?</p>
-                            <textarea class="form-control" placeholder="Request" type="text" rows="6"></textarea>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-8" style="margin-right: 15px; text-align: center">
-                                    <h2><strong>Total : Rp 60.000,-<strong></h2>
+                    <form class="form-auth-small" action="/reservasi/create" method="POST">
+                        {{ csrf_field() }}
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p>Nama Pemesan</p>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input name="reservasi_nama" class="form-control" placeholder="Nama" value="{{auth()->user()->name}}" readonly type="text">
                                 </div>
-                                <div class="col-md-3" style="margin-top: 20px">
-                                    <a class="btn btn-primary" href="#" >BOOKING</a>
+                                <br>
+                                <p>Email Pemesan</p>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    <input name="reservasi_email" class="form-control" placeholder="Email" value="{{auth()->user()->email}}" readonly type="text">
+                                </div>
+                                <br>
+                                <p>Tanggal Kedatangan</p>
+                                <div class="input-group" id="tgldatang">
+                                    <input name="reservasi_tgldatang" type="text" class="form-control" placeholder="Tanggal Kedatangan">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                                <br>
+                                <p>Tanggal Kepulangan</p>
+                                <div class="input-group" id="tglpulang">
+                                    <input name="reservasi_tglpulang" type="text" class="form-control" placeholder="Tanggal Kepulangan">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                                <br>
+                                <p>Durasi</p>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                    <input name="reservasi_durasi" class="form-control" placeholder="Durasi" type="text" id="selisih">
                                 </div>
                             </div>
+                            <div class="col-md-8">
+                                <p>Fasilitas</p>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                                    <input name="reservasi_fasilitas" class="form-control" placeholder="Nama" type="text">
+                                </div>
+                                <br>
+                                <p>Any Request?</p>
+                                <textarea name="reservasi_request" class="form-control" placeholder="Request" type="text" rows="6"></textarea>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-8" style="margin-right: 15px;">
+                                        <p>Total Harga</p>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <input name="reservasi_totalharga" class="form-control" placeholder="Total Harga" value=60000 type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3" style="margin-top: 20px">
+                                        <button type="submit" class="btn btn-primary" style="width: 200px">BOOK</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+					</form>
+                    
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
@@ -164,7 +172,7 @@
                 if (b) {
                         timeDiff = (b - a) / 1000;
                     }
-            $('#selisih').val(Math.floor(timeDiff/(86400))+' Hari')   
+            $('#selisih').val(Math.floor(timeDiff/(86400)))   
         }
     </script>
 </body>

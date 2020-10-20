@@ -77,33 +77,31 @@
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input class="form-control" placeholder="Nama" type="text">
                             </div>
-                        </div>
-                        <div class="col-md-6" >
+                            <br>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                 <input class="form-control" placeholder="Email" type="text">
                             </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
+                            <br>
                             <div class="input-group">
                                 <span class="input-group-addon"></span>
                                 <input class="form-control" placeholder="Subject" type="text">
                             </div>
-                        </div> 
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
+                            <br>
                             <div class="input-group">
                                 <span class="input-group-addon"></span>
                                 <textarea class="form-control" placeholder="Message"  type="text" row="6"></textarea>
                             </div>
                             <br>
                             <a class="btn btn-primary" href="#" >SUBMIT MESSAGE</a>
-                        </div> 
+                        </div>
+                        <div class="col-md-6" style="text-align: center">
+                            <h2 ><strong>CONTACT US!</strong></h2>
+                            <br>
+                            <a class="btn btn-success" style="width: 300px" href="https://wa.me/628112777135?text=Halo admin, saya mau tanya">Chat Via WhatsApp</a>
+                            <br><br>
+                            <a class="btn btn-danger " style="width: 300px" href="https://www.instagram.com/tepibuyancampfire/">Chat Via Instagram</a>
+                        </div>
                     </div>
 				</div>
 			</div>

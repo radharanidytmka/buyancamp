@@ -26,7 +26,7 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="/dashboard" ><span><img src="assets/img/tepibuyan-logo.png" width="30px" class="img-circle" style="margin-right: 10px" alt="Avatar"><strong>Tepi Buyan Campfire dashboard</strong></span>
+				<a href="/dashboard" ><span><img src="assets/img/tepibuyan-logo.png" width="30px" class="img-circle" style="margin-right: 10px" alt="Avatar"><strong>Tepi Buyan Campfire</strong></span>
 			</div>
 			<div class="container-fluid">
                 <div class="navbar-btn-right navbar-btn" style="margin-right: 15px; margin-top: 18px">
@@ -43,15 +43,15 @@
         <!-- LEFT SIDEBAR -->
 		<div id="sidebar-nav" class="sidebar">
 			<ul class="nav">
-                <li><a href="/dashboard" class=""><i class="lnr lnr-calendar-full"></i><span>Reservation List</span></a></li>
-                <li><a href="/history" class=""><i class="lnr lnr-chart-bars"></i><span>History</span></a></li>
-                <li><a href="/facility" class=""><i class="lnr lnr-magic-wand"></i><span>Manage Facility</span></a></li>
-                <li><a href="#" class=""><i class="lnr lnr-license"></i><span>Financial Report</span></a></li>
+                <li><a href="/dashboard" class=""><i class="lnr lnr-calendar-full"></i><span>Daftar Reservasi</span></a></li>
+                <li><a href="/history" class=""><i class="lnr lnr-chart-bars"></i><span>Riwayat Reservasi</span></a></li>
+                <li><a href="/facility" class=""><i class="lnr lnr-magic-wand"></i><span>Kelola Fasilitas</span></a></li>
+                <li><a href="#" class=""><i class="lnr lnr-license"></i><span>Laporan Keuangan</span></a></li>
             </ul>
 		</div>
 		<!-- END LEFT SIDEBAR -->
         <!-- MAIN -->
-
+		
         <!-- END MAIN -->
 
         <!-- FOOTER -->

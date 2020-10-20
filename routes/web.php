@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
 Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
     Route::get('/dashboardwisatawan', 'dashboardController@wisatawan');
     Route::get('/reservasi', 'reservasiController@reservasi');
+    Route::post('/reservasi/create', 'reservasiController@create');
     Route::get('/profile', 'profileController@profile');
     Route::post('/user/{id}/edit', 'profileController@editProfile');
     Route::get('/event', 'reservasiController@event');

@@ -67,38 +67,35 @@
                     <hr>
                     <div class="panel">
 						<div class="panel-heading">
-                            <h4 ><strong>Booking ID : 12</strong> </h4>
-                            <hr>
-                            <div class="row" style="text-align: center">
-                                <div class="col-md-2" style="margin-left: 30px">
-                                    <h4><strong>Nama Pemesan</strong></h4>
-                                    <h4>Ni Ketut Sri Krisna Radharani Dytamika</h4>
-                                </div>
-                                <div class="col-md-1" >
-                                    <div class="garis_verikal" ></div>
-                                </div>
-                                <div class="col-md-3" >
-                                    <h4><strong>Tanggal Kedatangan</strong></h4>
-                                    <h4>00/00/0000</h4>
-                                    <h4><strong>Tanggal Kepulangan</strong></h4>
-                                    <h4>00/00/0000</h4>
-                                </div>
-                                <div class="col-md-1" >
-                                    <div class="garis_verikal" ></div>
-                                </div>
-                                <div class="col-md-2" >
-                                    <h4><strong>Durasi</strong></h4>
-                                    <h4>10 Hari</h4>
-                                </div>
-                                <div class="col-md-2" style="margin-top: 80px;">
-                                    <div class="right">
-                                    <a class="btn btn-primary" href="#" >DOWNLOAD RECEIPT</a>
-                                    </div>    
-                                
-                                </div>
-                            </div>
-						</div>
-					</div>
+                            <table class="table">
+                                <thead> 
+                                    <tr>
+                                        <th class="text-center">No.</th>
+                                        <th class="text-center">Nama Pemesan</th>
+                                        <th class="text-center">Email Pemesan</th>
+                                        <th class="text-center">Tanggal Kedatangan</th>
+                                        <th class="text-center">Tanggal Kepulangan</th>
+                                        <th class="text-center">Durasi Kemah</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php $no = 1; @endphp
+                                    @foreach($datareservasi_wisatawan as $reservasiwisatawan)
+                                    <tr class="text-center">
+                                        <td>{{$no++}}</td>
+                                        <td>{{$reservasiwisatawan->nama_pemesan}}</td>
+                                        <td>{{$reservasiwisatawan->email_pemesan}}</td>
+                                        <td>{{$reservasiwisatawan->tgl_datang}}</td>
+                                        <td>{{$reservasiwisatawan->tgl_pulang}}</td>
+                                        <td>{{$reservasiwisatawan->durasi}} Hari</td>
+                                        <td><a class="btn btn-warning" data-toggle="modal" data-target="">Download Receipt</a></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
