@@ -80,6 +80,7 @@
                             <div class="panel">
                                 <div class="panel-heading"  style="text-align: right">
                                     <a class="btn btn-primary" data-toggle="modal" data-target="#editProfile">Edit Profile</a>
+                                    <!-- modal edit profile -->
                                     <div id="editProfile" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
                                         <div class="modal-content">

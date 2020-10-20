@@ -20,4 +20,19 @@ class fasilitasController extends Controller
         $data->save();
         return redirect('facility');
     }
+
+    public function editFasilitas(Request $request, $id){
+        $data = fasilitas::where('id', $id)->first();
+        $data->nama_fasilitas = $request->edit_namafasilitas;
+        $data->harga = $request->edit_harga;
+        $data->jumlah = $request->edit_jumlah;
+        $data->save();
+        return redirect('facility');
+    }
+
+    public function hapusFasilitas($id){
+        $data = fasilitas::where('id', $id)->first();
+        $data->delete(); 
+        return redirect('facility');
+    }
 }
