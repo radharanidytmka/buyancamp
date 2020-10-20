@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use \App\reservasi;
+// use \App\reservasi;
 use Illuminate\Http\Request;
 
 class dashboardController extends Controller
@@ -14,8 +14,7 @@ class dashboardController extends Controller
     }
 
     public function wisatawan(){
-        // $datareservasi_wisatawan = reservasi::where('email', $email)->first();
-        $datareservasi_wisatawan = \App\reservasi::all();
+        $datareservasi_wisatawan = \App\reservasi::where('email_pemesan', auth()->user()->email)->get();
         return view('wisatawan.dashboardwisatawan', ['datareservasi_wisatawan' => $datareservasi_wisatawan]);
     }
 }
