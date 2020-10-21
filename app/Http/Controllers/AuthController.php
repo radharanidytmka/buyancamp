@@ -31,7 +31,7 @@ class AuthController extends Controller
 
     public function postregister(Request $request){
         $data = new User();
-        $data->role = 'Wisatawan';
+        $data->role = 'wisatawan';
         $data->name = $request->reg_nama;
         $data->email = $request->reg_email;
         $data->no_telepon = $request->reg_no;

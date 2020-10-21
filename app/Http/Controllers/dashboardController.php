@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-// use \App\reservasi;
 use Illuminate\Http\Request;
 
 class dashboardController extends Controller
 {
     public function admin(){
-        $datareservasi_admin = \App\reservasi::all();
+        $datareservasi_admin = \App\reservasi::where('status', 'Sudah Dibayar')->get();
         return view('admin.dashboard', ['datareservasi_admin' => $datareservasi_admin]);
     }
 
