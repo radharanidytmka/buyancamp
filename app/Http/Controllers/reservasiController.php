@@ -26,8 +26,16 @@ class reservasiController extends Controller
         return redirect('reservasi');
     }
 
+    public function bayar(Request $request, $id){
+        $data = reservasi::where('id', $id)->first();
+        $data->status = 'Sudah Dibayar';
+        $data->save();
+        return redirect('reservasi');
+    }
+
     public function history(){
-        return view('admin.history');
+        $datahistory = \App\reservasi::where('status', 'Completed')->get();
+        return view('admin.history', ['datahistory' => $datahistory]);
     }
 
     public function event(){

@@ -64,29 +64,6 @@
                         <button type="button" class="btn-toggle-fullwidth"><img src="assets/img/gg_minimize.png" width="20px" class="img-circle" style="margin-right: 10px" alt="Avatar"></button>
                     </div>
                     <h3 class="page-title" style="margin-top: 9px"><strong>Dashboard</strong></h3>
-                    <!-- <hr> -->
-                    <!-- <div class="container"> 
-                        <br/>
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#home">Menunggu Pembayaran</a></li>
-                            <li><a data-toggle="tab" href="#menu1">Sudah Dibayar</a></li>
-                            <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-                        </ul>
-                        <div >
-                            <div id="home" class="tab-pane fade in active">
-                                <h3>Menunggu Pembayaran</h3>
-                                <p>www.malasngoding.com</p>
-                            </div>
-                            <div id="menu1" class="tab-pane fade">
-                                <h3>Sudah Dibayar</h3>
-                                <p>Tutorial pemrograman web, mobile dan design</p>
-                            </div>
-                            <div id="menu2" class="tab-pane fade">
-                                <h3>Menu 2</h3>
-                                <p>Membuat navigasi tabs dan pills bootstrap.</p>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="panel">
 						<div class="panel-heading">
                             <table class="table">
@@ -116,7 +93,10 @@
                                         <td><?php 
                                         if($reservasiwisatawan->status == 'Menunggu Pembayaran'){
                                             echo '<html>';
-                                            echo '<a class="btn btn-warning" data-toggle="modal" data-target="">Bayar</a>';
+                                            echo '<form>';
+                                            echo '<form class="form-auth-small" action="/reservasi/{{$reservasiwisatawan->id}}/bayar" method="POST">';
+                                            echo csrf_field();
+                                            echo '<button type="submit" class="btn btn-warning" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Bayar</button>';
                                             echo '</html>';
                                         } elseif($reservasiwisatawan->status == 'Sudah Dibayar' ){
                                             echo '<html>';

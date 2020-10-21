@@ -15,4 +15,6 @@ class dashboardController extends Controller
         $datareservasi_wisatawan = \App\reservasi::where('email_pemesan', auth()->user()->email)->get();
         return view('wisatawan.dashboardwisatawan', ['datareservasi_wisatawan' => $datareservasi_wisatawan]);
     }
+
+    
 }
