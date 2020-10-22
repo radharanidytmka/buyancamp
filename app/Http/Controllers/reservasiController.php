@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use \App\reservasi;
 use Illuminate\Http\Request;
+use PDF;
 
 class reservasiController extends Controller
 {
@@ -31,6 +32,12 @@ class reservasiController extends Controller
         $data->status = 'Sudah Dibayar';
         $data->save();
         return redirect('reservasi');
+    }
+
+    public function unduhpdf(){
+        $reservasi = reservasi::all();
+        $pdf = PDF::loadView('wisatawan.unduhpdf', ['reservasi' => $reservasi]);
+        return $pdf->download('reservasi.pdf');
     }
 
     public function history(){

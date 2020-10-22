@@ -63,53 +63,56 @@
                 <div class="navbar-btn">
                         <button type="button" class="btn-toggle-fullwidth"><img src="assets/img/gg_minimize.png" width="20px" class="img-circle" style="margin-right: 10px" alt="Avatar"></button>
                     </div>
-                    <h3 class="page-title" style="margin-top: 9px"><strong>Dashboard</strong></h3>
+                    <h5 class="page-title" style="margin-top: 9px"><strong>Dashboard</strong></h5>
+                    <hr>
+                    @foreach($datareservasi_wisatawan as $reservasiwisatawan)
                     <div class="panel">
-						<div class="panel-heading">
-                            <table class="table">
-                                <thead> 
-                                    <tr>
-                                        <th class="text-center">No.</th>
-                                        <th class="text-center">Nama Pemesan</th>
-                                        <th class="text-center">Email Pemesan</th>
-                                        <th class="text-center">Tanggal Kedatangan</th>
-                                        <th class="text-center">Tanggal Kepulangan</th>
-                                        <th class="text-center">Durasi Kemah</th>
-                                        <th class="text-center">Status</th>
-                                        <th class="text-center">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php $no = 1; @endphp
-                                    @foreach($datareservasi_wisatawan as $reservasiwisatawan)
-                                    <tr class="text-center">
-                                        <td>{{$no++}}</td>
-                                        <td>{{$reservasiwisatawan->nama_pemesan}}</td>
-                                        <td>{{$reservasiwisatawan->email_pemesan}}</td>
-                                        <td>{{$reservasiwisatawan->tgl_datang}}</td>
-                                        <td>{{$reservasiwisatawan->tgl_pulang}}</td>
-                                        <td>{{$reservasiwisatawan->durasi}} Hari</td>
-                                        <td>{{$reservasiwisatawan->status}}</td>
-                                        <td><?php 
-                                        if($reservasiwisatawan->status == 'Menunggu Pembayaran'){
-                                            echo '<html>';
-                                            echo '<form>';
-                                            echo '<form class="form-auth-small" action="/reservasi/{{$reservasiwisatawan->id}}/bayar" method="POST">';
-                                            echo csrf_field();
-                                            echo '<button type="submit" class="btn btn-warning" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Bayar</button>';
-                                            echo '</html>';
-                                        } elseif($reservasiwisatawan->status == 'Sudah Dibayar' ){
-                                            echo '<html>';
-                                            echo '<a class="btn btn-warning" data-toggle="modal" data-target="">Download Receipt</a>';
-                                            echo '</html>';
-                                        }
-                                        ?></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                        <div class="panel-heading">
+                            <h3><strong>Booking ID : #TBC{{$reservasiwisatawan->id}}</strong></h3>
+                            <div class="right">
+                                <?php
+                                    if($reservasiwisatawan->status == 'Menunggu Pembayaran'){
+                                        echo '<span class="label label-warning">Menunggu Pembayaran</span>';
+                                    } elseif($reservasiwisatawan->status == 'Sudah Dibayar' ){
+                                        echo '<span class="label label-info">Sudah Dibayar</span>';
+                                    } elseif($reservasiwisatawan->status == 'Completed'){
+                                        echo '<span class="label label-success">Completed</span>';
+                                    }
+                                ?>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <p>{{$reservasiwisatawan->nama_pemesan}}</p>
+                                <p>{{$reservasiwisatawan->email_pemesan}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>{{$reservasiwisatawan->tgl_datang}} - {{$reservasiwisatawan->tgl_pulang}}</p>
+                                <p>Durasi Kemah {{$reservasiwisatawan->durasi}} Hari</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p>Total Harus Dibayar :</p>
+                                <p>Rp {{$reservasiwisatawan->total_bayar}},-</p>
+                            </div>
+                            <div class="col-md-2">
+                                <?php
+                                    if($reservasiwisatawan->status == 'Menunggu Pembayaran'){
+                                        echo '<html>';
+                                        echo '<form>';
+                                        echo '<form class="form-auth-small" action="/reservasi/{{$reservasiwisatawan->id}}/bayar" method="PUT">';
+                                        echo '<button type="submit" class="btn btn-primary" style="width: 150px; height: 35px; background-color: #1688ae; border-color: #137697;">Bayar</button>';
+                                        echo '</html>';
+                                    } elseif($reservasiwisatawan->status == 'Sudah Dibayar'){
+                                        echo '<html>';
+                                        echo '<a class="btn btn-primary" href="/reservasi/unduh">Download Receipt</a>';
+                                        echo '</html>';
+                                    } 
+                                ?>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->

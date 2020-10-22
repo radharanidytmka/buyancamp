@@ -84,7 +84,7 @@
                                         <td>{{$history->tgl_datang}}</td>
                                         <td>{{$history->tgl_pulang}}</td>
                                         <td>{{$history->durasi}} Hari</td>
-                                        <td>{{$history->status}}</td>
+                                        <td><span class="label label-success">{{$history->status}}</span></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
