@@ -61,11 +61,22 @@
                     <h3 class="page-title" style="margin-top: 9px"><strong>Dashboard</strong></h3>
                     <hr>
                     <div class="panel">
-						<div class="panel-heading">
+						<div class="panel-heading"><br>
+                        <form class="form-auth-small" action="/dashboard/cari" method="POST">
+                            {{ csrf_field() }}
+                            <div class="col-md-5">
+                                <input name="cari" class="form-control" placeholder="Search..." value="{{ old('cari') }}" type="text">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary" style="width: 150px; height: 35px;background-color: #1688ae; border-color: #137697;">Search</button>
+                            </div>
+                            <br>
+                        </form>
+                        <br>
                             <table class="table">
                                 <thead> 
                                     <tr>
-                                        <th class="text-center">No.</th>
+                                        <th class="text-center">ID</th>
                                         <th class="text-center">Nama Pemesan</th>
                                         <th class="text-center">Email Pemesan</th>
                                         <th class="text-center">Tanggal Kedatangan</th>
@@ -76,10 +87,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php $no = 1; @endphp
                                     @foreach($datareservasi_admin as $reservasiadmin)
                                     <tr class="text-center">
-                                        <td>{{$no++}}</td>
+                                        <td>#TBC{{$reservasiadmin->id}}</td>
                                         <td>{{$reservasiadmin->nama_pemesan}}</td>
                                         <td>{{$reservasiadmin->email_pemesan}}</td>
                                         <td>{{$reservasiadmin->tgl_datang}}</td>

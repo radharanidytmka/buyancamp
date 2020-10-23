@@ -65,7 +65,7 @@
                             <table class="table">
                                 <thead> 
                                     <tr>
-                                        <th class="text-center">No.</th>
+                                        <th class="text-center">ID</th>
                                         <th class="text-center">Nama Pemesan</th>
                                         <th class="text-center">Email Pemesan</th>
                                         <th class="text-center">Tanggal Kedatangan</th>
@@ -75,16 +75,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php $no = 1; @endphp
                                     @foreach($datahistory as $history)
                                     <tr class="text-center">
-                                        <td>{{$no++}}</td>
+                                        <td>#TBC{{$history->id}}</td>
                                         <td>{{$history->nama_pemesan}}</td>
                                         <td>{{$history->email_pemesan}}</td>
                                         <td>{{$history->tgl_datang}}</td>
                                         <td>{{$history->tgl_pulang}}</td>
                                         <td>{{$history->durasi}} Hari</td>
-                                        <td><span class="label label-success">{{$history->konfirmasi}}</span></td>
+                                        <td>
+                                            <?php
+                                                if($history->konfirmasi == 'true'){
+                                                    echo '<span class="label label-success">Selesai</span>';
+                                                } 
+                                            ?>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

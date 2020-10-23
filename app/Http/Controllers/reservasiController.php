@@ -60,28 +60,37 @@ class reservasiController extends Controller
 
     // menampilkan data pada history admin
     public function history(){
-        $datahistory = \App\reservasi::where('konfirmasi', 'true')->get();
+        $datahistory = \App\reservasi::where('konfirmasi', 'true')->orderBy('id', 'DESC')->get();
         return view('admin.history', ['datahistory' => $datahistory]);
     }
 
     // menampilkan data dashboard admin
     public function admin(){
         $datareservasi_admin = \App\reservasi::where('status_pembayaran', 'Sudah Dibayar')
-                                ->where('konfirmasi', 'false')->get();
+                                ->where('konfirmasi', 'false')->orderBy('id', 'DESC')->get();
+        return view('admin.dashboard', ['datareservasi_admin' => $datareservasi_admin]);
+    }
+
+    // pencarian pada dashboard admin
+    public function cariDashboard(Request $request){
+        $cari = $request->cari;
+        $datareservasi_admin = \App\reservasi::where('status_pembayaran', 'Sudah Dibayar')
+                                ->where('konfirmasi', 'false')
+                                ->where('nama_pemesan','like',"%".$cari."%")->orderBy('id', 'DESC')->get();
         return view('admin.dashboard', ['datareservasi_admin' => $datareservasi_admin]);
     }
 
     // menampilkan data dashboard wisatawan
     public function wisatawan(){
         $datareservasi_wisatawan = \App\reservasi::where('email_pemesan', auth()->user()->email)
-                                    ->where('status_pembayaran', 'Sudah Dibayar')->get();
+                                    ->where('status_pembayaran', 'Sudah Dibayar')->orderBy('id', 'DESC')->get();
         return view('wisatawan.dashboardwisatawan', ['datareservasi_wisatawan' => $datareservasi_wisatawan]);
     }
 
     // menampilkan data wisatawan yang belum bayar 
     public function pembayaran(){
         $datareservasi_belumbayar = \App\reservasi::where('email_pemesan', auth()->user()->email)
-                                    ->where('status_pembayaran', 'Menunggu Pembayaran')->get();
+                                    ->where('status_pembayaran', 'Menunggu Pembayaran')->orderBy('id', 'DESC')->get();
         return view('wisatawan.pembayaran', ['datareservasi_belumbayar' => $datareservasi_belumbayar]);
     }
 }

@@ -34,7 +34,7 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown"><span><img src="assets/img/profile.jpg" width="25px" class="img-circle" style="margin-right: 10px" alt="Avatar">Hi, {{auth()->user()->name}}</span><i class="icon-submenu lnr lnr-chevron-down" style="margin-left: 10px;"></i>
                         <ul class="dropdown-menu">
-							<li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+							<li><a href="/logout"><i class="lnr lnr-exit"></i><span>Logout</span></a></li>
 						</ul>
                     </li>
                 </div>
@@ -45,7 +45,7 @@
 		<div id="sidebar-nav" class="sidebar">
 			<ul class="nav">
                 <li><a href="/dashboardwisatawan" class=""><i class="lnr lnr-home"></i><span> Dashboard</span></a></li>
-                <li><a href="/pembayaran" class=""><i class="lnr lnr-home"></i><span> Pembayaran</span></a></li>
+                <li><a href="/pembayaran" class=""><i class="lnr lnr-cart"></i><span> Payment</span></a></li>
                 <li><a href="/reservasi" class=""><i class="lnr lnr-calendar-full"></i><span> Booking Camp</span></a></li>
                 <li><a href="/event" class=""><i class="lnr lnr-calendar-full"></i><span> Booking for Event</span></a></li>
 				<li><a href="/profile" class=""><i class="lnr lnr-users"></i><span> Profile</span></a></li>
@@ -91,16 +91,16 @@
                         </div>
                         <div class="panel-body">
                             <div class="col-md-3">
+                                <p><strong>Nama Pemesan</strong></p>
                                 <p>{{$reservasiwisatawan->nama_pemesan}}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><strong>Email Pemesan</strong></p>
                                 <p>{{$reservasiwisatawan->email_pemesan}}</p>
                             </div>
                             <div class="col-md-4">
                                 <p>{{$reservasiwisatawan->tgl_datang}} - {{$reservasiwisatawan->tgl_pulang}}</p>
                                 <p>Durasi Kemah {{$reservasiwisatawan->durasi}} Hari</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p>Total Harus Dibayar :</p>
-                                <p>Rp {{$reservasiwisatawan->total_bayar}},-</p>
                             </div>
                             <div class="col-md-2">
                                 <form class="form-auth-small" action="/reservasi/{{$reservasiwisatawan->id}}/unduh" method="POST">

@@ -45,7 +45,7 @@
 		<div id="sidebar-nav" class="sidebar">
 			<ul class="nav">
                 <li><a href="/dashboardwisatawan" class=""><i class="lnr lnr-home"></i><span> Dashboard</span></a></li>
-                <li><a href="/pembayaran" class=""><i class="lnr lnr-home"></i><span> Pembayaran</span></a></li>
+                <li><a href="/pembayaran" class=""><i class="lnr lnr-cart"></i><span> Payment</span></a></li>
                 <li><a href="/reservasi" class=""><i class="lnr lnr-calendar-full"></i><span> Booking Camp</span></a></li>
                 <li><a href="/event" class=""><i class="lnr lnr-calendar-full"></i><span> Booking for Event</span></a></li>
 				<li><a href="/profile" class=""><i class="lnr lnr-users"></i><span> Profile</span></a></li>

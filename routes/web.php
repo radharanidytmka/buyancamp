@@ -24,6 +24,7 @@ Route::post('/user/create', 'AuthController@postregister');
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard', 'reservasiController@admin');
     Route::post('/reservasi/{id}/checkin', 'reservasiController@checkin');
+    Route::post('/dashboard/cari', 'reservasiController@cariDashboard');
     Route::get('/history', 'reservasiController@history');
     Route::get('/facility', 'fasilitasController@facility');
     Route::post('/facility/create', 'fasilitasController@create');
