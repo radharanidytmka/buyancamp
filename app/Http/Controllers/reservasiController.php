@@ -20,30 +20,36 @@ class reservasiController extends Controller
         $data->tgl_pulang = $request->reservasi_tglpulang;
         $data->durasi = $request->reservasi_durasi;
         $data->fasilitas = $request->reservasi_fasilitas;
-        $data->status = 'Menunggu Pembayaran';
+        $data->status_pembayaran = 'Menunggu Pembayaran';
+        $data->konfirmasi = "false";
         $data->request = $request->reservasi_request;
         $data->total_bayar = $request->reservasi_totalharga;
         $data->save();
-        return redirect('reservasi');
+        return redirect('pembayaran');
     }
 
-    public function bayar(Request $request, $id){
+    public function bayar($id){
         $data = reservasi::where('id', $id)->first();
-        $data->status = 'Sudah Dibayar';
+        $data->status_pembayaran = 'Sudah Dibayar';
         $data->save();
-        return redirect('reservasi');
+        return redirect('dashboardwisatawan');
     }
 
     public function unduhpdf($id){
         $reservasi = reservasi::where('id', $id)->get();
         $pdf = PDF::loadView('wisatawan.unduhpdf', ['reservasi' => $reservasi]);
-        // return redirect('dashboardwisatawan');
         return $pdf->download('reservasi.pdf');
-        
+    }
+
+    public function checkin($id){
+        $data = reservasi::where('id', $id)->first();
+        $data->konfirmasi = 'true';
+        $data->save();
+        return redirect('dashboard');
     }
 
     public function history(){
-        $datahistory = \App\reservasi::where('status', 'Completed')->get();
+        $datahistory = \App\reservasi::where('konfirmasi', 'true')->get();
         return view('admin.history', ['datahistory' => $datahistory]);
     }
 

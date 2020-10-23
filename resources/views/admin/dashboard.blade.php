@@ -43,10 +43,10 @@
         <!-- LEFT SIDEBAR -->
 		<div id="sidebar-nav" class="sidebar">
 			<ul class="nav">
-                <li><a href="/dashboard" class=""><i class="lnr lnr-calendar-full"></i><span>Daftar Reservasi</span></a></li>
-                <li><a href="/history" class=""><i class="lnr lnr-chart-bars"></i><span>Riwayat Reservasi</span></a></li>
-                <li><a href="/facility" class=""><i class="lnr lnr-magic-wand"></i><span>Kelola Fasilitas</span></a></li>
-                <li><a href="#" class=""><i class="lnr lnr-license"></i><span>Laporan Keuangan</span></a></li>
+                <li><a href="/dashboard" class=""><i class="lnr lnr-calendar-full"></i><span> Daftar Reservasi</span></a></li>
+                <li><a href="/history" class=""><i class="lnr lnr-chart-bars"></i><span> Riwayat Reservasi</span></a></li>
+                <li><a href="/facility" class=""><i class="lnr lnr-magic-wand"></i><span> Kelola Fasilitas</span></a></li>
+                <li><a href="#" class=""><i class="lnr lnr-license"></i><span> Laporan Keuangan</span></a></li>
             </ul>
 		</div>
 		<!-- END LEFT SIDEBAR -->
@@ -71,6 +71,7 @@
                                         <th class="text-center">Tanggal Kedatangan</th>
                                         <th class="text-center">Tanggal Kepulangan</th>
                                         <th class="text-center">Durasi Kemah</th>
+                                        <th class="text-center">Konfirmasi</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -78,13 +79,19 @@
                                     @php $no = 1; @endphp
                                     @foreach($datareservasi_admin as $reservasiadmin)
                                     <tr class="text-center">
-                                        <td colspan="2">{{$no++}}</td>
+                                        <td>{{$no++}}</td>
                                         <td>{{$reservasiadmin->nama_pemesan}}</td>
                                         <td>{{$reservasiadmin->email_pemesan}}</td>
                                         <td>{{$reservasiadmin->tgl_datang}}</td>
                                         <td>{{$reservasiadmin->tgl_pulang}}</td>
                                         <td>{{$reservasiadmin->durasi}} Hari</td>
-                                        <td><a class="btn btn-warning" data-toggle="modal" data-target="">Check In</a></td>
+                                        <td>{{$reservasiadmin->konfirmasi}}</td>
+                                        <td>
+                                        <form class="form-auth-small" action="/reservasi/{{$reservasiadmin->id}}/checkin" method="POST">
+                                            {{ csrf_field() }}
+                                            <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Check In</button>
+                                        </form>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

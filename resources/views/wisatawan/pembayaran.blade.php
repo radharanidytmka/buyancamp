@@ -65,26 +65,21 @@
                 <div class="navbar-btn">
                         <button type="button" class="btn-toggle-fullwidth"><img src="assets/img/gg_minimize.png" width="20px" class="img-circle" style="margin-right: 10px" alt="Avatar"></button>
                     </div>
-                    <h3 class="page-title" style="margin-top: 9px"><strong>Dashboard</strong></h3>
+                    <h3 class="page-title" style="margin-top: 9px"><strong>Pembayaran</strong></h3>
                     <hr>
-                    @foreach($datareservasi_wisatawan as $reservasiwisatawan)
+                    @foreach($datareservasi_belumbayar as $reservasiwisatawan)
                     <div class="panel">
                         <div class="panel-heading">
                             <h3><strong>Booking ID : #TBC{{$reservasiwisatawan->id}}</strong></h3>
                             <div class="right">
                                 <?php
                                     if($reservasiwisatawan->status_pembayaran == 'Menunggu Pembayaran'){
-                                        echo '<span class="label label-danger">Menunggu Pembayaran</span>';
+                                        echo '<span class="label label-warning">Menunggu Pembayaran</span>';
                                     } elseif($reservasiwisatawan->status_pembayaran == 'Sudah Dibayar' ){
-                                        echo '<span class="label label-success">Sudah Dibayar</span>';
-                                    } 
-                                ?>
-                                <?php
-                                    if($reservasiwisatawan->konfirmasi == 'false'){
-                                        echo '<span class="label label-warning">Belum Check In</span>';
-                                    } elseif($reservasiwisatawan->konfirmasi == 'true' ){
-                                        echo '<span class="label label-success">Sudah Check In</span>';
-                                    } 
+                                        echo '<span class="label label-info">Sudah Dibayar</span>';
+                                    } elseif($reservasiwisatawan->status_pembayaran == 'Completed'){
+                                        echo '<span class="label label-success">Completed</span>';
+                                    }
                                 ?>
                             </div>
                             <hr>
@@ -103,9 +98,9 @@
                                 <p>Rp {{$reservasiwisatawan->total_bayar}},-</p>
                             </div>
                             <div class="col-md-2">
-                                <form class="form-auth-small" action="/reservasi/{{$reservasiwisatawan->id}}/unduh" method="POST">
+                                <form class="form-auth-small" action="/reservasi/{{$reservasiwisatawan->id}}/bayar" method="POST">
                                     {{ csrf_field() }}
-                                    <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Download Receipt</button>
+                                    <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Bayar</button>
                                 </form>
                             </div>
                         </div>

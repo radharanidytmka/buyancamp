@@ -23,6 +23,7 @@ Route::post('/user/create', 'AuthController@postregister');
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard', 'dashboardController@admin');
+    Route::post('/reservasi/{id}/checkin', 'reservasiController@checkin');
     Route::get('/history', 'reservasiController@history');
     Route::get('/facility', 'fasilitasController@facility');
     Route::post('/facility/create', 'fasilitasController@create');
@@ -32,9 +33,10 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
 
 Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
     Route::get('/dashboardwisatawan', 'dashboardController@wisatawan');
+    Route::get('/pembayaran', 'dashboardController@pembayaran');
     Route::get('/reservasi', 'reservasiController@reservasi');
     Route::post('/reservasi/create', 'reservasiController@create');
-    Route::put('/reservasi/{id}/bayar', 'reservasiController@bayar');
+    Route::post('/reservasi/{id}/bayar', 'reservasiController@bayar');
     Route::post('/reservasi/{id}/unduh', 'reservasiController@unduhpdf');
     Route::get('/profile', 'profileController@profile');
     Route::post('/user/{id}/edit', 'profileController@editProfile');
