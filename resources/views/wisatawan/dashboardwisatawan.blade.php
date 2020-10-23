@@ -9,7 +9,8 @@
 	<!-- VENDOR CSS -->
 	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -43,10 +44,10 @@
         <!-- LEFT SIDEBAR -->
 		<div id="sidebar-nav" class="sidebar">
 			<ul class="nav">
-                <li><a href="/dashboardwisatawan" class=""><i class="lnr lnr-home"></i><span>Dashboard</span></a></li>
-                <li><a href="/reservasi" class=""><i class="lnr lnr-calendar-full"></i><span>Booking Camp</span></a></li>
-                <li><a href="/event" class=""><i class="lnr lnr-calendar-full"></i><span>Booking for Event</span></a></li>
-				<li><a href="/profile" class=""><i class="lnr lnr-users"></i><span>Profile</span></a></li>
+                <li><a href="/dashboardwisatawan" class=""><i class="lnr lnr-home"></i><span> Dashboard</span></a></li>
+                <li><a href="/reservasi" class=""><i class="lnr lnr-calendar-full"></i><span> Booking Camp</span></a></li>
+                <li><a href="/event" class=""><i class="lnr lnr-calendar-full"></i><span> Booking for Event</span></a></li>
+				<li><a href="/profile" class=""><i class="lnr lnr-users"></i><span> Profile</span></a></li>
             </ul>
             <footer>
             <div class="container-fluid">
@@ -63,7 +64,7 @@
                 <div class="navbar-btn">
                         <button type="button" class="btn-toggle-fullwidth"><img src="assets/img/gg_minimize.png" width="20px" class="img-circle" style="margin-right: 10px" alt="Avatar"></button>
                     </div>
-                    <h5 class="page-title" style="margin-top: 9px"><strong>Dashboard</strong></h5>
+                    <h3 class="page-title" style="margin-top: 9px"><strong>Dashboard</strong></h3>
                     <hr>
                     @foreach($datareservasi_wisatawan as $reservasiwisatawan)
                     <div class="panel">
@@ -96,19 +97,10 @@
                                 <p>Rp {{$reservasiwisatawan->total_bayar}},-</p>
                             </div>
                             <div class="col-md-2">
-                                <?php
-                                    if($reservasiwisatawan->status == 'Menunggu Pembayaran'){
-                                        echo '<html>';
-                                        echo '<form>';
-                                        echo '<form class="form-auth-small" action="/reservasi/{{$reservasiwisatawan->id}}/bayar" method="PUT">';
-                                        echo '<button type="submit" class="btn btn-primary" style="width: 150px; height: 35px; background-color: #1688ae; border-color: #137697;">Bayar</button>';
-                                        echo '</html>';
-                                    } elseif($reservasiwisatawan->status == 'Sudah Dibayar'){
-                                        echo '<html>';
-                                        echo '<a class="btn btn-primary" href="/reservasi/unduh">Download Receipt</a>';
-                                        echo '</html>';
-                                    } 
-                                ?>
+                                <form class="form-auth-small" action="/reservasi/{{$reservasiwisatawan->id}}/unduh" method="POST">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Download Receipt</button>
+                                </form>
                             </div>
                         </div>
                     </div>

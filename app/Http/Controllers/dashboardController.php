@@ -16,5 +16,8 @@ class dashboardController extends Controller
         return view('wisatawan.dashboardwisatawan', ['datareservasi_wisatawan' => $datareservasi_wisatawan]);
     }
 
-    
+    public function tunggubayar(){
+        $datareservasi_tunggubayar = wisatawan::where('status', 'Menunggu Pembayaran')->get();
+        return view('wisatawan.dashboardwisatawan', ['datareservasi_tunggubayar' => $datareservasi_tunggubayar]);
+    }
 }

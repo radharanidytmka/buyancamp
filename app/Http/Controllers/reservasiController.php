@@ -34,10 +34,12 @@ class reservasiController extends Controller
         return redirect('reservasi');
     }
 
-    public function unduhpdf(){
-        $reservasi = reservasi::all();
+    public function unduhpdf($id){
+        $reservasi = reservasi::where('id', $id)->get();
         $pdf = PDF::loadView('wisatawan.unduhpdf', ['reservasi' => $reservasi]);
+        // return redirect('dashboardwisatawan');
         return $pdf->download('reservasi.pdf');
+        
     }
 
     public function history(){

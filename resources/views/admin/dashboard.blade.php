@@ -78,7 +78,7 @@
                                     @php $no = 1; @endphp
                                     @foreach($datareservasi_admin as $reservasiadmin)
                                     <tr class="text-center">
-                                        <td>{{$no++}}</td>
+                                        <td colspan="2">{{$no++}}</td>
                                         <td>{{$reservasiadmin->nama_pemesan}}</td>
                                         <td>{{$reservasiadmin->email_pemesan}}</td>
                                         <td>{{$reservasiadmin->tgl_datang}}</td>

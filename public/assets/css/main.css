@@ -399,8 +399,7 @@ ul.notifications > li {
     .sidebar .nav > li > a .badge {
       font-weight: 400;
       background-color: #F9354C; }
-  .sidebar .nav {
-    /* submenu */ }
+  .sidebar .nav 
     .sidebar .nav i {
       margin-right: 10px;
       font-size: 18px; }
