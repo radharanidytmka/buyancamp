@@ -9,10 +9,12 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
+    // menampilkan halaman login
     public function login(){
         return view('login');
     }
 
+    // proses login
     public function postlogin(Request $request){
         if(Auth::attempt($request->only('email','password'))){
             return redirect('/dashboard');
@@ -20,15 +22,18 @@ class AuthController extends Controller
         return redirect('/login');
     }
 
+    // proses logout
     public function logout(){
         Auth::logout();
         return redirect('login');
     }
 
+    // menampilkan halaman register
     public function register(){
         return view('/register');
     }
 
+    // proses register
     public function postregister(Request $request){
         $data = new User();
         $data->role = 'wisatawan';
@@ -42,6 +47,23 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
+    // menampilkan halaman profile
+    public function profile(){
+        return view('wisatawan.profile');
+    }
+
+    // proses edit user
+    public function editProfile(Request $request, $id){
+        $data = User::where('id', $id)->first();
+        $data->name = $request->edit_nama;
+        $data->email = $request->edit_email;
+        $data->no_telepon = $request->edit_no;
+        $data->alamat = $request->edit_alamat;
+        $data->save();
+        return redirect('profile');
+    }
+
+    // menampilkan halaman to do
     public function todo(){
         return view('todo');
     }

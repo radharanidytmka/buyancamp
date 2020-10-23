@@ -22,7 +22,7 @@ Route::get('/register', 'AuthController@register');
 Route::post('/user/create', 'AuthController@postregister');
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
-    Route::get('/dashboard', 'dashboardController@admin');
+    Route::get('/dashboard', 'reservasiController@admin');
     Route::post('/reservasi/{id}/checkin', 'reservasiController@checkin');
     Route::get('/history', 'reservasiController@history');
     Route::get('/facility', 'fasilitasController@facility');
@@ -32,13 +32,13 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
-    Route::get('/dashboardwisatawan', 'dashboardController@wisatawan');
-    Route::get('/pembayaran', 'dashboardController@pembayaran');
+    Route::get('/dashboardwisatawan', 'reservasiController@wisatawan');
+    Route::get('/pembayaran', 'reservasiController@pembayaran');
     Route::get('/reservasi', 'reservasiController@reservasi');
     Route::post('/reservasi/create', 'reservasiController@create');
     Route::post('/reservasi/{id}/bayar', 'reservasiController@bayar');
     Route::post('/reservasi/{id}/unduh', 'reservasiController@unduhpdf');
-    Route::get('/profile', 'profileController@profile');
-    Route::post('/user/{id}/edit', 'profileController@editProfile');
+    Route::get('/profile', 'AuthController@profile');
+    Route::post('/user/{id}/edit', 'AuthController@editProfile');
     Route::get('/event', 'reservasiController@event');
 });
