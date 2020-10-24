@@ -58,55 +58,16 @@
                 <div class="navbar-btn">
                         <button type="button" class="btn-toggle-fullwidth"><img src="assets/img/gg_minimize.png" width="20px" class="img-circle" style="margin-right: 10px" alt="Avatar"></button>
                     </div>
-                    <h3 class="page-title" style="margin-top: 9px"><strong>Riwayat Reservasi</strong></h3>
+                    <h3 class="page-title" style="margin-top: 9px"><strong>Laporan Keuangan</strong></h3>
                     <hr>
                     <div class="panel">
-						<div class="panel-heading">
-                            <!-- fitur search -->
-                            <!-- <br>
-                        <form class="form-auth-small" action="/dashboard/cariHistory" method="GET">
-                            {{ csrf_field() }}
-                            <div class="col-md-5">
-                                <input name="cari" class="form-control" placeholder="Search..." value="{{ old('cari') }}" type="text">
+                        <div clas="panel-heading">
+                            <div class="text-right" style="margin-right: 20px">
+                                <br><button type="submit" class="btn btn-primary" style="width: 200px">EXPORT</button>
                             </div>
-                            <div>
-                                <button type="submit" class="btn btn-primary" style="width: 150px; height: 35px;background-color: #1688ae; border-color: #137697;">Search</button>
-                            </div>
-                            <br>
-                        </form> -->
-                        <br>
-                            <table class="table">
-                                <thead> 
-                                    <tr>
-                                        <th class="text-center">ID</th>
-                                        <th class="text-center">Nama Pemesan</th>
-                                        <th class="text-center">Email Pemesan</th>
-                                        <th class="text-center">Tanggal Kedatangan</th>
-                                        <th class="text-center">Tanggal Kepulangan</th>
-                                        <th class="text-center">Durasi Kemah</th>
-                                        <th class="text-center">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($datahistory as $history)
-                                    <tr class="text-center">
-                                        <td>#TBC{{$history->id}}</td>
-                                        <td>{{$history->nama_pemesan}}</td>
-                                        <td>{{$history->email_pemesan}}</td>
-                                        <td>{{$history->tgl_datang}}</td>
-                                        <td>{{$history->tgl_pulang}}</td>
-                                        <td>{{$history->durasi}} Hari</td>
-                                        <td>
-                                            <?php
-                                                if($history->konfirmasi == 'true'){
-                                                    echo '<span class="label label-success">Selesai</span>';
-                                                } 
-                                            ?>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                        </div>
+                        <div class="panel-body">
+                            <br><p>tes</p>
                         </div>
                     </div>
 				</div>

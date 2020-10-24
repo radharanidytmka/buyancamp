@@ -46,7 +46,7 @@ class reservasiController extends Controller
     // proses export receipt pdf
     public function unduhpdf($id){
         $reservasi = reservasi::where('id', $id)->get();
-        $pdf = PDF::loadView('wisatawan.unduhpdf', ['reservasi' => $reservasi]);
+        $pdf = PDF::loadView('wisatawan.unduhpdf', ['reservasi' => $reservasi])->setPaper('a4', 'portrait');
         return $pdf->download('reservasi.pdf');
     }
 
@@ -78,6 +78,19 @@ class reservasiController extends Controller
                                 ->where('konfirmasi', 'false')
                                 ->where('nama_pemesan','like',"%".$cari."%")->orderBy('id', 'DESC')->get();
         return view('admin.dashboard', ['datareservasi_admin' => $datareservasi_admin]);
+    }
+
+    // pencarian pada history admin
+    public function cariHistory(Request $request){
+        $cari = $request->cari;
+        $datareservasi_admin = \App\reservasi::where('konfirmasi', 'false')
+                                ->where('nama_pemesan','like',"%".$cari."%")->orderBy('id', 'DESC')->get();
+        return view('admin.dashboard', ['datareservasi_admin' => $datareservasi_admin]);
+    }
+
+    // menampilkan data dashboard admin
+    public function laporan(){
+        return view('admin.laporankeuangan');
     }
 
     // menampilkan data dashboard wisatawan

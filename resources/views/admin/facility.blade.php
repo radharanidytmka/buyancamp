@@ -43,10 +43,10 @@
         <!-- LEFT SIDEBAR -->
 		<div id="sidebar-nav" class="sidebar">
 			<ul class="nav">
-                <li><a href="/dashboard" class=""><i class="lnr lnr-calendar-full"></i><span>Daftar Reservasi</span></a></li>
-                <li><a href="/history" class=""><i class="lnr lnr-chart-bars"></i><span>Riwayat Reservasi</span></a></li>
-                <li><a href="/facility" class=""><i class="lnr lnr-magic-wand"></i><span>Kelola Fasilitas</span></a></li>
-                <li><a href="#" class=""><i class="lnr lnr-license"></i><span>Laporan Keuangan</span></a></li>
+                <li><a href="/dashboard" class=""><i class="lnr lnr-calendar-full"></i><span> Daftar Reservasi</span></a></li>
+                <li><a href="/history" class=""><i class="lnr lnr-chart-bars"></i><span> Riwayat Reservasi</span></a></li>
+                <li><a href="/facility" class=""><i class="lnr lnr-magic-wand"></i><span> Kelola Fasilitas</span></a></li>
+                <li><a href="/laporankeuangan" class=""><i class="lnr lnr-license"></i><span> Laporan Keuangan</span></a></li>
             </ul>
             <footer>
             <div class="container-fluid">

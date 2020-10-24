@@ -46,7 +46,7 @@
                 <li><a href="/dashboard" class=""><i class="lnr lnr-calendar-full"></i><span> Daftar Reservasi</span></a></li>
                 <li><a href="/history" class=""><i class="lnr lnr-chart-bars"></i><span> Riwayat Reservasi</span></a></li>
                 <li><a href="/facility" class=""><i class="lnr lnr-magic-wand"></i><span> Kelola Fasilitas</span></a></li>
-                <li><a href="#" class=""><i class="lnr lnr-license"></i><span> Laporan Keuangan</span></a></li>
+                <li><a href="/laporankeuangan" class=""><i class="lnr lnr-license"></i><span> Laporan Keuangan</span></a></li>
             </ul>
 		</div>
 		<!-- END LEFT SIDEBAR -->
@@ -61,9 +61,10 @@
                     <h3 class="page-title" style="margin-top: 9px"><strong>Dashboard</strong></h3>
                     <hr>
                     <div class="panel">
-						<div class="panel-heading"><br>
-                        <form class="form-auth-small" action="/dashboard/cari" method="POST">
-                            {{ csrf_field() }}
+                        <div class="panel-heading">
+                        <!-- fitur search -->
+                        <!-- <form class="form-auth-small" action="/dashboard/cari" method="GET">
+                            {{ @csrf_field() }}
                             <div class="col-md-5">
                                 <input name="cari" class="form-control" placeholder="Search..." value="{{ old('cari') }}" type="text">
                             </div>
@@ -71,7 +72,7 @@
                                 <button type="submit" class="btn btn-primary" style="width: 150px; height: 35px;background-color: #1688ae; border-color: #137697;">Search</button>
                             </div>
                             <br>
-                        </form>
+                        </form> -->
                         <br>
                             <table class="table">
                                 <thead> 
@@ -82,7 +83,7 @@
                                         <th class="text-center">Tanggal Kedatangan</th>
                                         <th class="text-center">Tanggal Kepulangan</th>
                                         <th class="text-center">Durasi Kemah</th>
-                                        <th class="text-center">Konfirmasi</th>
+                                        <th class="text-center">Detail Reservasi</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -95,14 +96,47 @@
                                         <td>{{$reservasiadmin->tgl_datang}}</td>
                                         <td>{{$reservasiadmin->tgl_pulang}}</td>
                                         <td>{{$reservasiadmin->durasi}} Hari</td>
-                                        <td>{{$reservasiadmin->konfirmasi}}</td>
-                                        <td>
-                                        <form class="form-auth-small" action="/reservasi/{{$reservasiadmin->id}}/checkin" method="POST">
-                                            {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Check In</button>
-                                        </form>
+                                        <td><a class="label label-success" data-toggle="modal" data-target="#detail{{$reservasiadmin->id}}">Show Detail</a></td>
+                                        <td><a class="btn btn-primary" style="margin-left: 5px" data-toggle="modal" data-target="#checkin{{$reservasiadmin->id}}">Check In</a>
                                         </td>
                                     </tr>
+                                    <!-- modal detail -->
+                                    <div id="detail{{$reservasiadmin->id}}" class="modal fade" tabindex="-1" aria-labelledby="hapusFasilitas" aria-hidden="true" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header" style="text-align: center">
+                                                    <h4 class="modal-title"><strong>Detail Reservasi #TBC{{$reservasiadmin->id}}</strong></h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>tes</p>
+                                                    <hr>
+                                                    <div style="text-align: right">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- modal check in -->
+                                    <div id="checkin{{$reservasiadmin->id}}" class="modal fade" tabindex="-1" aria-labelledby="hapusFasilitas" aria-hidden="true" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header" style="text-align: center">
+                                                    <h4 class="modal-title"><strong>Konfirmasi Kedatangan</strong></h4>
+                                                </div>
+                                                <form class="form-auth-small" action="/reservasi/{{$reservasiadmin->id}}/checkin" method="POST">
+                                                    {{ csrf_field() }}
+                                                    <div class="modal-body" style="text-align: center">
+                                                        <h4><strong>Konfirmasi reservasi dengan booking ID #TBC{{$reservasiadmin->id}} ?</strong></h4>
+                                                    </div>
+                                                    <div style="text-align: center; margin-right: 10px; margin-bottom: 10px">
+                                                        <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Ya</button>
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Tidak</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                     @endforeach
                                 </tbody>
                             </table>

@@ -1,4 +1,19 @@
-<table class="table">
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Tepi Buyan Campfire</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/demo.css">
+</head>
+
+<body >
+<div class="container">
+    <div class="text-center" style="background-color: #f8f8f8;">
+        <h2><strong>Tepi Buyan Campfire</strong></h2>
+    </div>
+    <table class="table">
                                 <thead> 
                                     <tr>
                                         <th class="text-center">No.</th>
@@ -25,3 +40,12 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
+</div>
+        
+</body>
+
+</html>
+
+
+

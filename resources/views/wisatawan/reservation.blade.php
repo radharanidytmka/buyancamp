@@ -107,32 +107,38 @@
                                     <input name="reservasi_durasi" class="form-control" placeholder="Durasi" type="text" id="selisih">
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-4 navbar-btn">
                                 <p>Fasilitas</p>
+                                <button type="button" data-toggle="modal" data-target="#fasilitas" class=""><img src="assets/img/button-plus.png" width="30px"></button>
+                                <br><br>
+                                <p>Any Request?</p>
+                                <textarea name="reservasi_request" class="form-control" placeholder="Request" type="text" rows="3"></textarea>
+                                <br>
+                            </div>
+                            <div class="col-md-4">
+                                <p>Total Harga</p>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-plus"></i></span>
-                                    <input name="reservasi_fasilitas" class="form-control" placeholder="Nama" type="text">
+                                    <span class="input-group-addon"></span>
+                                    <input name="reservasi_totalharga" class="form-control" placeholder="Total Harga" value=60000 type="text">
                                 </div>
                                 <br>
-                                <p>Any Request?</p>
-                                <textarea name="reservasi_request" class="form-control" placeholder="Request" type="text" rows="6"></textarea>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-8" style="margin-right: 15px;">
-                                        <p>Total Harga</p>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"></span>
-                                            <input name="reservasi_totalharga" class="form-control" placeholder="Total Harga" value=60000 type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3" style="margin-top: 20px">
-                                        <button type="submit" class="btn btn-primary" style="width: 200px">BOOK</button>
-                                    </div>
+                                <button type="submit" class="btn btn-primary" style="width: 200px">BOOK</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- modal tambah fasilitas -->
+                    <div id="fasilitas" class="modal fade" tabindex="-1" aria-labelledby="editFasilitas" aria-hidden="true" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="text-align: center">
+                                    <p>tambah fasilitas</p>
+                                </div>
+                                <div class="modal-body" style="text-align: left">
+                                                
                                 </div>
                             </div>
                         </div>
-					</form>
-                    
+                    </div>
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
