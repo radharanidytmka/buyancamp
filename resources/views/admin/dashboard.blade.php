@@ -53,7 +53,7 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="/logout">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -108,8 +108,8 @@
                         <td>{{$reservasiadmin->tgl_datang}}</td>
                         <td>{{$reservasiadmin->tgl_pulang}}</td>
                         <td>{{$reservasiadmin->durasi}} Hari</td>
-                        <td><button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#detail{{$reservasiadmin->id}}">Show Detail</button></td>
-                        <td><button class="btn-sm btn btn-primary" style="margin-left: 5px" data-toggle="modal" data-target="#checkin{{$reservasiadmin->id}}">Check In</button></td>
+                        <td><button class="btn btn-warning btn-sm" style="border-radius:10rem" data-toggle="modal" data-target="#detail{{$reservasiadmin->id}}">Show Detail</button></td>
+                        <td><button class="btn-sm btn btn-primary" style="margin-left: 5px; border-radius:10rem" data-toggle="modal" data-target="#checkin{{$reservasiadmin->id}}">Check In</button></td>
                     </tr>
                     <!-- modal detail -->
                     <div id="detail{{$reservasiadmin->id}}" class="modal fade" tabindex="-1" aria-labelledby="hapusFasilitas" aria-hidden="true" role="dialog">
@@ -117,37 +117,37 @@
                             <div class="modal-content">
                                 <div class="modal-header" style="text-align: center">
                                     <h4 class="modal-title"><strong>Detail Reservasi #TBC{{$reservasiadmin->id}}</strong></h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>tes</p>
-                                                    <hr>
-                                                    <div style="text-align: right">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="modal-body">
+                                    <p>tes</p>
+                                    <hr>
+                                    <div style="text-align: right">
+                                        <button type="button" class="btn btn-warning btn-sm btn-user" data-dismiss="modal" style="width: 150px; border-radius:10rem">Close</button>
                                     </div>
-                                    <!-- modal check in -->
-                                    <div id="checkin{{$reservasiadmin->id}}" class="modal fade" tabindex="-1" aria-labelledby="hapusFasilitas" aria-hidden="true" role="dialog">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header" style="text-align: center">
-                                                    <h4 class="modal-title"><strong>Konfirmasi Kedatangan</strong></h4>
-                                                </div>
-                                                <form class="form-auth-small" action="/reservasi/{{$reservasiadmin->id}}/checkin" method="POST">
-                                                    {{ csrf_field() }}
-                                                    <div class="modal-body" style="text-align: center">
-                                                        <h4><strong>Konfirmasi reservasi dengan booking ID #TBC{{$reservasiadmin->id}} ?</strong></h4>
-                                                    </div>
-                                                    <div style="text-align: center; margin-right: 10px; margin-bottom: 10px">
-                                                        <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Ya</button>
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Tidak</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal check in -->
+                    <div id="checkin{{$reservasiadmin->id}}" class="modal fade" tabindex="-1" aria-labelledby="hapusFasilitas" aria-hidden="true" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="text-align: center">
+                                    <p class="modal-title text-center"><strong>Konfirmasi Kedatangan</strong></p>
+                                </div>
+                                <form class="user" action="/reservasi/{{$reservasiadmin->id}}/checkin" method="POST">
+                                    {{ csrf_field() }}
+                                    <div class="modal-body" style="text-align: center">
+                                        <p><strong>Konfirmasi reservasi dengan booking ID #TBC{{$reservasiadmin->id}} ?</strong></p>
                                     </div>
+                                    <div style="text-align: center; margin-right: 10px; margin-bottom: 10px">
+                                        <button type="submit" class="btn btn-user btn-sm btn-warning" style="width: 100px; border-radius:10rem">Ya</button>
+                                        <button type="button" class="btn btn-sm btn-user btn-primary" data-dismiss="modal" style="width: 100px; border-radius:10rem">Tidak</button>
+                                     </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
                   </tbody>
                 </table>
@@ -159,24 +159,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="/logout">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
    <!-- Bootstrap core JavaScript-->
    <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

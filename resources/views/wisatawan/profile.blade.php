@@ -57,7 +57,7 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="/logout" >
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -93,7 +93,7 @@
             <div class="col-lg-4">
                 <div class="card mb-4">
                     <div class="card-body" style="text-align: center">
-                    <img src="assets/img/profile.jpg" class="img-profile rounded-circle" width="200px" alt="Avatar">
+                    <img src="assets/img/team/1.jpg" class="img-profile rounded-circle" width="200px" alt="Avatar">
                         <hr>
                         <h3><strong>{{auth()->user()->name}}</strong></h3>
                         <p>{{auth()->user()->role}}</p>
@@ -103,25 +103,25 @@
             <div class="col-lg-8">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <button class="btn btn-warning btn-user btn-block " data-toggle="modal" data-target="#editProfile" style="width: 150px; float: right">Edit Profile</button>
+                        <button class="btn btn-warning btn-user btn-block " data-toggle="modal" data-target="#editProfile" style="width: 150px; float: right; border-radius:10rem">Edit Profile</button>
                     </div>
                     <div class="card-body">
                     <form class="user">
                             <div class="form-group">
-								<input type="text" class="form-control form-control-user" value="{{auth()->user()->name}}" readonly >
-							</div>
-                            <div class="form-group">
-								<input type="text" class="form-control form-control-user" value="{{auth()->user()->email}}" readonly >
-							</div>
-                            <div class="form-group">
-								<input type="text" class="form-control form-control-user" value="{{auth()->user()->tgllahir}}" readonly >
-							</div>
-                            <div class="form-group">
-								<input type="text" class="form-control form-control-user" value="{{auth()->user()->no_telepon}}" readonly >
+                              <input type="text" class="form-control form-control-user" value="{{auth()->user()->name}}" readonly >
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control form-control-user" value="{{auth()->user()->alamat}}" readonly >
-							</div>
+                              <input type="text" class="form-control form-control-user" value="{{auth()->user()->email}}" readonly >
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="form-control form-control-user" value="{{auth()->user()->tgllahir}}" readonly >
+                            </div>
+                            <div class="form-group">
+								              <input type="text" class="form-control form-control-user" value="{{auth()->user()->no_telepon}}" readonly >
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="form-control form-control-user" value="{{auth()->user()->alamat}}" readonly >
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -131,24 +131,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/logout">Logout</a>
-            </div>
-        </div>
-        </div>
-    </div>
     <!-- modal edit -->
     <div id="editProfile" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -191,100 +173,6 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-
-	<!-- <div id="wrapper" >
-        <div class="main">
-			<div class="main-content">
-				<div class="container-fluid">
-                <div class="navbar-btn">
-                        <button type="button" class="btn-toggle-fullwidth"><img src="assets/img/gg_minimize.png" width="20px" class="img-circle" style="margin-right: 10px" alt="Avatar"></button>
-                    </div>
-                    <h3 class="page-title" style="margin-top: 9px"><strong>Profile</strong></h3>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-4" style="margin-right: 20px; margin-left: 35px">
-                            <div class="panel">
-								<div class="panel-heading"  style="text-align: center">
-                                    <img src="assets/img/profile.jpg" class="img-circle" width="200px" alt="Avatar">
-                                    <hr>
-                                    <h3><strong>{{auth()->user()->name}}</strong></h3>
-                                    <p>{{auth()->user()->role}}</p>
-								</div>
-							</div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="panel">
-                                <div class="panel-heading"  style="text-align: right">
-                                    <a class="btn btn-primary" data-toggle="modal" data-target="#editProfile">Edit Profile</a>
-                                    <div id="editProfile" class="modal fade" role="dialog">
-                                        <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header" style="text-align: center">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title"><strong>Edit Profile</strong></h4>
-                                            </div>
-                                            <div class="modal-body" style="text-align: left">
-                                            <form class="form-auth-small" action="/user/{{auth()->user()->id}}/edit" method="POST">
-                                                {{ csrf_field() }}
-                                                <div class="form-group">
-                                                    <p><strong>Nama</strong></p>
-                                                    <input name="edit_nama" class="form-control" placeholder="Nama" value="{{auth()->user()->name}}" type="text">
-                                                </div>
-                                                <div class="form-group">
-                                                    <p><strong>Email</strong></p>
-                                                    <input name="edit_email" class="form-control" placeholder="Nama" value="{{auth()->user()->email}}" type="text">
-                                                </div>
-                                                <div class="form-group">
-                                                    <p><strong>Nomor Telepon</strong></p>
-                                                    <input name="edit_no" class="form-control" placeholder="Nama" value="{{auth()->user()->no_telepon}}" type="text">
-                                                </div>
-                                                <div class="form-group">
-                                                    <p><strong>Alamat</strong></p>
-                                                    <input name="edit_alamat" class="form-control" placeholder="Nama" value="{{auth()->user()->alamat}}" type="text">
-                                                </div>
-                                                <hr>
-                                                <div style="text-align: right">
-                                                    <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Save Changes</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>    
-                            </div>
-                            <hr>
-                                <div class="panel-body" style="text-align: left">
-                                    <div class="row">
-                                        <div class="col-md-4" style="margin-right: 20px">
-                                            <h5><strong>Nama</strong></h5>
-                                            <br>
-                                            <h5><strong>Email</strong></h5>
-                                            <br>
-                                            <h5><strong>Nomor Telepon</strong></h5>
-                                            <br>
-                                            <h5><strong>Alamat</strong></h5>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input class="form-control" placeholder="Nama" value="{{auth()->user()->name}}" readonly type="text">
-                                            <br>
-                                            <input class="form-control" placeholder="Nama" value="{{auth()->user()->email}}" readonly type="text">
-                                            <br>
-                                            <input class="form-control" placeholder="Nama" value="{{auth()->user()->no_telepon}}" readonly type="text">
-                                            <br>
-                                            <input class="form-control" placeholder="Nama" value="{{auth()->user()->alamat}}" readonly type="text">
-                                        </div>
-                                    </div>
-                                </div>
-							</div>
-                        </div>
-                    </div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/scripts/klorofil-common.js"></script> -->
 </body>
 
 </html>

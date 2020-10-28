@@ -53,7 +53,7 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="/logout">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -109,7 +109,7 @@
                         <td>{{$history->tgl_pulang}}</td>
                         <td>{{$history->durasi}} Hari</td>
                         <td>Selesai</td>
-                        <td><button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#detail{{$history->id}}">Show Detail</button></td>
+                        <td><button class="btn btn-warning btn-sm btn-user" style="border-radius:10rem" data-toggle="modal" data-target="#detail{{$history->id}}">Show Detail</button></td>
                     </tr>
                     <!-- modal detail -->
                     <div id="detail{{$history->id}}" class="modal fade" tabindex="-1" aria-labelledby="hapusFasilitas" aria-hidden="true" role="dialog">
@@ -122,7 +122,7 @@
                                     <p>tes</p>
                                     <hr>
                                     <div style="text-align: right">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Close</button>
+                                        <button type="button" class="btn btn-warning btn-user btn-sm" data-dismiss="modal" style="width: 150px; border-radius:10rem">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -139,24 +139,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="/logout">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
    <!-- Bootstrap core JavaScript-->
    <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

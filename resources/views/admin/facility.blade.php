@@ -53,7 +53,7 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="/logout" >
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -81,13 +81,13 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800"><strong>Daftar Reservasi</strong></h1>
+            <h1 class="h3 mb-0 text-gray-800"><strong>Kelola Fasilitas</strong></h1>
           </div>
           <hr>
           <br>
           <div class="card shadow mb-4">
             <div class="card-body">
-              <button class="btn btn-warning btn-sm " style="margin-left: 5px; float: right" data-toggle="modal" data-target="#tambahFasilitas">Tambah Fasilitas</button>
+              <button class="btn btn-warning btn-sm " style="margin-left: 5px; float: right; border-radius:10rem" data-toggle="modal" data-target="#tambahFasilitas">Tambah Fasilitas</button>
               <div class="table-responsive">
                   <hr>
                 <table class="table table-bordered" style="text-align: center" id="dataTable" width="100%" cellspacing="0">
@@ -108,34 +108,37 @@
                         <td>{{$fasilitas->nama_fasilitas}}</td>
                         <td>{{$fasilitas->harga}}</td>
                         <td>{{$fasilitas->jumlah}}</td>
-                        <td><button class="btn btn-sm btn-warning" data-toggle="modal" style="width: 60px" data-target="#editFasilitas{{$fasilitas->id}}">Edit</button>
-                        <button class="btn btn-sm btn-danger" style="margin-left: 5px; width: 60px" data-toggle="modal" data-target="#hapusFasilitas{{$fasilitas->id}}">Delete</button></td>
+                        <td><button class="btn btn-sm btn-warning" data-toggle="modal" style="width: 80px; border-radius:10rem" data-target="#editFasilitas{{$fasilitas->id}}">Edit</button>
+                        <button class="btn btn-sm btn-primary" style="margin-left: 5px; width: 80px; border-radius:10rem" data-toggle="modal" data-target="#hapusFasilitas{{$fasilitas->id}}">Delete</button></td>
                     </tr>
                     <!-- modal edit -->
                     <div id="editFasilitas{{$fasilitas->id}}" class="modal fade" tabindex="-1" aria-labelledby="editFasilitas" aria-hidden="true" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header" style="text-align: center">
-                                                <h4 class="modal-title"><strong>Edit Fasilitas</strong></h4>
+                                                <p class="modal-title"><strong>Edit Fasilitas</strong></p>
                                             </div>
                                             <div class="modal-body" style="text-align: left">
                                                 <form class="user" action="/facility/{{$fasilitas->id}}/edit" method="POST">
                                                     {{ csrf_field() }}
                                                     <div class="form-group">
-                                                        <p><strong>Nama Fasilitas</strong></p>
-                                                        <input name="edit_namafasilitas" class="form-control form-control-user" placeholder="Nama" value="{{$fasilitas->nama_fasilitas}}" type="text">
+                                                        <p style="font-size: 12px"><strong>Nama Fasilitas</strong></p>
+                                                        <input name="edit_namafasilitas" class="form-control form-control-user" placeholder="Nama" value="{{$fasilitas->nama_fasilitas}}" type="text"
+                                                        style="font-size:.8rem;border-radius:10rem;padding:1rem 1rem">
                                                     </div>
                                                     <div class="form-group">
-                                                        <p><strong>Harga</strong></p>
-                                                        <input name="edit_harga" class="form-control form-control-user" placeholder="Nama" value="{{$fasilitas->harga}}" type="text">
+                                                        <p style="font-size: 12px"><strong>Harga</strong></p>
+                                                        <input name="edit_harga" class="form-control form-control-user" placeholder="Nama" value="{{$fasilitas->harga}}" type="text"
+                                                        style="font-size:.8rem;border-radius:10rem;padding:1rem 1rem">
                                                     </div>
                                                     <div class="form-group">
-                                                        <p><strong>Jumlah</strong></p>
-                                                        <input name="edit_jumlah" class="form-control form-control-user" placeholder="Nama" value="{{$fasilitas->jumlah}}" type="text">
+                                                        <p style="font-size: 12px"><strong>Jumlah</strong></p>
+                                                        <input name="edit_jumlah" class="form-control form-control-user" placeholder="Nama" value="{{$fasilitas->jumlah}}" type="text"
+                                                        style="font-size:.8rem;border-radius:10rem;padding:1rem 1rem">
                                                     </div>
                                                     <hr>
                                                     <div style="text-align: right">
-                                                        <button type="submit" class="btn btn-warning btn-sm">Save Changes</button>
+                                                        <button type="submit" class="btn btn-warning btn-user btn-sm" style="border-radius:10rem">Save Changes</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -147,19 +150,20 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header" style="text-align: center">
-                                                <h4 class="modal-title"><strong>Hapus Fasilitas</strong></h4>
+                                                <p class="modal-title"><strong>Hapus Fasilitas</strong></p>
                                             </div>
-                                            <form class="form-auth-small" action="/facility/{{$fasilitas->id}}/hapus" method="POST">
-                                                {{ csrf_field() }}
-                                                <div class="modal-body" style="text-align: center">
-                                                    <h4><strong>Yakin hapus fasilitas {{$fasilitas->nama_fasilitas}} ?</strong></h4>
-                                                </div>
-                                                <hr>
-                                                <div style="text-align: center; margin-right: 10px; margin-bottom: 10px">
-                                                    <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Ya</button>
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Tidak</button>
-                                                </div>
-                                            </form>
+                                            <div class="modal-body" style="text-align: left">
+                                                <form class="user" action="/facility/{{$fasilitas->id}}/hapus" method="POST">
+                                                    {{ csrf_field() }}
+                                                    <div class="modal-body" style="text-align: center">
+                                                        <p><strong>Yakin hapus fasilitas {{$fasilitas->nama_fasilitas}} ?</strong></p>
+                                                    </div>
+                                                    <div style="text-align: center;">
+                                                        <button type="submit" class="btn btn-user btn-sm btn-warning" style="width: 100px; border-radius:10rem" >Ya</button>
+                                                        <button type="button" class="btn btn-sm btn-user btn-primary" style="width: 100px; border-radius:10rem" data-dismiss="modal" >Tidak</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -171,27 +175,26 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header" style="text-align: center">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title"><strong>Tambah Fasilitas</strong></h4>
+                                        <p class="modal-title"><strong>Tambah Fasilitas</strong></p>
                                     </div>
                                     <div class="modal-body" style="text-align: left">
-                                        <form class="form-auth-small" action="/facility/create" method="POST">
+                                        <form class="user" action="/facility/create" method="POST">
                                             {{ csrf_field() }}
                                             <div class="form-group">
-                                                <p><strong>Nama Fasilitas</strong></p>
-                                                <input name="create_namafasilitas" class="form-control" placeholder="Nama Fasilitas" type="text">
+                                                <p style="font-size: 12px"><strong>Nama Fasilitas</strong></p>
+                                                <input name="create_namafasilitas" class="form-control form-control-user" placeholder="Nama Fasilitas" type="text">
                                             </div>
                                             <div class="form-group">
-                                                <p><strong>Harga</strong></p>
-                                                <input name="create_harga" class="form-control" placeholder="Harga" type="text">
+                                                <p style="font-size: 12px"><strong>Harga</strong></p>
+                                                <input name="create_harga" class="form-control form-control-user" placeholder="Harga" type="text">
                                             </div>
                                             <div class="form-group">
-                                                <p><strong>Jumlah</strong></p>
-                                                <input name="create_jumlah" class="form-control" placeholder="Jumlah" type="text">
+                                                <p style="font-size: 12px"><strong>Jumlah</strong></p>
+                                                <input name="create_jumlah" class="form-control form-control-user" placeholder="Jumlah" type="text">
                                             </div>
                                             <hr>
                                             <div style="text-align: right">
-                                                <button type="submit" class="btn btn-primary" style="width: 150px; height: 40px;background-color: #1688ae; border-color: #137697;">Submit</button>
+                                                <button type="submit" class="btn btn-sm btn-user btn-warning" style="width: 100px">Submit</button>
                                             </div>
                                         </form>
                                     </div>

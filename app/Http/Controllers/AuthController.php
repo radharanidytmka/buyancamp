@@ -59,6 +59,7 @@ class AuthController extends Controller
         $data->name = $request->edit_nama;
         $data->email = $request->edit_email;
         $data->no_telepon = $request->edit_no;
+        $data->tgllahir = $request->edit_tgllahir;
         $data->alamat = $request->edit_alamat;
         $data->save();
         return redirect('profile');

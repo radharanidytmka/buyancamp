@@ -56,7 +56,7 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="/logout" >
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -117,9 +117,9 @@
             <br>
                 <h2 ><strong>CONTACT US!</strong></h2>
                 <br>
-                <a class="btn btn-success" style="width: 300px" href="https://wa.me/628112777135?text=Halo admin, saya mau tanya">Chat Via WhatsApp</a>
+                <a class="btn btn-success" style="width: 300px; border-radius:10rem" href="https://wa.me/628112777135?text=Halo admin, saya mau tanya">Chat Via WhatsApp</a>
                 <br><br>
-                <a class="btn btn-danger " style="width: 300px" href="https://www.instagram.com/tepibuyancampfire/">Chat Via Instagram</a>
+                <a class="btn btn-danger " style="width: 300px; border-radius:10rem" href="https://www.instagram.com/tepibuyancampfire/">Chat Via Instagram</a>
             </div>
         </div>
     </div>
@@ -127,24 +127,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="/logout">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
