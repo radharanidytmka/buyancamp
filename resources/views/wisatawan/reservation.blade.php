@@ -26,7 +26,6 @@
 
 <body >
 	<div id="wrapper" >
-		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
 				<a href="#" ><span><img src="assets/img/tepibuyan-logo.png" width="30px" class="img-circle" style="margin-right: 10px" alt="Avatar"><strong>Tepi Buyan Campfire</strong></span>
@@ -42,8 +41,6 @@
                 </div>
 			</div>
 		</nav>
-		<!-- END NAVBAR -->
-        <!-- LEFT SIDEBAR -->
 		<div id="sidebar-nav" class="sidebar">
 			<ul class="nav">
             <li><a href="/dashboardwisatawan" class=""><i class="lnr lnr-home"></i><span> Dashboard</span></a></li>
@@ -58,8 +55,6 @@
 			</div>
         </footer>
 		</div>
-		<!-- END LEFT SIDEBAR -->
-        <!-- MAIN -->
         <div class="main">
 			<!-- MAIN CONTENT -->
 			<div class="main-content">

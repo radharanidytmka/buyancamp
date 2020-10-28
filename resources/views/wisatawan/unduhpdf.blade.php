@@ -4,8 +4,6 @@
 <head>
 	<title>Tepi Buyan Campfire</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<link rel="stylesheet" href="assets/css/demo.css">
 </head>
 
 <body >
@@ -29,7 +27,7 @@
                                     @php $no = 1; @endphp
                                     @foreach($reservasi as $reservasiadmin)
                                     <tr class="text-center">
-                                        <td colspan="2">{{$no++}}</td>
+                                        <td colspan="2">{{$reservasiadmin->id}}</td>
                                         <td>{{$reservasiadmin->nama_pemesan}}</td>
                                         <td>{{$reservasiadmin->email_pemesan}}</td>
                                         <td>{{$reservasiadmin->tgl_datang}}</td>

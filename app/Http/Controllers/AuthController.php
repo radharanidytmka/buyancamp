@@ -40,6 +40,7 @@ class AuthController extends Controller
         $data->name = $request->reg_nama;
         $data->email = $request->reg_email;
         $data->no_telepon = $request->reg_no;
+        $data->tgllahir = $request->reg_tgllahir;
         $data->alamat = $request->reg_alamat;
         $data->password = bcrypt($request->reg_password);
         $data->remember_token = str_random(60);

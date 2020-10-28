@@ -2,81 +2,84 @@
 <html lang="en" class="fullscreen-bg">
 
 <head>
-	<title>Tepi Buyan Campfire</title>
+<title>Tepi Buyan Campfire</title>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<!-- VENDOR CSS -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
-	<!-- MAIN CSS -->
-	<link rel="stylesheet" href="assets/css/main.css">
-	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-	<link rel="stylesheet" href="assets/css/demo.css">
-	<!-- GOOGLE FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
-	<!-- ICONS -->
-	<link sizes="76x76" href="assets/img/tepi-buyan.png">
-	<!-- <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png"> -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Custom fonts for this template-->
+	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	<!-- Custom styles for this template-->
+	<link href="css/sb-admin-2.min.css" rel="stylesheet">
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha256-siyOpF/pBWUPgIcQi17TLBkjvNgNQArcmwJB8YvkAgg=" crossorigin="anonymous" />
 </head>
 
-<body>
-	<!-- WRAPPER -->
-	<div id="wrapper">
-		<div class="vertical-align-wrap">
-			<div class="vertical-align-middle">
-				<div class="auth-box" >
-					<div class="left">
-						<div class="content">
-							<div class="header">
-								<!-- <div class="logo text-center"><img src="assets/img/tepi-buyan-removebg-preview.png" alt="Klorofil Logo"></div> -->
-								<p class="lead"><strong>REGISTER</strong></p>
-							</div>
-                            <form class="form-auth-small" action="/user/create" method="POST">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-									<label for="register-nama" class="control-label sr-only">Nama</label>
-									<input name="reg_nama" type="text" class="form-control" id="register-nama" placeholder="Nama">
+<body style="background-color: #312f30">
+<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-xl-10 col-lg-12 col-md-9">
+				<div class="card o-hidden border-0 shadow-lg mt-5">
+					<div class="card-body p-0">
+						<div class="row">
+							<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+							<div class="col-lg-6">
+								<div class="p-5">
+								<div class="text-center">
+									<h1 class="h4 text-gray-900"><strong>REGISTER</strong></h1>
+									<p class=""><strong>Tepi Buyan Campfire</strong></p>
 								</div>
-								<div class="form-group">
-									<label for="register-email" class="control-label sr-only">Email</label>
-									<input name="reg_email" type="email" class="form-control" id="register-email" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-									<label for="register-no" class="control-label sr-only">Nomor Telepon</label>
-									<input name="reg_no" type="text" class="form-control" id="register-no" placeholder="Nomor Telepon">
-                                </div>
-                                <div class="form-group">
-									<label for="register-alamat" class="control-label sr-only">Alamat</label>
-									<input name="reg_alamat" type="text" class="form-control" id="register-alamat" placeholder="Alamat">
+								<form class="user" action="/user/create" method="POST">
+									{{ csrf_field() }}
+									<div class="form-group">
+										<input name="reg_nama" type="text" class="form-control form-control-user" id="register-nama" placeholder="Nama">
+									</div>
+									<div class="form-group">
+										<input name="reg_email" type="email" class="form-control form-control-user" id="register-email" placeholder="Email">
+									</div>
+									<div class="form-group">
+										<input name="reg_no" type="text" class="form-control form-control-user" id="register-no" placeholder="Nomor Telepon">
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control form-control-user datepicker" id="date" name="reg_tgllahir" placeholder="Tanggal Lahir">
+                                	</div>
+									<div class="form-group">
+										<input name="reg_alamat" type="text" class="form-control form-control-user" id="register-alamat" placeholder="Alamat">
+									</div>
+									<div class="form-group">
+										<input name="reg_password" type="password" class="form-control form-control-user" id="register-password" placeholder="Password">
+									</div>
+									<button type="submit" class="btn btn-warning btn-user btn-block" style="">REGISTER</button>
+								</form>
+								<hr>
+								<div class="text-center">
+									<p>Already Have an Account? <a class="" href="/login">Login here!</a></p>
 								</div>
-								<div class="form-group">
-									<label for="register-password" class="control-label sr-only">Password</label>
-									<input name="reg_password" type="password" class="form-control" id="register-password" placeholder="Password">
-								</div>
-								<button type="submit" class="btn btn-primary" style="width: 200px">REGISTER</button>
-							</form>
-							<div class="footer">
-								<br>
-								<div class="mb-1">
-									<span class="line"></span>
-									<span class="or">or</span>
-									<span class="line"></span>
-								</div> 
-								<br>
-								<p >Already have an account? <a href="/login" >Login</a></p>
-							</div>
-						</div>
+							</div> 	
 					</div>
-					<div class="right">
-					</div>
-					<!-- <div class="clearfix"></div> -->
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- END WRAPPER -->
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
+	<script>
+	$(function(){
+		$(".datepicker").datepicker({
+		format: 'dd-mm-yyyy',
+		autoclose: true,
+		todayHighlight: true,
+		});
+	});
+	</script>
 </body>
 
 </html>
