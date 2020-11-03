@@ -40,8 +40,8 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Welcome To Tepi Buyan Campfire!</div>
-                <div class="masthead-heading">Nice To Meet You!</div>
+                <div class="masthead-subheading">Welcome!</div>
+                <div class="masthead-heading">Tepi Buyan Campfire</div>
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
             </div>
         </header>

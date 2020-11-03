@@ -85,7 +85,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800"><strong>Riwayat Reservasi</strong></h1>
+            <h1 class="h3 mb-0 text-gray-800"><strong>Data Wisatawan</strong></h1>
           </div>
           <hr>
           <br>
@@ -95,43 +95,25 @@
                 <table class="table table-bordered" style="text-align: center" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Nama Pemesan</th>
-                      <th>Tanggal Datang</th>
-                      <th>Tanggal Pulang</th>
-                      <th>Durasi Kemah</th>
-                      <th>Status</th>
-                      <th>Detail Reservasi</th>
+                      <th>No.</th>
+                      <th>Nama Lengkap</th>
+                      <th>Email</th>
+                      <th>Nomor Telepon</th>
+                      <th>Tanggal Lahir</th>
+                      <th>Alamat</th>
                     </tr>
                   </thead>
                   <tbody >
-                    @foreach($datahistory as $history)
+                    @php $no = 1; @endphp
+                    @foreach($datawisatawan as $wisatawan)
                     <tr>
-                        <td>#TBC{{$history->id}}</td>
-                        <td>{{$history->nama_pemesan}}</td>
-                        <td>{{$history->tgl_datang}}</td>
-                        <td>{{$history->tgl_pulang}}</td>
-                        <td>{{$history->durasi}} Hari</td>
-                        <td>Selesai</td>
-                        <td><button class="btn btn-warning btn-sm btn-user" style="border-radius:10rem" data-toggle="modal" data-target="#detail{{$history->id}}">Show Detail</button></td>
+                        <td>{{$no++}}</td>
+                        <td>{{$wisatawan->name}}</td>
+                        <td>{{$wisatawan->email}}</td>
+                        <td>{{$wisatawan->no_telepon}}</td>
+                        <td>{{$wisatawan->tgllahir}}</td>
+                        <td>{{$wisatawan->alamat}}</td>
                     </tr>
-                    <!-- modal detail -->
-                    <div id="detail{{$history->id}}" class="modal fade" tabindex="-1" aria-labelledby="hapusFasilitas" aria-hidden="true" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header" style="text-align: center">
-                                    <h4 class="modal-title"><strong>Detail Reservasi #TBC{{$history->id}}</strong></h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>tes</p>
-                                    <hr>
-                                    <div style="text-align: right">
-                                        <button type="button" class="btn btn-warning btn-user btn-sm" data-dismiss="modal" style="width: 150px; border-radius:10rem">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     @endforeach
                   </tbody>
                 </table>

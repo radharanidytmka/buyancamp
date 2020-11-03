@@ -65,8 +65,9 @@ class AuthController extends Controller
         return redirect('profile');
     }
 
-    // menampilkan halaman to do
-    public function todo(){
-        return view('todo');
+    // menampilkan halaman list wisatawan
+    public function listWisatawan(){
+        $datawisatawan = User::where('role', 'wisatawan')->orderBy('id', 'ASC')->get();
+        return view('admin.listUser', ['datawisatawan' => $datawisatawan]);
     }
 }

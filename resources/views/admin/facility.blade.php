@@ -45,6 +45,10 @@
           <a class="nav-link" href="/facility">
           <i class="fas fa-fw fa-tasks"></i>
           <span>Manage Facility</span></a>
+
+          <a class="nav-link" href="/listwisatawan">
+          <i class="fas fa-fw fa-users"></i>
+          <span>List User</span></a>
         <br>
           <hr class="sidebar-divider my-0">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
