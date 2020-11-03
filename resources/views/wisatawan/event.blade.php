@@ -29,17 +29,17 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="/dashboardwisatawan">
+      <a class="nav-link" href="/dashboardwisatawan">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
 
           <a class="nav-link" href="/pembayaran">
           <i class="fas fa-fw fa-money-bill-wave-alt"></i>
-          <span>Payment</span></a>
+          <span>Pembayaran</span></a>
 
           <a class="nav-link" href="/reservasi">
           <i class="fas fa-fw fa-calendar-alt"></i>
-          <span>Booking Camp</span></a>
+          <span>Booking Kemah</span></a>
 
           <a class="nav-link" href="/event">
           <i class="fas fa-fw fa-calendar"></i>
@@ -47,7 +47,7 @@
 
           <a class="nav-link" href="/profile">
           <i class="fas fa-fw fa-user-alt"></i>
-          <span>Profile</span></a>
+          <span>Profil</span></a>
         <br>
           <hr class="sidebar-divider my-0">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">

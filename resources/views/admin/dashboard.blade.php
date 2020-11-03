@@ -34,21 +34,21 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="/dashboard">
+          <a class="nav-link" href="/dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Reservation List</span></a>
+          <span>Daftar Reservasi</span></a>
 
           <a class="nav-link" href="/history">
           <i class="fas fa-fw fa-chart-bar"></i>
-          <span>History List</span></a>
+          <span>Riwayat Reservasi</span></a>
 
           <a class="nav-link" href="/facility">
           <i class="fas fa-fw fa-tasks"></i>
-          <span>Manage Facility</span></a>
+          <span>Kelola Fasilitas</span></a>
 
           <a class="nav-link" href="/listwisatawan">
           <i class="fas fa-fw fa-users"></i>
-          <span>List User</span></a>
+          <span>Data Wisatawan</span></a>
         <br>
           <hr class="sidebar-divider my-0">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
