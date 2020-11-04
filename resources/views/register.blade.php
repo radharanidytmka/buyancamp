@@ -14,7 +14,7 @@
 	<!-- Custom styles for this template-->
 	<link href="css/sb-admin-2.min.css" rel="stylesheet">
 	<!-- Date Picker -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha256-siyOpF/pBWUPgIcQi17TLBkjvNgNQArcmwJB8YvkAgg=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
 </head>
 
 <body style="background-color: #312f30">
@@ -43,8 +43,10 @@
 										<input name="reg_no" type="text" class="form-control form-control-user" id="register-no" placeholder="Nomor Telepon">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control form-control-user datepicker" id="date" name="reg_tgllahir" placeholder="Tanggal Lahir">
-                                	</div>
+										<div class="input-group date" id="tgllahir">
+											<input type="text" name="reg_tgllahir" class="form-control form-control-user input-group-addon" placeholder="Tanggal Lahir"> 
+										</div>
+									</div>
 									<div class="form-group">
 										<input name="reg_alamat" type="text" class="form-control form-control-user" id="register-alamat" placeholder="Alamat">
 									</div>
@@ -69,16 +71,17 @@
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	<!-- Custom scripts for all pages-->
 	<script src="js/sb-admin-2.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
-	<script>
-	$(function(){
-		$(".datepicker").datepicker({
-		format: 'dd-mm-yyyy',
-		autoclose: true,
-		todayHighlight: true,
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#tgllahir').datetimepicker({
+				useCurrent: false,
+				locale:'id',
+				format:'DD MMMM YYYY'
+			});
 		});
-	});
 	</script>
 </body>
 

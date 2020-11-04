@@ -10,12 +10,12 @@
 	<meta name="author" content="">
 	<!-- Custom fonts for this template-->
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <!-- DATE PICKER -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
-
 </head>
 
 <body id="page-top">
@@ -90,8 +90,53 @@
           </div>
           <hr>
           <br>
+          <div class="row text-center">
+            <div class="col-md-12" style="text-align: justify">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>    
+          </div>
+          <br>
           <form class="user" action="/reservasi/create" method="POST">
+            {{ csrf_field() }}
+            <div class="row" >
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="ml-2">Nama Pemesan</label>
+                  <input name="reservasi_nama" type="text" class="form-control form-control-user" id="register-nama" readonly value="{{auth()->user()->name}}" placeholder="Nama">
+                </div>
+                <div class="form-group">
+                  <label class="ml-2">Email Pemesan</label>
+                  <input name="reservasi_email" type="email" class="form-control form-control-user" readonly value="{{auth()->user()->email}}" id="register-email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label class="ml-2">Tanggal Kedatangan</label>
+                  <div class="input-group date" id="tgldatang">
+                    <input type="text" class="form-control form-control-user input-group-addon" placeholder="Tanggal Kedatangan"> 
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="ml-2">Tanggal Kepulangan</label>
+                  <div class="input-group date" id="tglpulang">
+                    <input type="text" class="form-control form-control-user input-group-addon" placeholder="Tanggal Kepulangan"> 
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="ml-2">Durasi Kemah</label>
+                  <input type="text" class="form-control form-control-user datepicker" id="selisih" name="reservasi_durasi" placeholder="Durasi Kemah">
+                </div>
+                <br>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="ml-2">Fasilitas</label>
+                  <input name="reg_nama" type="text" class="form-control form-control-user" id="register-nama" placeholder="Nama">
+                </div>
+              </div>
+              <div class="col-lg-4">
 
+                <button type="submit" class="btn btn-warning btn-user btn-block" style=""></button>
+              </div>
+            </div>
           </form>        
     </div>
   </div>
@@ -105,38 +150,37 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            $('#tgldatang').datetimepicker({
-                locale:'id',
-                format:'DD/MMMM/YYYY'
-            });
-            $('#tglpulang').datetimepicker({
-                useCurrent: false,
-                locale:'id',
-                format:'DD/MMMM/YYYY'
-            });
-            $('#tgldatang').on("dp.change", function(e) {
-                $('#tglpulang').data("DateTimePicker").minDate(e.date);
-            });
-            $('#tglpulang').on("dp.change", function(e) {
-                $('#tgldatang').data("DateTimePicker").maxDate(e.date);
-                CalcDiff()
-            });
-        });
-        function CalcDiff(){
-            var a=$('#tgldatang').data("DateTimePicker").date();
-            var b=$('#tglpulang').data("DateTimePicker").date();
-                var timeDiff=0
-                if (b) {
-                        timeDiff = (b - a) / 1000;
-                    }
-            $('#selisih').val(Math.floor(timeDiff/(86400)))   
-        }
-    </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript">
+	$(function(){
+		$('#tgldatang').datetimepicker({
+      locale:'id',
+      format:'DD MMMM YYYY'
+    });
+    $('#tglpulang').datetimepicker({
+      useCurrent: false,
+      locale:'id',
+      format:'DD MMMM YYYY'
+    });
+    $('#tgldatang').on("dp.change", function(e) {
+      $('#tglpulang').data("DateTimePicker").minDate(e.date);
+    });
+    $('#tglpulang').on("dp.change", function(e) {
+      $('#tgldatang').data("DateTimePicker").maxDate(e.date);
+      CalcDiff()
+    });
+	});
+  function CalcDiff(){
+    var a=$('#tgldatang').data("DateTimePicker").date();
+    var b=$('#tglpulang').data("DateTimePicker").date();
+    var timeDiff=0
+    if (b) {
+      timeDiff = (b - a) / 1000;
+    }
+    $('#selisih').val(Math.floor(timeDiff/(86400))+ ' Hari')   
+  }
+	</script>  
 </body>
-
 </html>
