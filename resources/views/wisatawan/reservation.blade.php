@@ -127,19 +127,31 @@
                 <br>
               </div>
               <div class="col-lg-4">
-                <div class="form-group">
+                <!-- <div class="form-group"> -->
                   <label class="ml-2">Fasilitas</label>
-                  <input name="reg_nama" type="text" class="form-control form-control-user" id="register-nama" placeholder="Nama">
-                </div>
+                  <a class="btn btn-warning btn-user btn-block" style="width: 150px; color: #ffffff" data-toggle="modal" data-target="#tambahFasilitas">Tambah Fasilitas</a>
+                <!-- </div> -->
               </div>
               <div class="col-lg-4">
-
-                <button type="submit" class="btn btn-warning btn-user btn-block" style=""></button>
+                <button type="submit" class="btn btn-warning btn-user btn-block" >Booking</button>
               </div>
             </div>
-          </form>        
+          </form> 
+          <!-- modal tambah fasilitas -->
+          <div id="tambahFasilitas" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header" style="text-align: center">
+                  <p class="modal-title"><strong>Tambah Fasilitas</strong></p>
+                </div>
+                <div class="modal-body" style="text-align: left">
+                  <p>tes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>       
     </div>
-  </div>
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>

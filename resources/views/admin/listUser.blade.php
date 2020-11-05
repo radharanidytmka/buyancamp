@@ -103,7 +103,7 @@
                       <th>Alamat</th>
                     </tr>
                   </thead>
-                  <tbody >
+                  <tbody>
                     @php $no = 1; @endphp
                     @foreach($datawisatawan as $wisatawan)
                     <tr>
