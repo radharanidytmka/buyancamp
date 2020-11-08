@@ -96,48 +96,10 @@
             </div>    
           </div>
           <br>
-          <form class="user" action="/reservasi/create" method="POST">
-            {{ csrf_field() }}
-            <div class="row" >
-              <div class="col-lg-6">
-                <div class="form-group">  
-                  <label class="ml-2">Nama Pemesan</label>
-                  <input name="reservasi_nama" type="text" class="form-control form-control-user" id="register-nama" readonly value="{{auth()->user()->name}}" placeholder="Nama">
-                </div>
-                <div class="form-group">
-                  <label class="ml-2">Email Pemesan</label>
-                  <input name="reservasi_email" type="email" class="form-control form-control-user" readonly value="{{auth()->user()->email}}" id="register-email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                  <label class="ml-2">Nomor Pemesan</label>
-                  <input name="reservasi_no" type="email" class="form-control form-control-user" readonly value="{{auth()->user()->no_telepon}}" id="register-email" placeholder="Email">
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="form-group">
-                  <label class="ml-2">Tanggal Kedatangan</label>
-                  <div class="input-group date" id="tgldatang">
-                    <input name="reservasi_tgldatang" type="text" class="form-control form-control-user input-group-addon" placeholder="Tanggal Kedatangan"> 
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="ml-2">Tanggal Kepulangan</label>
-                  <div class="input-group date" id="tglpulang">
-                    <input name="reservasi_tglpulang" type="text" class="form-control form-control-user input-group-addon" placeholder="Tanggal Kepulangan"> 
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="ml-2">Durasi Kemah</label>
-                  <input type="text" class="form-control form-control-user datepicker" id="selisih" name="reservasi_durasi" placeholder="Durasi Kemah">
-                </div>
-              </div>
-            </div>
-            <br>
-            <div style="float: right">
-              <button type="submit" class="btn btn-warning btn-user btn-block mt-10" style="width: 150px;">Next</button>
-              <!-- <p><a href="/reservasi/detail/1">try!</a></p> -->
-            </div>
-          </form> 
+          @foreach($data as $detail)
+            <p>nama pemesan</p>
+            <p>{{ $detail->nama_pemesan }}</p>
+          @endforeach
         </div>       
     </div>
   <a class="scroll-to-top rounded" href="#page-top">

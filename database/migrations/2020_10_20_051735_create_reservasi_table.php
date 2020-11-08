@@ -17,12 +17,12 @@ class CreateReservasiTable extends Migration
             $table->increments('id');
             $table->string('nama_pemesan');
             $table->string('email_pemesan');
-            $table->date('tgl_datang');
-            $table->date('tgl_pulang');
+            $table->string('no_pemesan');
+            $table->string('tgl_datang');
+            $table->string('tgl_pulang');
             $table->integer('durasi');
-            $table->string('fasilitas');
-            $table->string('status');
-            $table->string('request');
+            $table->string('status_pembayaran');
+            $table->string('status_konfirmasi');
             $table->integer('total_bayar');
             $table->timestamps();
         });

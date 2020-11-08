@@ -98,9 +98,9 @@
                     </div>
                     <div class="col-lg-3">
                     <?php
-                        if($reservasiwisatawan->konfirmasi == 'false'){
+                        if($reservasiwisatawan->status_konfirmasi == 'false'){
                             echo '<span class="badge-danger btn-sm  " style="font-size: 10px; ">Belum Check In</span>';
-                        } elseif($reservasiwisatawan->konfirmasi == 'true' ){
+                        } elseif($reservasiwisatawan->status_konfirmasi == 'true' ){
                             echo '<span class="badge-success btn-sm " style="font-size: 10px; ">Sudah Check In</span>';
                         } 
                     ?>  
