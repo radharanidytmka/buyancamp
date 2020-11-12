@@ -126,10 +126,10 @@
                     <input name="reservasi_tglpulang" type="text" class="form-control form-control-user input-group-addon" placeholder="Tanggal Kepulangan"> 
                   </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label class="ml-2">Durasi Kemah</label>
                   <input type="text" class="form-control form-control-user datepicker" id="selisih" name="reservasi_durasi" placeholder="Durasi Kemah">
-                </div>
+                </div> -->
               </div>
             </div>
             <br>
@@ -157,12 +157,12 @@
 	$(function(){
 		$('#tgldatang').datetimepicker({
       locale:'id',
-      format:'DD MMMM YYYY'
+      format:'YYYY-MM-DD'
     });
     $('#tglpulang').datetimepicker({
       useCurrent: false,
       locale:'id',
-      format:'DD MMMM YYYY'
+      format:'YYYY-MM-DD'
     });
     $('#tgldatang').on("dp.change", function(e) {
       $('#tglpulang').data("DateTimePicker").minDate(e.date);

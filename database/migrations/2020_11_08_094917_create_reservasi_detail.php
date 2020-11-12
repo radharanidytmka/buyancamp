@@ -17,6 +17,7 @@ class CreateReservasiDetail extends Migration
             $table->increments('id');
             $table->unsignedInteger('reservasi_id');
             $table->unsignedInteger('fasilitas_id');
+            $table->string('nama_fasilitas');
             $table->integer('harga');
             $table->integer('qty');
             $table->timestamps();

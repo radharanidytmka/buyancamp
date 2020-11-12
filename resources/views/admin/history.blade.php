@@ -99,7 +99,7 @@
                       <th>Nama Pemesan</th>
                       <th>Tanggal Datang</th>
                       <th>Tanggal Pulang</th>
-                      <th>Durasi Kemah</th>
+                      <!-- <th>Durasi Kemah</th> -->
                       <th>Status</th>
                       <th>Detail Reservasi</th>
                     </tr>
@@ -111,7 +111,7 @@
                         <td>{{$history->nama_pemesan}}</td>
                         <td>{{$history->tgl_datang}}</td>
                         <td>{{$history->tgl_pulang}}</td>
-                        <td>{{$history->durasi}} Hari</td>
+                        <!-- <td>{{$history->durasi}} Hari</td> -->
                         <td>Selesai</td>
                         <td><button class="btn btn-warning btn-sm btn-user" style="border-radius:10rem" data-toggle="modal" data-target="#detail{{$history->id}}">Show Detail</button></td>
                     </tr>

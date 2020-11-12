@@ -79,7 +79,7 @@
 			$('#tgllahir').datetimepicker({
 				useCurrent: false,
 				locale:'id',
-				format:'DD MMMM YYYY'
+				format:'YYYY-MM-DD'
 			});
 		});
 	</script>

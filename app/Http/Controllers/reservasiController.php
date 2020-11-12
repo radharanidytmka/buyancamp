@@ -19,8 +19,9 @@ class reservasiController extends Controller
     }
 
     // menampilkan halaman reservasi detail
-    public function detail(){
-        return view('wisatawan.reservationdetail');
+    public function detail($id){
+        $reservasi = reservasi::where('id',$id)->get();
+        return view('wisatawan.reservationdetail', compact('reservasi'));
     }
 
     // proses wisatawan reservasi
@@ -31,12 +32,11 @@ class reservasiController extends Controller
         $data->no_pemesan = $request->reservasi_no;
         $data->tgl_datang = $request->reservasi_tgldatang;
         $data->tgl_pulang = $request->reservasi_tglpulang;
-        $data->durasi = $request->reservasi_durasi;
         $data->status_pembayaran = 'Menunggu Pembayaran';
         $data->status_konfirmasi = 'false';
         $data->total_bayar = 0;
         $data->save();
-        return redirect('detail', $data);
+        return redirect()->route('detail', ['id' => $data->id]);
     }
 
     // proses pembayaran
@@ -73,11 +73,6 @@ class reservasiController extends Controller
         $datareservasi_admin = \App\reservasi::where('status_pembayaran', 'Sudah Dibayar')
                                 ->where('status_konfirmasi', 'false')->orderBy('id', 'DESC')->get();
         return view('admin.dashboard', ['datareservasi_admin' => $datareservasi_admin]);
-    }
-
-    // menampilkan data dashboard admin
-    public function laporan(){
-        return view('admin.laporankeuangan');
     }
 
     // menampilkan data dashboard wisatawan

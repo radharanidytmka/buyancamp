@@ -99,7 +99,7 @@
                       <th>Nama Pemesan</th>
                       <th>Tanggal Datang</th>
                       <th>Tanggal Pulang</th>
-                      <th>Durasi Kemah</th>
+                      <!-- <th>Durasi Kemah</th> -->
                       <th>Detail Reservasi</th>
                       <th>Aksi</th>
                     </tr>
@@ -111,7 +111,7 @@
                         <td>{{$reservasiadmin->nama_pemesan}}</td>
                         <td>{{$reservasiadmin->tgl_datang}}</td>
                         <td>{{$reservasiadmin->tgl_pulang}}</td>
-                        <td>{{$reservasiadmin->durasi}} Hari</td>
+                        <!-- <td>{{$reservasiadmin->durasi}} Hari</td> -->
                         <td><button class="btn btn-warning btn-sm" style="border-radius:10rem" data-toggle="modal" data-target="#detail{{$reservasiadmin->id}}">Show Detail</button></td>
                         <td><button class="btn-sm btn btn-primary" style="margin-left: 5px; border-radius:10rem" data-toggle="modal" data-target="#checkin{{$reservasiadmin->id}}">Check In</button></td>
                     </tr>

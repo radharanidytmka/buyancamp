@@ -110,7 +110,7 @@
                     <tr>
                         <td>{{$no++}}</td>
                         <td>{{$fasilitas->nama_fasilitas}}</td>
-                        <td>{{$fasilitas->harga}}</td>
+                        <td>Rp {{number_format($fasilitas->harga)}},-</td>
                         <td>{{$fasilitas->jumlah}}</td>
                         <td><button class="btn btn-sm btn-warning" data-toggle="modal" style="width: 80px; border-radius:10rem" data-target="#editFasilitas{{$fasilitas->id}}">Edit</button>
                         <button class="btn btn-sm btn-primary" style="margin-left: 5px; width: 80px; border-radius:10rem" data-toggle="modal" data-target="#hapusFasilitas{{$fasilitas->id}}">Delete</button></td>

@@ -14,8 +14,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <!-- DATE PICKER -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
 </head>
 
 <body id="page-top">
@@ -96,9 +94,11 @@
             </div>    
           </div>
           <br>
-          @foreach($data as $detail)
-            <p>nama pemesan</p>
-            <p>{{ $detail->nama_pemesan }}</p>
+          @foreach($reservasi as $detail)
+          <p>ID</p>
+          <p>{{$detail->id}}</p>
+          <p>nama pemesan</p>
+          <p>{{$detail->namapemesan}}</p>
           @endforeach
         </div>       
     </div>
@@ -112,37 +112,5 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-  <script type="text/javascript">
-	$(function(){
-		$('#tgldatang').datetimepicker({
-      locale:'id',
-      format:'DD MMMM YYYY'
-    });
-    $('#tglpulang').datetimepicker({
-      useCurrent: false,
-      locale:'id',
-      format:'DD MMMM YYYY'
-    });
-    $('#tgldatang').on("dp.change", function(e) {
-      $('#tglpulang').data("DateTimePicker").minDate(e.date);
-    });
-    $('#tglpulang').on("dp.change", function(e) {
-      $('#tgldatang').data("DateTimePicker").maxDate(e.date);
-      CalcDiff()
-    });
-	});
-  function CalcDiff(){
-    var a=$('#tgldatang').data("DateTimePicker").date();
-    var b=$('#tglpulang').data("DateTimePicker").date();
-    var timeDiff=0
-    if (b) {
-      timeDiff = (b - a) / 1000;
-    }
-    $('#selisih').val(Math.floor(timeDiff/(86400)))   
-  }
-	</script>  
 </body>
 </html>
