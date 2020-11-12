@@ -9,68 +9,14 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<!-- Custom fonts for this template-->
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
 	<div id="wrapper" >
-    <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #312F30" id="accordionSidebar">
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboardwisatawan">
-        <div class="sidebar-brand-icon">
-        <img src="img/tepibuyan.jpg" width="50px" class="img-profile rounded-circle" alt="">
-        </div>
-        <div class="sidebar-brand-text mx-3">Tepi Buyan</div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-      <a class="nav-link" href="/dashboardwisatawan">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-
-          <a class="nav-link" href="/pembayaran">
-          <i class="fas fa-fw fa-money-bill-wave-alt"></i>
-          <span>Pembayaran</span></a>
-
-          <a class="nav-link" href="/reservasi">
-          <i class="fas fa-fw fa-calendar-alt"></i>
-          <span>Booking Kemah</span></a>
-
-          <a class="nav-link" href="/event">
-          <i class="fas fa-fw fa-calendar"></i>
-          <span>Booking Event</span></a>
-
-          <a class="nav-link" href="/profile">
-          <i class="fas fa-fw fa-user-alt"></i>
-          <span>Profil</span></a>
-        <br>
-          <hr class="sidebar-divider my-0">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-          <span>Hi, {{auth()->user()->name}}</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-                <a class="dropdown-item" href="/logout" >
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-          </div>
-        </div>  
-      </li><br>
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-    </ul>
-
     <div id="content-wrapper" class="d-flex flex-column">
       <!-- Main Content -->
       <div id="content">
@@ -83,34 +29,141 @@
         <!-- End of Topbar -->
         <!-- Begin Page Content -->
         <div class="container-fluid">
+          @foreach($reservasi as $detail)
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800"><strong>Booking Kemah</strong></h1>
+            <h1 class="h3 mb-0 text-gray-800"><strong>Detail Reservasi #TBC{{$detail->id}}</strong></h1>
           </div>
           <hr>
           <br>
           <div class="row text-center">
-            <div class="col-md-12" style="text-align: justify">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <div class="col-md-2 text-justify text-gray-800">
+              <div class="ml-4">
+                <p><strong>Nama Pemesan</strong></p>
+                <p><strong>Email Pemesan</strong></p>
+                <p><strong>Nomor Pemesan</strong></p>
+              </div>
             </div>    
+            <div class="col-md-1 text-right text-gray-800">
+              <p><strong>:</strong></p>
+              <p><strong>:</strong></p>
+              <p><strong>:</strong></p>
+            </div>
+            <div class="col-md-3 text-left text-gray-800">
+              <div class="ml-4 mr-4" >
+                <p><strong>{{$detail->nama_pemesan}}</strong></p>
+                <p><strong>{{$detail->email_pemesan}}</strong></p>
+                <p><strong>{{$detail->no_pemesan}}</strong></p>
+              </div>
+            </div> 
+            <div class="col-md-2 text-justify text-gray-800">
+              <div class="ml-4">
+                <p><strong>Tanggal Kedatangan</strong></p>
+                <p><strong>Tanggal Kepulangan</strong></p>
+                <p><strong>Durasi Kemah</strong></p>
+              </div>
+            </div>    
+            <div class="col-md-1 text-right text-gray-800">
+              <p><strong>:</strong></p>
+              <p><strong>:</strong></p>
+              <p><strong>:</strong></p>
+            </div>
+            <div class="col-md-3 text-left text-gray-800">
+              <div class="ml-4 mr-4" >
+                <p><strong>{{ date("d F Y", strtotime($detail->tgl_datang)) }}</strong></p>
+                <p><strong>{{ date("d F Y", strtotime($detail->tgl_pulang)) }}</strong></p>
+                <p><strong>
+                <?php 
+                  $dtg = new DateTime($detail->tgl_datang);
+                  $plg =new DateTime($detail->tgl_pulang);
+                  $diff = $dtg->diff($plg);
+                  echo $diff->d; echo " Hari";
+                ?>
+                </strong></p>
+              </div>
+            </div> 
           </div>
-          <br>
-          @foreach($reservasi as $detail)
-          <p>ID</p>
-          <p>{{$detail->id}}</p>
-          <p>nama pemesan</p>
-          <p>{{$detail->namapemesan}}</p>
           @endforeach
-        </div>       
+          <br>
+          <div class="ml-4 text-gray-800">
+            <p><strong>Apakah anda ingin menambah fasilitas?</strong></p>
+          </div>
+          <div class="col-md-12 mt-3">
+            <form method="post">
+              <table class="table table-bordered" style="text-align: center">
+                <thead class="text-center">
+                  <tr>
+                    <td>#</td>
+                    <td>Fasilitas</td>
+                    <td>Qty</td>
+                    <td>Harga</td>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @php $no = 1 @endphp
+                  <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>Tenda</td>
+                    <td>1 Buah</td>
+                    <td>150.000</td>
+                    <td>
+                      <form method="post">
+                        <input type="hidden" name="_method" value="DELETE" class="form-control">
+                        <button class="btn btn-danger btn-sm">Hapus</button>
+                      </form>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <input type="hidden" name="_method" value="PUT" class="form-control">
+                      <select name="product_id" class="form-control">
+                        <option value="">Pilih Produk</option>
+                        @foreach ($fasilitas as $fasilitas)
+                          <option value="{{ $fasilitas->id }}">{{ $fasilitas->nama_fasilitas }}</option>
+                        @endforeach
+                      </select>
+                    </td>
+                    <td>
+                      <input type="number" min="1" value="1" name="qty" class="form-control" required>
+                    </td>
+                    <td>
+                      info harga
+                    </td>
+                    <td>
+                      <button class="btn btn-primary btn-sm">Tambahkan</button>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </form>
+          </div>
+          <div class="col-md-4 offset-md-8">
+            <table class="table table-hover table-bordered">
+              <tr>
+                <td>Sub Total</td>
+                <td>:</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>:</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>       
     </div>
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="../../js/sb-admin-2.min.js"></script>
 </body>
 </html>

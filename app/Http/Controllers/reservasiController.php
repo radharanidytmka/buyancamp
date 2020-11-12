@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use \App\reservasi;
+use \App\fasilitas;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -21,7 +22,8 @@ class reservasiController extends Controller
     // menampilkan halaman reservasi detail
     public function detail($id){
         $reservasi = reservasi::where('id',$id)->get();
-        return view('wisatawan.reservationdetail', compact('reservasi'));
+        $fasilitas = fasilitas::orderBy('nama_fasilitas', 'ASC')->get();
+        return view('wisatawan.reservationdetail', compact('reservasi', 'fasilitas'));
     }
 
     // proses wisatawan reservasi
