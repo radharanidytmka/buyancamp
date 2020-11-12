@@ -91,12 +91,12 @@
             <form method="post">
               <table class="table table-bordered" style="text-align: center">
                 <thead class="text-center">
-                  <tr>
-                    <td>#</td>
-                    <td>Fasilitas</td>
-                    <td>Qty</td>
-                    <td>Harga</td>
-                    <th>Action</th>
+                  <tr class="text-gray-800">
+                    <td><strong>#</strong></td>
+                    <td><strong>Fasilitas</strong></td>
+                    <td><strong>Qty</strong></td>
+                    <td><strong>Harga</strong></td>
+                    <th><strong>Action</strong></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -120,7 +120,7 @@
                     <td>
                       <input type="hidden" name="_method" value="PUT" class="form-control">
                       <select name="product_id" class="form-control">
-                        <option value="">Pilih Produk</option>
+                        <option value="">Pilih Fasilitas</option>
                         @foreach ($fasilitas as $fasilitas)
                           <option value="{{ $fasilitas->id }}">{{ $fasilitas->nama_fasilitas }}</option>
                         @endforeach
@@ -129,10 +129,7 @@
                     <td>
                       <input type="number" min="1" value="1" name="qty" class="form-control" required>
                     </td>
-                    <td>
-                      info harga
-                    </td>
-                    <td>
+                    <td colspan="3">
                       <button class="btn btn-primary btn-sm">Tambahkan</button>
                     </td>
                   </tr>
@@ -151,6 +148,7 @@
                 <td>:</td>
               </tr>
             </table>
+            <button class="btn btn-warning btn-sm" style="float: right">BOOK</button>
           </div>
         </div>
       </div>       

@@ -125,17 +125,12 @@
                     <input name="reservasi_tglpulang" type="text" class="form-control form-control-user input-group-addon" placeholder="Tanggal Kepulangan"> 
                   </div>
                 </div>
-                <!-- <div class="form-group">
-                  <label class="ml-2">Durasi Kemah</label>
-                  <input type="text" class="form-control form-control-user datepicker" id="selisih" name="reservasi_durasi" placeholder="Durasi Kemah">
-                </div> -->
               </div>
             </div>
             <br>
             <div style="float: right">
               <button type="submit" class="btn btn-warning btn-user btn-block mt-10" style="width: 150px;">Next</button>
-              <!-- <p><a href="/reservasi/detail/1">try!</a></p> -->
-            </div>
+             </div>
           </form> 
         </div>       
     </div>
@@ -163,23 +158,7 @@
       locale:'id',
       format:'YYYY-MM-DD'
     });
-    $('#tgldatang').on("dp.change", function(e) {
-      $('#tglpulang').data("DateTimePicker").minDate(e.date);
-    });
-    $('#tglpulang').on("dp.change", function(e) {
-      $('#tgldatang').data("DateTimePicker").maxDate(e.date);
-      CalcDiff()
-    });
 	});
-  function CalcDiff(){
-    var a=$('#tgldatang').data("DateTimePicker").date();
-    var b=$('#tglpulang').data("DateTimePicker").date();
-    var timeDiff=0
-    if (b) {
-      timeDiff = (b - a) / 1000;
-    }
-    $('#selisih').val(Math.floor(timeDiff/(86400)))   
-  }
 	</script>  
 </body>
 </html>
