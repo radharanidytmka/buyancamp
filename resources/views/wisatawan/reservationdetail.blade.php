@@ -35,52 +35,27 @@
           </div>
           <hr>
           <br>
-          <div class="row text-center">
-            <div class="col-md-2 text-justify text-gray-800">
+          <div class="row">
+            <div class="col-md-6 text-gray-800">
               <div class="ml-4">
-                <p><strong>Nama Pemesan</strong></p>
-                <p><strong>Email Pemesan</strong></p>
-                <p><strong>Nomor Pemesan</strong></p>
+                <p><strong>Nama Pemesan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp; {{$detail->nama_pemesan}}</strong></p>
+                <p><strong>Email Pemesan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp; {{$detail->email_pemesan}}</strong></p>
+                <p><strong>Nomor Pemesan &nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp; {{$detail->no_pemesan}}</strong></p>
               </div>
-            </div>    
-            <div class="col-md-1 text-right text-gray-800">
-              <p><strong>:</strong></p>
-              <p><strong>:</strong></p>
-              <p><strong>:</strong></p>
-            </div>
-            <div class="col-md-3 text-left text-gray-800">
-              <div class="ml-4 mr-4" >
-                <p><strong>{{$detail->nama_pemesan}}</strong></p>
-                <p><strong>{{$detail->email_pemesan}}</strong></p>
-                <p><strong>{{$detail->no_pemesan}}</strong></p>
-              </div>
-            </div> 
-            <div class="col-md-2 text-justify text-gray-800">
+            </div>   
+            <div class="col-md-6 text-justify text-gray-800">
               <div class="ml-4">
-                <p><strong>Tanggal Kedatangan</strong></p>
-                <p><strong>Tanggal Kepulangan</strong></p>
-                <p><strong>Durasi Kemah</strong></p>
-              </div>
-            </div>    
-            <div class="col-md-1 text-right text-gray-800">
-              <p><strong>:</strong></p>
-              <p><strong>:</strong></p>
-              <p><strong>:</strong></p>
-            </div>
-            <div class="col-md-3 text-left text-gray-800">
-              <div class="ml-4 mr-4" >
-                <p><strong>{{ date("d F Y", strtotime($detail->tgl_datang)) }}</strong></p>
-                <p><strong>{{ date("d F Y", strtotime($detail->tgl_pulang)) }}</strong></p>
-                <p><strong>
+                <p><strong>Tanggal Kedatangan &nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp; {{ date("d F Y", strtotime($detail->tgl_datang)) }}</strong></p>
+                <p><strong>Tanggal Kepulangan &nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp; {{ date("d F Y", strtotime($detail->tgl_pulang)) }}</strong></p>
+                <p><strong>Durasi Kemah &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;
                 <?php 
                   $dtg = new DateTime($detail->tgl_datang);
                   $plg =new DateTime($detail->tgl_pulang);
                   $diff = $dtg->diff($plg);
                   echo $diff->d; echo " Hari";
-                ?>
-                </strong></p>
+                ?></strong></p>
               </div>
-            </div> 
+            </div>   
           </div>
           @endforeach
           <br>
@@ -88,7 +63,8 @@
             <p><strong>Apakah anda ingin menambah fasilitas?</strong></p>
           </div>
           <div class="col-md-12 mt-3">
-            <form method="post">
+            <form action="" method="post">
+            @csrf
               <table class="table table-bordered" style="text-align: center">
                 <thead class="text-center">
                   <tr class="text-gray-800">
@@ -96,6 +72,7 @@
                     <td><strong>Fasilitas</strong></td>
                     <td><strong>Qty</strong></td>
                     <td><strong>Harga</strong></td>
+                    <td><strong>Subtotal</strong></td>
                     <th><strong>Action</strong></th>
                   </tr>
                 </thead>
@@ -106,10 +83,11 @@
                     <td>Tenda</td>
                     <td>1 Buah</td>
                     <td>150.000</td>
+                    <td>150.000</td>
                     <td>
                       <form method="post">
                         <input type="hidden" name="_method" value="DELETE" class="form-control">
-                        <button class="btn btn-danger btn-sm">Hapus</button>
+                        <button class="btn btn-warning btn-sm">Hapus</button>
                       </form>
                     </td>
                   </tr>
@@ -130,7 +108,7 @@
                       <input type="number" min="1" value="1" name="qty" class="form-control" required>
                     </td>
                     <td colspan="3">
-                      <button class="btn btn-primary btn-sm">Tambahkan</button>
+                      <button class="btn btn-warning btn-sm">Tambahkan</button>
                     </td>
                   </tr>
                 </tfoot>
@@ -148,7 +126,7 @@
                 <td>:</td>
               </tr>
             </table>
-            <button class="btn btn-warning btn-sm" style="float: right">BOOK</button>
+            <button class="btn btn-warning btn-md" style="float: right">Book</button>
           </div>
         </div>
       </div>       
