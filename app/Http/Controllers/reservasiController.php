@@ -21,7 +21,7 @@ class reservasiController extends Controller
 
     // menampilkan halaman reservasi detail
     public function detail($id){
-        $reservasi = reservasi::where('id',$id)->get();
+        $reservasi = reservasi::with(['detail', 'detail.fasilitas'])->where('id',$id)->get();
         $fasilitas = fasilitas::orderBy('nama_fasilitas', 'ASC')->get();
         return view('wisatawan.reservationdetail', compact('reservasi', 'fasilitas'));
     }

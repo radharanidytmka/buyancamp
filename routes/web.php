@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
     Route::post('/reservasi/create', 'reservasiController@create');
     Route::get('/reservasi/detail/{id}', 'reservasiController@detail')->name('detail');
     Route::put('/add/{id}', 'reservasiDetailController@save')->name('save');
+    Route::delete('/delete/{id}', 'reservasiDetailController@deleteFasilitas')->name('delete');
     Route::post('/reservasi/{id}/bayar', 'reservasiController@bayar');
     Route::post('/reservasi/{id}/unduh', 'reservasiController@unduhpdf');
     Route::get('/profile', 'AuthController@profile');

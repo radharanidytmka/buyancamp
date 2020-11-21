@@ -21,10 +21,17 @@ class reservasiDetailController extends Controller
             reservasi_detail::create([
                 'reservasi_id' => $reservasi->id,
                 'fasilitas_id' => $request->fasilitas_id,
-                'harga' => $fasiltas->harga,
+                'harga' => $fasilitas->harga,
                 'qty' => $request->qty
             ]);
         }
         return redirect()->back()->with(['success' => 'Product Telah Ditambahkan']);
+    }
+
+    public function deleteFasilitas($id)
+    {
+        $detail = reservasi_detail::find($id);
+        $detail->delete();
+        return redirect()->back()->with(['success' => 'Product telah dihapus']);
     }
 }

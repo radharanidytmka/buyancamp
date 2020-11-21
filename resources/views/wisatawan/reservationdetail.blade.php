@@ -63,8 +63,8 @@
             <p><strong>Apakah anda ingin menambah fasilitas?</strong></p>
           </div>
           <div class="col-md-12 mt-3">
-            <form action="" method="post">
-            @csrf
+            <form action="{{ route('save', ['id' => $detail->id]) }}" method="post">
+            {{ csrf_field() }}
               <table class="table table-bordered" style="text-align: center">
                 <thead class="text-center">
                   <tr class="text-gray-800">
@@ -78,26 +78,28 @@
                 </thead>
                 <tbody>
                   @php $no = 1 @endphp
+                  @foreach ($detail->detail as $detailFas)
                   <tr>
                     <td>{{ $no++ }}</td>
-                    <td>Tenda</td>
-                    <td>1 Buah</td>
-                    <td>150.000</td>
-                    <td>150.000</td>
+                    <td>{{ $detailFas->fasilitas->nama_fasilitas }}</td>
+                    <td>{{ $detailFas->qty }}</td>
+                    <td>Rp {{ number_format($detailFas->harga) }}</td>
+                    <td>Rp {{ number_format($detailFas->harga * $detailFas->qty) }}</td>
                     <td>
-                      <form method="post">
-                        <input type="hidden" name="_method" value="DELETE" class="form-control">
-                        <button class="btn btn-warning btn-sm">Hapus</button>
+                      <form action="{{ route('delete', ['id' => $detailFas->id]) }}" method="post">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-warning btn-sm">Hapus</button>
                       </form>
                     </td>
                   </tr>
+                  @endforeach
                 </tbody>
                 <tfoot>
                   <tr>
                     <td></td>
                     <td>
                       <input type="hidden" name="_method" value="PUT" class="form-control">
-                      <select name="product_id" class="form-control">
+                      <select name="fasilitas_id" class="form-control">
                         <option value="">Pilih Fasilitas</option>
                         @foreach ($fasilitas as $fasilitas)
                           <option value="{{ $fasilitas->id }}">{{ $fasilitas->nama_fasilitas }}</option>
@@ -117,10 +119,6 @@
           </div>
           <div class="col-md-4 offset-md-8">
             <table class="table table-hover table-bordered">
-              <tr>
-                <td>Sub Total</td>
-                <td>:</td>
-              </tr>
               <tr>
                 <td>Total</td>
                 <td>:</td>

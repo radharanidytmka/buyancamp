@@ -95,30 +95,16 @@
           </div>
           <br>
           <div class="row" >
-            <div class="col-lg-6">
-                <form class="user" action="/user/create" method="POST">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                      <input name="reg_nama" type="text" class="form-control form-control-user" id="register-nama" placeholder="Nama">
-                              </div>
-                    <div class="form-group">
-                      <input name="reg_email" type="email" class="form-control form-control-user" id="register-email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <input name="reg_no" type="text" class="form-control form-control-user" id="register-no" placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user datepicker" id="date" name="reg_tgllahir" placeholder="Message">
-                    </div><br>
-                  <button type="submit" class="btn btn-warning btn-user btn-block" style="">SUBMIT MESSAGE</button>
-                </form>
+            <div class="col-lg-12 text-center">
+              <br>
+              <h2 ><strong>CONTACT US!</strong></h2>
             </div>
             <div class="col-lg-6" style="text-align: center">
-            <br>
-                <h2 ><strong>CONTACT US!</strong></h2>
-                <br>
+              <br>
                 <a class="btn btn-success" style="width: 300px; border-radius:10rem" href="https://wa.me/628112777135?text=Halo admin, saya mau tanya">Chat Via WhatsApp</a>
-                <br><br>
+            </div>
+            <div class="col-lg-6" style="text-align: center">
+              <br>
                 <a class="btn btn-danger " style="width: 300px; border-radius:10rem" href="https://www.instagram.com/tepibuyancampfire/">Chat Via Instagram</a>
             </div>
         </div>
