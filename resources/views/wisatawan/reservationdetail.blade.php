@@ -65,6 +65,25 @@
           <div class="col-md-12 mt-3">
             <form action="{{ route('save', ['id' => $detail->id]) }}" method="post">
             {{ csrf_field() }}
+            <div class="row" >
+              <div class="col-lg-5" style="text-align: center">
+              <input type="hidden" name="_method" value="PUT" class="form-control">
+              <select name="fasilitas_id" class="form-control">
+                <option value="">Pilih Fasilitas</option>
+                  @foreach ($fasilitas as $fasilitas)
+                    <option value="{{ $fasilitas->id }}">{{ $fasilitas->nama_fasilitas }}</option>
+                  @endforeach
+              </select>
+              </div>
+              <div class="col-lg-5" style="text-align: center">
+                <input type="number" min="1" value="1" name="qty" class="form-control" required>
+              </div>
+              <div class="col-lg-2" style="text-align: center">
+              <button class="btn btn-warning btn-sm">Tambahkan</button>
+              </div>
+            </div>
+            </form>
+            <br>
               <table class="table table-bordered" style="text-align: center">
                 <thead class="text-center">
                   <tr class="text-gray-800">
@@ -84,47 +103,27 @@
                     <td>{{ $detailFas->fasilitas->nama_fasilitas }}</td>
                     <td>{{ $detailFas->qty }}</td>
                     <td>Rp {{ number_format($detailFas->harga) }}</td>
-                    <td>Rp {{ number_format($detailFas->harga * $detailFas->qty) }}</td>
+                    <td>Rp {{ $detailFas->subtotal }}</td>
                     <td>
                       <form action="{{ route('delete', ['id' => $detailFas->id]) }}" method="post">
                         {{ csrf_field() }}
+                        <input type="hidden" name="_method" value="DELETE" class="form-control">
                         <button type="submit" class="btn btn-warning btn-sm">Hapus</button>
                       </form>
                     </td>
                   </tr>
                   @endforeach
                 </tbody>
-                <tfoot>
-                  <tr>
-                    <td></td>
-                    <td>
-                      <input type="hidden" name="_method" value="PUT" class="form-control">
-                      <select name="fasilitas_id" class="form-control">
-                        <option value="">Pilih Fasilitas</option>
-                        @foreach ($fasilitas as $fasilitas)
-                          <option value="{{ $fasilitas->id }}">{{ $fasilitas->nama_fasilitas }}</option>
-                        @endforeach
-                      </select>
-                    </td>
-                    <td>
-                      <input type="number" min="1" value="1" name="qty" class="form-control" required>
-                    </td>
-                    <td colspan="3">
-                      <button class="btn btn-warning btn-sm">Tambahkan</button>
-                    </td>
-                  </tr>
-                </tfoot>
               </table>
-            </form>
           </div>
           <div class="col-md-4 offset-md-8">
             <table class="table table-hover table-bordered">
               <tr>
                 <td>Total</td>
-                <td>:</td>
+                <td>: Rp {{ number_format($detail->total_bayar) }}</td>
               </tr>
             </table>
-            <button class="btn btn-warning btn-md" style="float: right">Book</button>
+            <a class="btn btn-warning btn-md" style="float: right" href="/pembayaran">Book</a>
           </div>
         </div>
       </div>       

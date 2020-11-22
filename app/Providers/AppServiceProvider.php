@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use App\reservasi_detail;
+use App\Observers\reservasi_detailObserver;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        reservasi_detail::observe(reservasi_detailObserver::class);
     }
 
     /**
