@@ -79,14 +79,14 @@ class reservasiController extends Controller
 
     // menampilkan data dashboard wisatawan
     public function wisatawan(){
-        $datareservasi_wisatawan = \App\reservasi::where('email_pemesan', auth()->user()->email)
+        $datareservasi_wisatawan = \App\reservasi::with(['detail', 'detail.fasilitas'])->where('email_pemesan', auth()->user()->email)
                                     ->where('status_pembayaran', 'Sudah Dibayar')->orderBy('id', 'DESC')->get();
         return view('wisatawan.dashboardwisatawan', ['datareservasi_wisatawan' => $datareservasi_wisatawan]);
     }
 
     // menampilkan data wisatawan yang belum bayar 
     public function pembayaran(){
-        $datareservasi_belumbayar = \App\reservasi::where('email_pemesan', auth()->user()->email)
+        $datareservasi_belumbayar = \App\reservasi::with(['detail', 'detail.fasilitas'])->where('email_pemesan', auth()->user()->email)
                                     ->where('status_pembayaran', 'Menunggu Pembayaran')->orderBy('id', 'DESC')->get();
         return view('wisatawan.pembayaran', ['datareservasi_belumbayar' => $datareservasi_belumbayar]);
     }
