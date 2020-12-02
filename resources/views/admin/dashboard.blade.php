@@ -99,7 +99,6 @@
                       <th>Nama Pemesan</th>
                       <th>Tanggal Datang</th>
                       <th>Tanggal Pulang</th>
-                      <!-- <th>Durasi Kemah</th> -->
                       <th>Detail Reservasi</th>
                       <th>Aksi</th>
                     </tr>
@@ -109,25 +108,84 @@
                     <tr>
                         <td>#TBC{{$reservasiadmin->id}}</td>
                         <td>{{$reservasiadmin->nama_pemesan}}</td>
-                        <td>{{$reservasiadmin->tgl_datang}}</td>
-                        <td>{{$reservasiadmin->tgl_pulang}}</td>
-                        <!-- <td>{{$reservasiadmin->durasi}} Hari</td> -->
+                        <td>{{ date("d F Y", strtotime($reservasiadmin->tgl_datang)) }}</td>
+                        <td>{{ date("d F Y", strtotime($reservasiadmin->tgl_pulang)) }}</td>
                         <td><button class="btn btn-warning btn-sm" style="border-radius:10rem" data-toggle="modal" data-target="#detail{{$reservasiadmin->id}}">Show Detail</button></td>
                         <td><button class="btn-sm btn btn-primary" style="margin-left: 5px; border-radius:10rem" data-toggle="modal" data-target="#checkin{{$reservasiadmin->id}}">Check In</button></td>
                     </tr>
                     <!-- modal detail -->
                     <div id="detail{{$reservasiadmin->id}}" class="modal fade" tabindex="-1" aria-labelledby="hapusFasilitas" aria-hidden="true" role="dialog">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header" style="text-align: center">
                                     <h4 class="modal-title"><strong>Detail Reservasi #TBC{{$reservasiadmin->id}}</strong></h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p>tes</p>
-                                    <hr>
-                                    <div style="text-align: right">
-                                        <button type="button" class="btn btn-warning btn-sm btn-user" data-dismiss="modal" style="width: 150px; border-radius:10rem">Close</button>
+                                  <div class="row no-gutters align-items-center" style="margin-left: 5px">
+                                    <div class="col-md-6">
+                                      <p>Nama Pemesan<br><strong>{{$reservasiadmin->nama_pemesan}}</strong></p>
+                                      <p>Email Pemesan <br> <strong>{{$reservasiadmin->email_pemesan}}</strong></p>
+                                      <p>Nomor Pemesan <br> <strong>{{$reservasiadmin->no_pemesan}}</strong></p>
                                     </div>
+                                    <div class="col-md-6">
+                                      <p>Status Pembayaran<br><strong><span class="badge-success btn-sm  mr-1" style="font-size: 10px; ">{{$reservasiadmin->status_pembayaran}}</span></strong></p>
+                                      <p style="text-transform: capitalize;">Status Konfirmasi <br> <strong><span class="badge-danger btn-sm  " style="font-size: 10px; ">{{$reservasiadmin->status_konfirmasi}}</span></strong></p>
+                                      <p>&nbsp;<br> <strong>&nbsp;</strong></p>
+                                    </div>
+                                  </div>
+                                  <hr>
+                                  <div class="row no-gutters align-items-center" style="margin-left: 5px">
+                                    <div class="col-md-6">
+                                      <p>Tanggal Datang<br><strong>{{ date("d F Y", strtotime($reservasiadmin->tgl_datang)) }}</strong></p>
+                                      <p>Durasi Kemah <br><strong><?php 
+                                        $dtg = new DateTime($reservasiadmin->tgl_datang);
+                                        $plg =new DateTime($reservasiadmin->tgl_pulang);
+                                        $diff = $dtg->diff($plg);
+                                        echo $diff->d; echo " Hari";
+                                      ?></strong></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p>Tanggal Pulang<br><strong>{{ date("d F Y", strtotime($reservasiadmin->tgl_pulang)) }}</strong></p>
+                                      <p>&nbsp; <br>&nbsp;</p>
+                                    </div>
+                                  </div>
+                                  <hr>
+                                  <p><strong>Fasilitas </strong></p>
+                                    @php $no = 1 @endphp
+                                    @foreach ($reservasiadmin->detail as $detail)
+                                    <div class="row no-gutters align-items-center" style="margin-left: 5px">
+                                      <div class="col-md-1">
+                                        <p>{{ $no++ }}.</p>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <p>{{ $detail->fasilitas->nama_fasilitas }} <br> {{ $detail->qty }} Unit x Rp {{ number_format($detail->harga) }}</p>
+                                      </div>
+                                      <div class="col-md-1" style="border-left:solid #808080 1px">
+                                        <p>&nbsp;</p>
+                                      </div>
+                                      <div class="col-md-4" >
+                                        <p>Rp {{ $detail->subtotal }}</p>
+                                      </div>
+                                    </div>
+                                    @endforeach
+                                    <hr>
+                                    <div class="row no-gutters align-items-center" style="margin-left: 5px">
+                                      <div class="col-md-7">
+                                        <p class="text-center"><strong>Total Bayar</strong></p>
+                                      </div>
+                                      <div class="col-md-1" style="border-left:solid #808080 1px">
+                                        <p>&nbsp;</p>
+                                      </div>
+                                      <div class="col-md-4" >
+                                        <p>Rp {{ number_format($reservasiadmin->total_bayar) }}</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer" style="text-align: center">
+                                  <hr>
+                                  <div style="text-align: right">
+                                    <button type="button" class="btn btn-warning btn-sm btn-user" data-dismiss="modal" style="width: 150px; border-radius:10rem">Close</button>
+                                  </div>
                                 </div>
                             </div>
                         </div>
@@ -181,3 +239,20 @@
   <script src="js/demo/datatables-demo.js"></script>
 </body>
 </html>
+<style>
+.scroll{
+  width: 500px;
+  padding: 10px;
+  overflow: scroll;
+  height: 600px;
+  
+  /*script tambahan khusus untuk IE */
+  scrollbar-face-color: #CE7E00; 
+  scrollbar-shadow-color: #FFFFFF; 
+  scrollbar-highlight-color: #6F4709; 
+  scrollbar-3dlight-color: #11111; 
+  scrollbar-darkshadow-color: #6F4709; 
+  scrollbar-track-color: #FFE8C1; 
+  scrollbar-arrow-color: #6F4709;
+}
+</style>

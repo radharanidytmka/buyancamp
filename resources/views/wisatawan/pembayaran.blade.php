@@ -114,7 +114,7 @@
                         <p>{{$reservasiwisatawan->email_pemesan}}</p>
                     </div>
                     <div class="col-md-4">
-                        <p>{{$reservasiwisatawan->tgl_datang}} - {{$reservasiwisatawan->tgl_pulang}}</p>
+                        <p>{{ date("d F Y", strtotime($reservasiwisatawan->tgl_datang)) }} - {{ date("d F Y", strtotime($reservasiwisatawan->tgl_pulang)) }}</p>
                         <p>Durasi Kemah {{$reservasiwisatawan->durasi}} Hari</p>
                     </div>
                     <div class="col-md-3">

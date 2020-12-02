@@ -66,15 +66,15 @@ class reservasiController extends Controller
 
     // menampilkan data pada history admin
     public function history(){
-        $datahistory = \App\reservasi::where('status_konfirmasi', 'true')->orderBy('id', 'DESC')->get();
-        return view('admin.history', ['datahistory' => $datahistory]);
+        $datahistory = \App\reservasi::with(['detail', 'detail.fasilitas'])->where('status_konfirmasi', 'true')->orderBy('id', 'DESC')->get();
+        return view('admin.history', compact('datahistory'));
     }
 
     // menampilkan data dashboard admin
     public function admin(){
-        $datareservasi_admin = \App\reservasi::where('status_pembayaran', 'Sudah Dibayar')
+        $datareservasi_admin = \App\reservasi::with(['detail', 'detail.fasilitas'])->where('status_pembayaran', 'Sudah Dibayar')
                                 ->where('status_konfirmasi', 'false')->orderBy('id', 'DESC')->get();
-        return view('admin.dashboard', ['datareservasi_admin' => $datareservasi_admin]);
+        return view('admin.dashboard', compact('datareservasi_admin'));
     }
 
     // menampilkan data dashboard wisatawan

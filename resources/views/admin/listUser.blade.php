@@ -111,7 +111,7 @@
                         <td>{{$wisatawan->name}}</td>
                         <td>{{$wisatawan->email}}</td>
                         <td>{{$wisatawan->no_telepon}}</td>
-                        <td>{{$wisatawan->tgllahir}}</td>
+                        <td>{{ date("d F Y", strtotime($wisatawan->tgllahir)) }}</td>
                         <td>{{$wisatawan->alamat}}</td>
                     </tr>
                     @endforeach

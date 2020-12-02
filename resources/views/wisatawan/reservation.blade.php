@@ -129,7 +129,7 @@
             </div>
             <br>
             <div style="float: right">
-              <button type="submit" class="btn btn-warning btn-user btn-block mt-10" style="width: 150px;">Next</button>
+              <button type="submit" class="btn btn-warning btn-user btn-block mt-10" style="width: 150px;">Make Booking</button>
              </div>
           </form> 
         </div>       

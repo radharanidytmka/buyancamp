@@ -28,9 +28,9 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">To Do</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Galeri</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li> -->
 						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Booking</a></li>
                     </ul>
@@ -238,7 +238,7 @@
             </div>
         </section>
         <!-- Team-->
-        <section class="page-section bg-light" id="team">
+        <!-- <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
@@ -280,9 +280,9 @@
                     <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- Clients-->
-        <div class="py-5">
+        <!-- <div class="py-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 my-3">
@@ -299,7 +299,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Contact-->
         <section class="page-section" id="contact">
             <div class="container">

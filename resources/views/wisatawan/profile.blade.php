@@ -13,6 +13,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
 </head>
 
 <body id="page-top" >
@@ -114,7 +116,7 @@
                               <input type="text" class="form-control form-control-user" value="{{auth()->user()->email}}" readonly >
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control form-control-user" value="{{auth()->user()->tgllahir}}" readonly >
+                              <input type="text" class="form-control form-control-user" value="{{ date('d F Y', strtotime(auth()->user()->tgllahir)) }}" readonly >
                             </div>
                             <div class="form-group">
 								              <input type="text" class="form-control form-control-user" value="{{auth()->user()->no_telepon}}" readonly >
@@ -142,23 +144,32 @@
                     <form class="user" action="/user/{{auth()->user()->id}}/edit" method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <input name="edit_nama" class="form-control form-control-user" placeholder="Nama" value="{{auth()->user()->name}}" type="text">
+                          <input name="edit_nama" class="form-control form-control-user" placeholder="Nama" value="{{auth()->user()->name}}" type="text">
                         </div>
                         <div class="form-group">
-                            <input name="edit_email" class="form-control form-control-user" placeholder="Nama" value="{{auth()->user()->email}}" type="text">
+                          <input name="edit_email" class="form-control form-control-user" placeholder="Nama" value="{{auth()->user()->email}}" type="text">
                         </div>
                         <div class="form-group">
-                        <input name="edit_no" class="form-control form-control-user" placeholder="Nama" value="{{auth()->user()->no_telepon}}" type="text">
+                          <input name="edit_no" class="form-control form-control-user" placeholder="Nama" value="{{auth()->user()->no_telepon}}" type="text">
                         </div>
                         <div class="form-group">
-                        <input name="edit_tgllahir" class="form-control form-control-user" placeholder="Nama" value="{{auth()->user()->tgllahir}}" type="text">
+                          <div class="input-group date" id="tgllahir">
+                            <input type="text" name="edit_tgllahir" class="form-control form-control-user input-group-addon" placeholder="Tanggal Lahir" value="{{auth()->user()->tgllahir}}"> 
+                          </div>
                         </div>
                         <div class="form-group">
-                            <input name="edit_alamat" class="form-control form-control-user" placeholder="Nama" value="{{auth()->user()->alamat}}" type="text">
+                          <input name="edit_alamat" class="form-control form-control-user" placeholder="Nama" value="{{auth()->user()->alamat}}" type="text">
                         </div>
                         <hr>
-                        <div style="float: right">
-                            <button type="submit" class="btn btn-warning btn-user btn-block" style="width: 150px">Save Changes</button>
+                        <div style="text-align: center">
+                          <div class="row no-gutters align-items-center"> 
+                            <div class="col-md-6">
+                              <button type="button" class="btn btn-sm btn-user btn-primary" data-dismiss="modal" style="width: 100px; border-radius:10rem">Cancel</button>
+                            </div>
+                            <div class="col-md-6">
+                              <button type="submit" class="btn btn-warning btn-user btn-block" style="width: 150px">Save Changes</button>
+                            </div>
+                          </div>
                         </div>
                     </form>
                 </div>
@@ -173,6 +184,18 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#tgllahir').datetimepicker({
+				useCurrent: false,
+				locale:'id',
+				format:'YYYY-MM-DD'
+			});
+		});
+	</script>
 </body>
 
 </html>
