@@ -92,18 +92,18 @@
           @foreach($datareservasi_wisatawan as $reservasiwisatawan)
             <div class="col-xl-12 col-md-6 mb-4">
              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="ml-4 mt-2 row no-gutters align-items-center">
+                <div class="ml-4 mr-2 mt-2 row no-gutters align-items-center">
                     <div class="col-lg-9">
                         <h5><strong>Booking ID : #TBC{{$reservasiwisatawan->id}}</strong></h5>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3" style="text-align: right; ">
                     <?php
                         if($reservasiwisatawan->status_konfirmasi == 'false'){
                             echo '<span class="badge-danger btn-sm  " style="font-size: 10px; ">Belum Check In</span>';
                         } elseif($reservasiwisatawan->status_konfirmasi == 'true' ){
                             echo '<span class="badge-success btn-sm " style="font-size: 10px; ">Sudah Check In</span>';
                         } 
-                    ?>  
+                    ?>
                     <?php
                         if($reservasiwisatawan->status_pembayaran == 'Menunggu Pembayaran'){
                             echo '<span class="badge-danger btn-sm mr-1" style="font-size: 10px; ">Menunggu Pembayaran</span>';

@@ -51,8 +51,8 @@ class reservasiController extends Controller
 
     // proses export receipt pdf
     public function unduhpdf($id){
-        $reservasi = reservasi::where('id', $id)->get();
-        $pdf = PDF::loadView('wisatawan.unduhpdf', ['reservasi' => $reservasi])->setPaper('a4', 'portrait');
+        $reservasi = reservasi::with(['detail', 'detail.fasilitas'])->where('id', $id)->get();
+        $pdf = PDF::loadView('wisatawan.unduhpdf', compact('reservasi'))->setPaper('a4', 'landscape');
         return $pdf->download('reservasi.pdf');
     }
 
