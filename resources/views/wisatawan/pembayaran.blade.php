@@ -159,14 +159,8 @@
                         } elseif($reservasiwisatawan->status_pembayaran == 'Sudah Dibayar' ){
                             echo '<span class="badge-success btn-sm  mr-1" style="font-size: 10px; ">Sudah Dibayar</span>';
                         } 
-                    ?>   </strong></p>
-                <p style="text-transform: capitalize;">Status Konfirmasi <br> <strong><?php
-                        if($reservasiwisatawan->status_konfirmasi == 'false'){
-                            echo '<span class="badge-danger btn-sm  " style="font-size: 10px; ">Belum Check In</span>';
-                        } elseif($reservasiwisatawan->status_konfirmasi == 'true' ){
-                            echo '<span class="badge-success btn-sm " style="font-size: 10px; ">Sudah Check In</span>';
-                        } 
-                    ?></strong></p>
+                    ?>  </strong></p>
+                <p>&nbsp;<br> <strong>&nbsp;</strong></p>
                 <p>&nbsp;<br> <strong>&nbsp;</strong></p>
               </div>
             </div>

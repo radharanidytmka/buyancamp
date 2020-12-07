@@ -33,25 +33,32 @@
 								</div>
 								<form class="user" action="/user/create" method="POST">
 									{{ csrf_field() }}
-									<div class="form-group">
+									<div class="form-group @if ($errors->has('reg_nama')) has-error @endif">
 										<input name="reg_nama" type="text" class="form-control form-control-user" id="register-nama" placeholder="Nama">
+										@if ($errors->has('reg_nama')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-top: 1px; margin-left: 4px">{{ $errors->first('reg_nama') }}<p> @endif
 									</div>
-									<div class="form-group">
+									<div class="form-group @if ($errors->has('reg_email')) has-error @endif">
 										<input name="reg_email" type="email" class="form-control form-control-user" id="register-email" placeholder="Email">
+										@if ($errors->has('reg_email')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-top: 1px; margin-left: 4px">{{ $errors->first('reg_email') }}<p> @endif
 									</div>
-									<div class="form-group">
+									<div class="form-group @if ($errors->has('reg_no')) has-error @endif">
 										<input name="reg_no" type="text" class="form-control form-control-user" id="register-no" placeholder="Nomor Telepon">
+										@if ($errors->has('reg_no')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-top: 1px; margin-left: 4px">{{ $errors->first('reg_no') }}<p> @endif
 									</div>
-									<div class="form-group">
+									<div class="form-group @if ($errors->has('reg_tgllahir')) has-error @endif">
 										<div class="input-group date" id="tgllahir">
 											<input type="text" name="reg_tgllahir" class="form-control form-control-user input-group-addon" placeholder="Tanggal Lahir"> 
 										</div>
+										@if ($errors->has('reg_tgllahir')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-top: 1px; margin-left: 4px">{{ $errors->first('reg_tgllahir') }}<p> @endif
 									</div>
-									<div class="form-group">
+									<div class="form-group @if ($errors->has('reg_alamat')) has-error @endif">
 										<input name="reg_alamat" type="text" class="form-control form-control-user" id="register-alamat" placeholder="Alamat">
+										@if ($errors->has('reg_alamat')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-top: 1px; margin-left: 4px">{{ $errors->first('reg_alamat') }}<p> @endif
 									</div>
-									<div class="form-group">
+									<div class="form-group @if ($errors->has('reg_password')) has-error @endif">
 										<input name="reg_password" type="password" class="form-control form-control-user" id="register-password" placeholder="Password">
+										<p style="font-size: 11px;">Password minimal 6 karakter!</p>
+										@if ($errors->has('reg_password')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-left: 4px">{{ $errors->first('reg_password') }}<p> @endif
 									</div>
 									<button type="submit" class="btn btn-warning btn-user btn-block" style="">REGISTER</button>
 								</form>

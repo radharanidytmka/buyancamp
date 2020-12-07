@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
-Route::get('/register', 'AuthController@register');
+Route::get('/register', 'AuthController@register')->name('register');
 Route::post('/user/create', 'AuthController@postregister');
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
@@ -46,3 +46,4 @@ Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
     Route::post('/user/{id}/edit', 'AuthController@editProfile');
     Route::get('/event', 'reservasiController@event');
 });
+

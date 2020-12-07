@@ -6,6 +6,8 @@ use Auth;
 use DB;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 class AuthController extends Controller
 {
@@ -35,17 +37,34 @@ class AuthController extends Controller
 
     // proses register
     public function postregister(Request $request){
-        $data = new User();
-        $data->role = 'wisatawan';
-        $data->name = $request->reg_nama;
-        $data->email = $request->reg_email;
-        $data->no_telepon = $request->reg_no;
-        $data->tgllahir = $request->reg_tgllahir;
-        $data->alamat = $request->reg_alamat;
-        $data->password = bcrypt($request->reg_password);
-        $data->remember_token = str_random(60);
-        $data->save();
-        return redirect()->route('login');
+        $rules = array( 'reg_nama' => 'required|max:50',
+        'reg_email' => 'required|email',
+        'reg_no' => 'required|numeric',
+        'reg_tgllahir' => 'required',
+        'reg_alamat' => 'required|max:100',
+        'reg_password' => 'required|min:6|max:25|alpha_num');
+        $messages = array( 'required' => 'This field is required', 
+        'max' => 'This field has maximum character',
+        'min' => 'This field has minimum character',
+        'email' => 'This field filled with email format'
+        );
+        $validator = Validator::make(Input::all(), $rules, $messages);
+        if($validator->fails()){
+            $message = $validator->messages();
+            return redirect()->route('register')->withErrors($validator)->withInput(Input::except('reg_password'));
+        } else {
+            $data = new User();
+            $data->role = 'wisatawan';
+            $data->name = $request->reg_nama;
+            $data->email = $request->reg_email;
+            $data->no_telepon = $request->reg_no;
+            $data->tgllahir = $request->reg_tgllahir;
+            $data->alamat = $request->reg_alamat;
+            $data->password = bcrypt($request->reg_password);
+            $data->remember_token = str_random(60);
+            $data->save();
+            return redirect()->route('login');
+        }
     }
 
     // menampilkan halaman profile
