@@ -28,14 +28,36 @@
 									<h1 class="h4 text-gray-900"><strong>LOGIN</strong></h1>
 									<p class="mb-5"><strong>Tepi Buyan Campfire</strong></p>
 								</div>
+								@if ($message = Session::get('success'))
+									<div class="alert alert-success alert-block">
+									<button type="button" class="close" data-dismiss="alert">×</button> 
+										<strong>{{ $message }}</strong>
+									</div>
+								@endif
+
+								@if ($message = Session::get('error'))
+								<div class="alert alert-danger alert-block">
+									<button type="button" class="close" data-dismiss="alert">×</button> 
+									<strong>{{ $message }}</strong>
+								</div>
+								@endif
+
+								@if ($message = Session::get('warning'))
+									<div class="alert alert-warning alert-block">
+									<button type="button" class="close" data-dismiss="alert">×</button> 
+									<strong>{{ $message }}</strong>
+								</div>
+								@endif
 								<br>
 								<form class="user mb-4" action="/postlogin" method="POST">
 									{{ csrf_field() }}
 									<div class="form-group">
 										<input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
+										@if ($errors->has('email')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-top: 1px; margin-left: 4px">{{ $errors->first('email') }}<p> @endif
 									</div>
 									<div class="form-group">
 										<input name="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+										@if ($errors->has('password')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-top: 1px; margin-left: 4px">{{ $errors->first('password') }}<p> @endif
 									</div>
 									<button type="submit" class="mt-5 btn btn-warning btn-user btn-block" style="">LOGIN</button>
 								</form>

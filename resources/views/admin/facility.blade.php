@@ -91,6 +91,26 @@
           <br>
           <div class="card shadow mb-4">
             <div class="card-body">
+            @if ($message = Session::get('success'))
+              <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button> 
+                  <strong>{{ $message }}</strong>
+              </div>
+            @endif
+
+            @if ($message = Session::get('error'))
+								<div class="alert alert-danger alert-block">
+									<button type="button" class="close" data-dismiss="alert">×</button> 
+									<strong>{{ $message }}</strong>
+								</div>
+						@endif
+
+            @if ($message = Session::get('warning'))
+              <div class="alert alert-warning alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button> 
+                <strong>{{ $message }}</strong>
+            </div>
+            @endif
               <button class="btn btn-warning btn-sm " style="margin-left: 5px; float: right; border-radius:10rem" data-toggle="modal" data-target="#tambahFasilitas">Tambah Fasilitas</button>
               <div class="table-responsive">
                   <hr>
@@ -129,16 +149,19 @@
                                                         <p style="font-size: 12px"><strong>Nama Fasilitas</strong></p>
                                                         <input name="edit_namafasilitas" class="form-control form-control-user" placeholder="Nama" value="{{$fasilitas->nama_fasilitas}}" type="text"
                                                         style="font-size:.8rem;border-radius:10rem;padding:1rem 1rem">
+                                                        @if ($errors->has('reg_password')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-left: 4px">{{ $errors->first('reg_password') }}<p> @endif
                                                     </div>
                                                     <div class="form-group">
                                                         <p style="font-size: 12px"><strong>Harga</strong></p>
                                                         <input name="edit_harga" class="form-control form-control-user" placeholder="Nama" value="{{$fasilitas->harga}}" type="text"
                                                         style="font-size:.8rem;border-radius:10rem;padding:1rem 1rem">
+                                                        @if ($errors->has('reg_password')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-left: 4px">{{ $errors->first('reg_password') }}<p> @endif
                                                     </div>
                                                     <div class="form-group">
                                                         <p style="font-size: 12px"><strong>Jumlah</strong></p>
                                                         <input name="edit_jumlah" class="form-control form-control-user" placeholder="Nama" value="{{$fasilitas->jumlah}}" type="text"
                                                         style="font-size:.8rem;border-radius:10rem;padding:1rem 1rem">
+                                                        @if ($errors->has('reg_password')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-left: 4px">{{ $errors->first('reg_password') }}<p> @endif
                                                     </div>
                                                     <hr>
                                                     <div style="text-align: right">
@@ -187,14 +210,17 @@
                                             <div class="form-group">
                                                 <p style="font-size: 12px"><strong>Nama Fasilitas</strong></p>
                                                 <input name="create_namafasilitas" class="form-control form-control-user" placeholder="Nama Fasilitas" type="text">
+                                                @if ($errors->has('create_namafasilitas')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-left: 4px">{{ $errors->first('create_namafasilitas') }}<p> @endif
                                             </div>
                                             <div class="form-group">
                                                 <p style="font-size: 12px"><strong>Harga</strong></p>
                                                 <input name="create_harga" class="form-control form-control-user" placeholder="Harga" type="text">
+                                                @if ($errors->has('create_harga')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-left: 4px">{{ $errors->first('create_harga') }}<p> @endif
                                             </div>
                                             <div class="form-group">
                                                 <p style="font-size: 12px"><strong>Jumlah</strong></p>
                                                 <input name="create_jumlah" class="form-control form-control-user" placeholder="Jumlah" type="text">
+                                                @if ($errors->has('create_jumlah')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-left: 4px">{{ $errors->first('create_jumlah') }}<p> @endif
                                             </div>
                                             <hr>
                                             <div style="text-align: right">

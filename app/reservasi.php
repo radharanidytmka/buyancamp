@@ -14,6 +14,11 @@ class reservasi extends Model
         'nama_pemesan', 'email_pemesan', 'tgl_datang', 'tgl_pulang', 'durasi', 'fasilitas', 'status', 'request', 'total_bayar'
     ];
 
+    public function getTotalAttribute()
+    {
+        return $this->subtotal_kemah + $this->subtotal_fasilitas;
+    }
+
     public function detail(){
         return $this->hasMany(reservasi_detail::class);
     }    

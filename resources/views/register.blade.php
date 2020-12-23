@@ -31,6 +31,19 @@
 									<h1 class="h4 text-gray-900"><strong>REGISTER</strong></h1>
 									<p class=""><strong>Tepi Buyan Campfire</strong></p>
 								</div>
+								@if ($message = Session::get('success'))
+									<div class="alert alert-success alert-block">
+									<button type="button" class="close" data-dismiss="alert">×</button> 
+										<strong>{{ $message }}</strong>
+									</div>
+								@endif
+
+								@if ($message = Session::get('warning'))
+									<div class="alert alert-warning alert-block">
+									<button type="button" class="close" data-dismiss="alert">×</button> 
+									<strong>{{ $message }}</strong>
+								</div>
+								@endif
 								<form class="user" action="/user/create" method="POST">
 									{{ csrf_field() }}
 									<div class="form-group @if ($errors->has('reg_nama')) has-error @endif">
@@ -57,8 +70,9 @@
 									</div>
 									<div class="form-group @if ($errors->has('reg_password')) has-error @endif">
 										<input name="reg_password" type="password" class="form-control form-control-user" id="register-password" placeholder="Password">
-										<p style="font-size: 11px;">Password minimal 6 karakter!</p>
 										@if ($errors->has('reg_password')) <p class="help-block" style="font-size: 11px; color: #FF0000; margin-left: 4px">{{ $errors->first('reg_password') }}<p> @endif
+										<p style="font-size: 11px;">Password minimal 6 karakter!</p>
+										
 									</div>
 									<button type="submit" class="btn btn-warning btn-user btn-block" style="">REGISTER</button>
 								</form>

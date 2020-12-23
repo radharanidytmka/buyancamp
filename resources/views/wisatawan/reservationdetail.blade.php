@@ -79,11 +79,11 @@
                 <input type="number" min="1" value="1" name="qty" class="form-control" required>
               </div>
               <div class="col-lg-2" style="text-align: center">
-              <button class="btn btn-warning btn-sm">Tambahkan</button>
+                <button class="btn btn-warning btn-sm">Tambahkan</button>
               </div>
             </div>
-            </form>
             <br>
+            </form>
               <table class="table table-bordered" style="text-align: center">
                 <thead class="text-center">
                   <tr class="text-gray-800">
@@ -105,7 +105,7 @@
                     <td>Rp {{ number_format($detailFas->harga) }}</td>
                     <td>Rp {{ $detailFas->subtotal }}</td>
                     <td>
-                      <form action="{{ route('delete', ['id' => $detailFas->id]) }}" method="post">
+                      <form action="{{ route('delete', ['id' => $detail->id]) }}" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="DELETE" class="form-control">
                         <button type="submit" class="btn btn-warning btn-sm">Hapus</button>
@@ -115,15 +115,20 @@
                   @endforeach
                 </tbody>
               </table>
+            <p style="font-size: 11px; float: right">Tenda memiliki kapasitas 4 orang!</p><br>
           </div>
           <div class="col-md-4 offset-md-8">
-            <table class="table table-hover table-bordered">
-              <tr>
-                <td>Total</td>
-                <td>: Rp {{ number_format($detail->total_bayar) }}</td>
-              </tr>
-            </table>
-            <a class="btn btn-warning btn-md" style="float: right" href="/pembayaran">Book</a>
+              <table class="table table-hover table-bordered">
+                <tr>
+                  <td>Total</td>
+                  <td>: Rp {{ number_format($detail->total_bayar) }}</td>
+                </tr>
+              </table>
+              <form class="user" action="{{ route('checkout', ['id' => $detail->id]) }}" method="POST">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-warning btn-user btn-block mt-10" style="width: 150px;">Book</button>
+              </form>
+              <!-- <a class="btn btn-warning btn-md" style="float: right" href="/pembayaran">Book</a> -->
           </div>
         </div>
       </div>       

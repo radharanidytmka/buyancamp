@@ -6,9 +6,14 @@ use \App\reservasi;
 use \App\fasilitas;
 use Illuminate\Http\Request;
 use PDF;
+use DateTime;
 
 class reservasiController extends Controller
 {
+    public function successCheckIn() {
+        return redirect('/dashboard')->with(['success' => 'Konfirmasi Berhasil!']);
+    }
+
     // menampilkan halaman booking 
     public function reservasi(){
         return view('wisatawan.reservation');
@@ -36,7 +41,10 @@ class reservasiController extends Controller
         $data->tgl_pulang = $request->reservasi_tglpulang;
         $data->status_pembayaran = 'Menunggu Pembayaran';
         $data->status_konfirmasi = 'false';
-        $data->total_bayar = 0;
+        $dtg = new DateTime($request->reservasi_tgldatang);
+        $plg =new DateTime($request->reservasi_tglpulang);
+        $diff = $dtg->diff($plg);
+        $data->total_bayar = $diff->d * 25000;
         $data->save();
         return redirect()->route('detail', ['id' => $data->id]);
     }
@@ -57,11 +65,11 @@ class reservasiController extends Controller
     }
 
     // proses checkin
-    public function checkin($id){
+    public function konfirmasiReservasi($id){
         $data = reservasi::where('id', $id)->first();
         $data->status_konfirmasi = 'true';
         $data->save();
-        return redirect('dashboard');
+        return redirect()->route('successCheckIn');
     }
 
     // menampilkan data pada history admin
@@ -71,14 +79,14 @@ class reservasiController extends Controller
     }
 
     // menampilkan data dashboard admin
-    public function admin(){
+    public function dashboardAdmin(){
         $datareservasi_admin = \App\reservasi::with(['detail', 'detail.fasilitas'])->where('status_pembayaran', 'Sudah Dibayar')
                                 ->where('status_konfirmasi', 'false')->orderBy('id', 'DESC')->get();
         return view('admin.dashboard', compact('datareservasi_admin'));
     }
 
     // menampilkan data dashboard wisatawan
-    public function wisatawan(){
+    public function dashboardWisatawan(){
         $datareservasi_wisatawan = \App\reservasi::with(['detail', 'detail.fasilitas'])->where('email_pemesan', auth()->user()->email)
                                     ->where('status_pembayaran', 'Sudah Dibayar')->orderBy('id', 'DESC')->get();
         return view('wisatawan.dashboardwisatawan', ['datareservasi_wisatawan' => $datareservasi_wisatawan]);
