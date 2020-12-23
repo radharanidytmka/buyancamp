@@ -47,9 +47,9 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
 Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
     // reservasi
     Route::get('/dashboardwisatawan', 'reservasiController@dashboardWisatawan');
-    Route::get('/pembayaran', 'reservasiController@pembayaran');
-    Route::get('/reservasi', 'reservasiController@reservasi');
-    Route::post('/reservasi/create', 'reservasiController@create');
+    Route::get('/get-warning-res', 'reservasiController@warningReservasi')->name('warningReservasi');
+    Route::get('/reservasi', 'reservasiController@reservasi')->name('reservasi');
+    Route::post('/reservasi/create', 'reservasiController@createReservasi');
     Route::get('/reservasi/detail/{id}', 'reservasiController@detail')->name('detail');
     Route::post('orders/checkout', 'reservasiDetailController@book')->name('checkout');
     Route::get('orders/received/{reservasiID}', 'reservasiDetailController@received');
@@ -58,6 +58,12 @@ Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
     Route::post('/reservasi/detail/{id}/book', 'reservasiDetailController@book')->name('book');
     Route::post('/reservasi/{id}/bayar', 'reservasiController@bayar');
     Route::post('/reservasi/{id}/unduh', 'reservasiController@unduhpdf');
+    // pembayaran
+    Route::get('/pembayaran', 'reservasiController@pembayaran');
+    Route::post('payments/notification', 'PaymentController@notification');
+    Route::get('payments/completed', 'PaymentController@completed');
+    Route::get('payments/failed', 'PaymentController@failed');
+    Route::get('payments/unfinish', 'PaymentController@unfinish');
     // profile
     Route::get('/get-success-prof', 'AuthController@successUpdate')->name('successUpdate');
     Route::get('/get-error-prof', 'AuthController@errorUpdateProfile')->name('errorUpdate');

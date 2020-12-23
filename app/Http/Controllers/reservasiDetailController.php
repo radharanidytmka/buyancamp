@@ -48,13 +48,11 @@ class reservasiDetailController extends Controller
 
     private function _generatePaymentToken($reservasi){
         $this->initPaymentGateway();
-
         $customerDetails = [
             'first_name' => $reservasi->nama_pemesan,
             'email' => $reservasi->email_pemesan,
             'phone' => $reservasi->no_pemesan,
         ];
-
         $params = [
             'enable_payments' => \App\Payment::PAYMENT_CHANNELS,
             'transaction_details' => [

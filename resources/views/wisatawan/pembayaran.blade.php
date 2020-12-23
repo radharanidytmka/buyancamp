@@ -129,10 +129,9 @@
                     <div class="col-md-2">
                         <button class="btn btn-warning btn-sm" style="width: 150px;border-radius:10rem " data-toggle="modal" data-target="#detail{{$reservasiwisatawan->id}}">Show Detail</button>
                         <br><br>
-                        <form class="form-auth-small" action="/reservasi/{{$reservasiwisatawan->id}}/bayar" method="POST">
-                            {{ csrf_field() }}
-                            <button type="submit" class="btn btn-warning btn-sm" style="width: 150px;border-radius:10rem ">Bayar</button>
-                        </form>
+                        @if($reservasiwisatawan->status_pembayaran == 'Menunggu Pembayaran')
+                          <a class="btn btn-warning btn-md" style="width: 150px; border-radius:10rem" href="{{ $reservasiwisatawan->payment_url }}">Bayar</a>
+                        @endif
                     </div>
                 </div>
             </div>
