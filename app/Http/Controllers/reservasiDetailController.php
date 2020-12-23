@@ -42,15 +42,8 @@ class reservasiDetailController extends Controller
         $totalfasilitas = $data->subtotal_fasilitas;
         $data->total_bayar = $totalkemah + $totalfasilitas;
         $data->save();
-        $data = $this->_generatePaymentToken($data);        
-        return redirect('orders/received/'. $data->id);
-    }
-
-    public function received($reservasiID) {
-        $this->data['reservasi'] = reservasi::where('id', $reservasiID)
-			->firstOrFail();
-
-		return $this->loadTheme('orders/received', $this->data);
+        $data = $this->_generatePaymentToken($data);   
+        return redirect('/pembayaran');
     }
 
     private function _generatePaymentToken($reservasi){
@@ -71,11 +64,17 @@ class reservasiDetailController extends Controller
             'customer_details' => $customerDetails,
             'expiry' => [
                 'start_time' => date('Y-m-d H:i:s T'),
-                'unit' => \App\Payment::EXPIRY_DURATION,
-                'duration' => \App\Payment::EXPIRY_UNIT,
+                'unit' => \App\Payment::EXPIRY_UNIT,
+                'duration' => \App\Payment::EXPIRY_DURATION,
             ],
         ];
 
-        dd($params);
+        $snap = \Midtrans\Snap::createTransaction($params);
+        
+        if($snap->token){
+            $reservasi->payment_token = $snap->token;
+            $reservasi->payment_url = $snap->redirect_url;
+            $reservasi->save(); 
+        }
     }
 }
