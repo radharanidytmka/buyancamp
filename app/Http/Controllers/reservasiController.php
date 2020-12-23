@@ -44,17 +44,11 @@ class reservasiController extends Controller
         $dtg = new DateTime($request->reservasi_tgldatang);
         $plg =new DateTime($request->reservasi_tglpulang);
         $diff = $dtg->diff($plg);
-        $data->total_bayar = $diff->d * 25000;
+        $data->subtotal_kemah = $diff->d * 25000;
+        $data->subtotal_fasilitas = 0;
+        $data->total_bayar = 0;
         $data->save();
         return redirect()->route('detail', ['id' => $data->id]);
-    }
-
-    // proses pembayaran
-    public function bayar($id){
-        $data = reservasi::where('id', $id)->first();
-        $data->status_pembayaran = 'Sudah Dibayar';
-        $data->save();
-        return redirect('dashboardwisatawan');
     }
 
     // proses export receipt pdf
@@ -97,5 +91,13 @@ class reservasiController extends Controller
         $datareservasi_belumbayar = \App\reservasi::with(['detail', 'detail.fasilitas'])->where('email_pemesan', auth()->user()->email)
                                     ->where('status_pembayaran', 'Menunggu Pembayaran')->orderBy('id', 'DESC')->get();
         return view('wisatawan.pembayaran', ['datareservasi_belumbayar' => $datareservasi_belumbayar]);
+    }
+
+    // proses pembayaran
+    public function bayar($id){
+        $data = reservasi::where('id', $id)->first();
+        $data->status_pembayaran = 'Sudah Dibayar';
+        $data->save();
+        return redirect('dashboardwisatawan');
     }
 }

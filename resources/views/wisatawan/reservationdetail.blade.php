@@ -105,7 +105,7 @@
                     <td>Rp {{ number_format($detailFas->harga) }}</td>
                     <td>Rp {{ $detailFas->subtotal }}</td>
                     <td>
-                      <form action="{{ route('delete', ['id' => $detail->id]) }}" method="post">
+                      <form action="{{ route('delete', ['id' => $detailFas->id]) }}" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="DELETE" class="form-control">
                         <button type="submit" class="btn btn-warning btn-sm">Hapus</button>
@@ -120,14 +120,23 @@
           <div class="col-md-4 offset-md-8">
               <table class="table table-hover table-bordered">
                 <tr>
-                  <td>Total</td>
-                  <td>: Rp {{ number_format($detail->total_bayar) }}</td>
+                  <td>Subtotal Kemah</td>
+                  <td>: Rp {{ number_format($detail->subtotal_kemah) }}</td>
                 </tr>
+                <tr>
+                  <td>Subtotal Fasilitas</td>
+                  <td>: Rp {{ number_format($detail->subtotal_fasilitas) }}</td>
+                </tr>
+                <form class="user" action="{{ route('book', ['id' => $detail->id]) }}" method="POST">
+                  {{ csrf_field() }}
+                  <tr>
+                    <td>Total</td>
+                    <td>: Rp {{ number_format($detail->total) }}</td>
+                  </tr>
               </table>
-              <form class="user" action="{{ route('checkout', ['id' => $detail->id]) }}" method="POST">
-                {{ csrf_field() }}
-                <button type="submit" class="btn btn-warning btn-user btn-block mt-10" style="width: 150px;">Book</button>
-              </form>
+              <button type="submit" class="btn btn-warning btn-user btn-block mt-10" style="width: 150px;">Book</button>
+                  <br>
+                </form>
               <!-- <a class="btn btn-warning btn-md" style="float: right" href="/pembayaran">Book</a> -->
           </div>
         </div>

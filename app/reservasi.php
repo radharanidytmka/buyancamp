@@ -11,7 +11,7 @@ class reservasi extends Model
     protected $table = 'reservasi';
 
     protected $fillable = [
-        'nama_pemesan', 'email_pemesan', 'tgl_datang', 'tgl_pulang', 'durasi', 'fasilitas', 'status', 'request', 'total_bayar'
+        'nama_pemesan', 'email_pemesan', 'tgl_datang', 'tgl_pulang', 'durasi', 'fasilitas', 'status', 'request', 'subtotal_kemah', 'subtotal_fasilitas','total_bayar'
     ];
 
     public function getTotalAttribute()

@@ -33,7 +33,6 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard', 'reservasiController@dashboardAdmin');
     Route::post('/reservasi/{id}/checkin', 'reservasiController@konfirmasiReservasi');
     Route::get('/history', 'reservasiController@history');
-    Route::get('/laporankeuangan', 'reservasiController@laporan');
     // fasilitas
     Route::get('/get-warning', 'fasilitasController@warningFacility')->name('warningFasilitas');
     Route::get('/get-success', 'fasilitasController@successFacility')->name('successFasilitas');
@@ -56,7 +55,7 @@ Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
     Route::get('orders/received/{reservasiID}', 'reservasiDetailController@received');
     Route::put('/add/{id}', 'reservasiDetailController@save')->name('save');
     Route::delete('/delete/{id}', 'reservasiDetailController@deleteFasilitas')->name('delete');
-    Route::post('/reservasi/detail/{id}/book', 'reservasiDetailController@book');
+    Route::post('/reservasi/detail/{id}/book', 'reservasiDetailController@book')->name('book');
     Route::post('/reservasi/{id}/bayar', 'reservasiController@bayar');
     Route::post('/reservasi/{id}/unduh', 'reservasiController@unduhpdf');
     // profile

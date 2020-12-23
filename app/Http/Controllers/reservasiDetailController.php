@@ -35,14 +35,14 @@ class reservasiDetailController extends Controller
         return redirect()->back()->with(['success' => 'Product telah dihapus']);
     }
 
-    public function book(Request $request, $id)
+    public function book($id)
     {
         $data = reservasi::where('id', $id)->first();
-        $data->nama_fasilitas = $request->edit_namafasilitas;
-        $data->harga = $request->edit_harga;
-        $data->jumlah = $request->edit_jumlah;
+        $totalkemah = $data->subtotal_kemah;
+        $totalfasilitas = $data->subtotal_fasilitas;
+        $data->total_bayar = $totalkemah + $totalfasilitas;
         $data->save();
-        $data = $this->_generatePaymentToken($data);
+        $data = $this->_generatePaymentToken($data);        
         return redirect('orders/received/'. $data->id);
     }
 
@@ -66,7 +66,7 @@ class reservasiDetailController extends Controller
             'enable_payments' => \App\Payment::PAYMENT_CHANNELS,
             'transaction_details' => [
                 "order_id" => $reservasi->id,
-                "gross_amount" -> $reservasi->total_bayar,
+                "gross_amount" => $reservasi->total_bayar,
             ],
             'customer_details' => $customerDetails,
             'expiry' => [

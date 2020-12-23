@@ -18,11 +18,11 @@ class reservasi_detailObserver
     {
         $reservasi_id = $reservasiDetail->reservasi_id;
         $reservasi_detail = reservasi_detail::where('reservasi_id', $reservasi_id)->get();
-        $total_bayar = $reservasi_detail->sum(function($i) {
+        $subtotal_fasilitas = $reservasi_detail->sum(function($i) {
             return $i->harga * $i->qty;
         });
         $reservasiDetail->reservasi()->update([
-            'total_bayar' => $total_bayar
+            'subtotal_fasilitas' => $subtotal_fasilitas
         ]);
     }
 
