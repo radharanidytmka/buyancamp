@@ -11,8 +11,19 @@ class reservasi extends Model
     protected $table = 'reservasi';
 
     protected $fillable = [
-        'nama_pemesan', 'email_pemesan', 'tgl_datang', 'tgl_pulang', 'durasi', 'fasilitas', 'status', 'request', 'subtotal_kemah', 'subtotal_fasilitas','total_bayar'
+        'id','nama_pemesan', 'email_pemesan', 'no_pemesan', 'tgl_datang', 'tgl_pulang', 'status_pembayaran', 'payment_token', 'payment_url', 'status_konfirmasi', 'subtotal_kemah', 'subtotal_fasilitas', 'total_bayar', 'created_at', 'updated_at'
     ];
+
+    public const CREATED = 'created';
+	public const CONFIRMED = 'confirmed';
+	public const DELIVERED = 'delivered';
+	public const COMPLETED = 'completed';
+	public const CANCELLED = 'cancelled';
+
+	public const ORDERCODE = 'INV';
+
+	public const PAID = 'Sudah Dibayar';
+	public const UNPAID = 'Menunggu Pembayaran';
 
     public function getTotalAttribute()
     {

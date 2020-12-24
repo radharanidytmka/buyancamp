@@ -133,11 +133,10 @@
                     <td>Total</td>
                     <td>: Rp {{ number_format($detail->total) }}</td>
                   </tr>
-              </table>
-              <button type="submit" class="btn btn-warning btn-user btn-block mt-10" style="width: 150px;">Book</button>
-                  <br>
+                    </table>
+                    <button type="submit" class="btn btn-warning btn-user btn-block mt-10" style="width: 150px; float: right">Book</button>
+                  <br><br><br>
                 </form>
-              <!-- <a class="btn btn-warning btn-md" style="float: right" href="/pembayaran">Book</a> -->
           </div>
         </div>
       </div>       

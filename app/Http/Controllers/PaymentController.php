@@ -20,7 +20,7 @@ class PaymentController extends Controller
 		}
 
 		$this->initPaymentGateway();
-		$statusCode = null;
+		$statusCode = null;     
 
 		$paymentNotification = new \Midtrans\Notification();
 		$order = reservasi::where('id', $paymentNotification->order_id)->firstOrFail();
@@ -73,7 +73,7 @@ class PaymentController extends Controller
 
 		$paymentParams = [
 			'order_id' => $order->id,
-			'number' => Payment::generateCode(),
+			'number' => str_random(10),
 			'amount' => $paymentNotification->gross_amount,
 			'method' => 'midtrans',
 			'status' => $paymentStatus,
@@ -110,14 +110,21 @@ class PaymentController extends Controller
     }
 
     public function completed(Request $request){
-        
+        $code = $request->query('order_id');
+		$order = reservasi::where('id', $code)->firstOrFail();
+
+		return redirect('/dashboardwisatawan');
     }
 
     public function unfinish(Request $request){
-        
+        $code = $request->query('order_id');
+		$order = reservasi::where('id', $code)->firstOrFail();
+		return redirect('/pembayaran');
     }
 
     public function failed(Request $request){
-        
+        $code = $request->query('order_id');
+		$order = reservasi::where('id', $code)->firstOrFail();
+		return redirect('/pembayaran');
     }
 }
