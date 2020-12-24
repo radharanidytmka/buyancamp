@@ -26,7 +26,7 @@ Route::get('/get-success-reg', 'AuthController@successAuthReg')->name('successRe
 Route::get('/register', 'AuthController@register')->name('register');
 Route::post('/user/create', 'AuthController@postregister');
 
-
+Route::post('payments/notification', 'PaymentController@notification');
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     // reservasi
     Route::get('/get-success-konf', 'reservasiController@successCheckIn')->name('successCheckIn');
@@ -60,7 +60,7 @@ Route::group(['middleware' => ['auth', 'checkRole:wisatawan']], function(){
     Route::post('/reservasi/{id}/unduh', 'reservasiController@unduhpdf');
     // pembayaran
     Route::get('/pembayaran', 'reservasiController@pembayaran');
-    Route::post('payments/notification', 'PaymentController@notification');
+    
     Route::get('payments/completed', 'PaymentController@completed');
     Route::get('payments/failed', 'PaymentController@failed');
     Route::get('payments/unfinish', 'PaymentController@unfinish');

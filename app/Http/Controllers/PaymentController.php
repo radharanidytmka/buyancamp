@@ -73,7 +73,6 @@ class PaymentController extends Controller
 
 		$paymentParams = [
 			'order_id' => $order->id,
-			'number' => str_random(10),
 			'amount' => $paymentNotification->gross_amount,
 			'method' => 'midtrans',
 			'status' => $paymentStatus,
