@@ -183,16 +183,42 @@
                                     @endforeach
                                     <hr>
                                     <div class="row no-gutters align-items-center" style="margin-left: 5px">
-                                      <div class="col-md-7">
-                                        <p class="text-center"><strong>Total Bayar</strong></p>
-                                      </div>
-                                      <div class="col-md-1" style="border-left:solid #808080 1px">
-                                        <p>&nbsp;</p>
-                                      </div>
-                                      <div class="col-md-4" >
-                                        <p>Rp {{ number_format($reservasiadmin->total_bayar) }}</p>
-                                      </div>
+                                    <div class="col-md-7">
+                                      <p class="text-center"><strong>Subtotal Fasilitas</strong></p>
                                     </div>
+                                    <div class="col-md-1" style="border-left:solid #808080 1px">
+                                      <p>&nbsp;</p>
+                                    </div>
+                                    <div class="col-md-4" >
+                                      <p>Rp {{ number_format($reservasiadmin->subtotal_fasilitas) }}</p>
+                                    </div>
+                                  </div>
+                                  <br>
+                                  <div class="row no-gutters align-items-center" style="margin-left: 5px">
+                                    <div class="col-md-7">
+                                      <p class="text-center"><strong>Subtotal Kemah</strong></p>
+                                    </div>
+                                    <div class="col-md-1" style="border-left:solid #808080 1px">
+                                      <p>&nbsp;</p>
+                                    </div>
+                                    <div class="col-md-4" >
+                                      <p>Rp {{ number_format($reservasiadmin->subtotal_kemah) }}</p>
+                                    </div>
+                                    <br>
+                                  </div>
+                                  <hr>
+                                  <div class="row no-gutters align-items-center" style="margin-left: 5px">
+                                    <div class="col-md-7">
+                                      <p class="text-center"><strong>Total Pembayaran</strong></p>
+                                    </div>
+                                    <div class="col-md-1" style="border-left:solid #808080 1px">
+                                      <p>&nbsp;</p>
+                                    </div>
+                                    <div class="col-md-4" >
+                                      <p>Rp {{ number_format($reservasiadmin->total_bayar) }}</p>
+                                    </div>
+                                    <br>
+                                  </div>
                                 </div>
                                 <div class="modal-footer" style="text-align: center">
                                   <hr>

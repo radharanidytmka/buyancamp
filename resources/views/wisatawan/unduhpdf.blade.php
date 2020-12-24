@@ -51,7 +51,7 @@ h4, p{
     @foreach($reservasi as $unduh)
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <caption>
-            Tepi Buyan Campfire
+            <strong>Tepi Buyan Campfire</strong>
         </caption>
         <br>
         <tbody>
@@ -111,7 +111,15 @@ h4, p{
             </tr>
             @endforeach
             <tr>
-                <th colspan="3" style="text-align: center">Total</th>
+                <th colspan="3" style="text-align: center">Subtotal Fasilitas</th>
+                <td style="text-align: center">Rp {{ number_format($unduh->subtotal_fasilitas) }}</td>
+            </tr>
+            <tr>
+                <th colspan="3" style="text-align: center">Subtotal Kemah</th>
+                <td style="text-align: center">Rp {{ number_format($unduh->subtotal_kemah) }}</td>
+            </tr>
+            <tr>
+                <th colspan="3" style="text-align: center">Total Pembayaran</th>
                 <td style="text-align: center">Rp {{ number_format($unduh->total_bayar) }}</td>
             </tr>
         </tbody>
