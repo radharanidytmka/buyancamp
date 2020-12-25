@@ -44,10 +44,8 @@ class AuthController extends Controller
     public function postlogin(Request $request){
         $rules = array( 
             'email' => 'required|email',
-            'password' => 'required|max:25|alpha_num');
-        $messages = array( 'required' => 'This field is required', 
-            'max' => 'This field has maximum character',
-            'min' => 'This field has minimum character',
+            'password' => 'required');
+        $messages = array( 'required' => 'This field is required',
             'email' => 'This field filled with email format'
         );
         $validator = Validator::make(Input::all(), $rules, $messages);
